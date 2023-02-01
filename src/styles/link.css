@@ -1,0 +1,27 @@
+.link {
+	display: block;
+	opacity: 100%;
+	transition: opacity 0.15s;
+}
+
+
+.link span {
+	display: inline-block;
+}
+
+.link-name
+{
+	vertical-align: middle;
+	line-height: 2em;
+	padding-left: 0.5em;
+}
+
+.link-icon {
+	width: 15px;
+	height: 15px;
+}
+
+.hidden {
+	opacity: 20% !important;
+	transition: opacity 0.2s;
+}

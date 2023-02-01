@@ -1,0 +1,19 @@
+#search {
+	margin-top: 25px;
+	display: block;
+}
+
+#search input,
+#search input:active,
+#search input:focus {
+	display: inline-block;
+	width: auto;
+
+	border:none;
+	color: white;
+	background-color: transparent;
+	outline: none !important;
+	appearance: none;
+	box-shadow: none;
+	margin-left: 10px;
+}
