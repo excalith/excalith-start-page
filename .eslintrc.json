@@ -1,3 +1,18 @@
 {
-  "extends": "next/core-web-vitals"
+	"extends": ["next/core-web-vitals", "next", "prettier"],
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"plugins": ["prettier"],
+	"rules": {
+		"@next/next/no-img-element": 0,
+		"react/no-unescaped-entities": 0,
+		"react/display-name": 0,
+		"import/no-anonymous-default-export": 0,
+		"react-hooks/exhaustive-deps": "warn",
+		"react-hooks/rules-of-hooks": "error",
+		"no-tabs": 0,
+		"prettier/prettier": "error"
+	}
 }
