@@ -3,7 +3,7 @@ import Head from "next/head"
 const Meta = ({ username, keywords, description }) => {
 	return (
 		<Head>
-			<title>{username} start page</title>
+			<title>{username} Start Page</title>
 			<meta
 				name="description"
 				content={`Browser start page for ${username}`}

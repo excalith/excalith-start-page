@@ -1,12 +1,26 @@
 const config = {
-	username: "excalith",
-	timezone: "America/New_York",
+	username: "Excalith",
 	prompt: {
 		usercolor: "green",
 		atcolor: "gray",
 		hostcolor: "magenta",
 		promptcolor: "magenta",
-		prompt: ">"
+		prompt: "❯"
+	},
+	colors: {
+		backgroundcolor: "#121317",
+		windowcolor: "#1e212b",
+		glowcolor: "#d1aff8",
+		white: "#e2e2e2",
+		gray: "#97989d",
+		black: "#16161e",
+		red: "#ec6183",
+		green: "#2ed8a2",
+		yellow: "#e8b195",
+		blue: "#2bc3de",
+		cyan: "#62e0e2",
+		magenta: "#e069aa",
+		purple: "#d1aff8"
 	},
 	sections: [
 		{

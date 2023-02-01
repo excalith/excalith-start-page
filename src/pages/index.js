@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react"
+import React, { useEffect, useState } from "react"
 import Config from "@/startpage.config"
 import Meta from "@/components/Meta"
 import Search from "@/components/Search"
@@ -23,9 +23,9 @@ export default function Home() {
 				openLink("https://" + command, "_blank")
 			} else {
 				{
-					Config.sections.map((section, index) => {
+					Config.sections.map((section) => {
 						{
-							section.links.map((link, index) => {
+							section.links.map((link) => {
 								{
 									if (
 										link.name
@@ -51,10 +51,11 @@ export default function Home() {
 	return (
 		<>
 			<Meta username={Config.username} />
-
 			<div
 				id="main"
-				className="position-absolute top-50 start-50 translate-middle">
+				className={`position-absolute top-50 start-50 translate-middle${
+					Config.colors.golowcolor !== "" ? " glow" : " shadow"
+				}`}>
 				<div id="sections" className="container-fluid .col-3">
 					<div className="row">
 						{Config.sections.map((section, index) => {

@@ -4,6 +4,7 @@ import { getBrowser } from "@/utils/getBrowser"
 const Search = ({ username, prompt, commandChange }) => {
 	const inputElement = useRef(null)
 	const [browser, setBrowser] = useState("unknown")
+	const lower_username = username.toLowerCase()
 
 	useEffect(() => {
 		if (inputElement.current) {
@@ -16,7 +17,7 @@ const Search = ({ username, prompt, commandChange }) => {
 	return (
 		<div id="search" className="d-flex">
 			<span>
-				<span className={prompt.usercolor}>{username}</span>
+				<span className={prompt.usercolor}>{lower_username}</span>
 				<span className={prompt.atcolor}>@</span>
 				<span className={prompt.hostcolor}>{browser}</span>
 				<span className={prompt.promptcolor}> {prompt.prompt} </span>
