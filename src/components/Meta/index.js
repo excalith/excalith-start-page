@@ -13,6 +13,7 @@ const Meta = ({ username, keywords, description }) => {
 				content="width=device-width, initial-scale=1"
 			/>
 			<link rel="icon" href="/favicon.ico" />
+			<meta name="robots" content="noindex, nofollow"></meta>
 		</Head>
 	)
 }

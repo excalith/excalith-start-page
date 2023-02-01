@@ -1,6 +1,6 @@
 import Link from "@/components/Link"
 
-const Section = ({ section, command }) => {
+const Section = ({ section, filter, onSubmit }) => {
 	return (
 		<div className="section col-sm-4">
 			<h1 className={section.color}>{section.title}</h1>
@@ -12,7 +12,7 @@ const Section = ({ section, command }) => {
 							className="white"
 							key={index}
 							linkData={link}
-							command={command}
+							filter={filter}
 						/>
 					)
 				}

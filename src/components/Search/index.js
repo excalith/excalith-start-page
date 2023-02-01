@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react"
 import { getBrowser } from "@/utils/getBrowser"
 
-const Search = ({ username, prompt, handleCommand }) => {
+const Search = ({ username, prompt, commandChange }) => {
 	const inputElement = useRef(null)
 	const [browser, setBrowser] = useState("unknown")
 
@@ -24,7 +24,7 @@ const Search = ({ username, prompt, handleCommand }) => {
 			<input
 				className="flex-grow-1"
 				type="text"
-				onChange={handleCommand}
+				onChange={commandChange}
 				placeholder="command..."
 				autoFocus
 				ref={inputElement}
