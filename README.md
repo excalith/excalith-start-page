@@ -18,6 +18,8 @@
 - Launch websites directly from the prompt. Just type the URL (ie. `github.com`)
 - Search websites with custom commands. For example, type `s: some weird bug` to search StackOverflow for `some weird bug`
 - Clear the prompt quickly with `CTRL + C`
+- Show usage with `help` command
+- Show info with `nfetch` command (wip)
 - Changing colors, adding links and custom commands can be done through a single configuration file
 
 ## Customization
