@@ -1,5 +1,9 @@
 const config = {
 	username: "Excalith",
+	search: {
+		default: "https://google.com/search?q=",
+		target: "_self"
+	},
 	prompt: {
 		usercolor: "green",
 		atcolor: "gray",

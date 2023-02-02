@@ -13,17 +13,25 @@ export function RunCommand(command) {
 }
 
 function openFilteredLinks(command) {
+	let filterCount = 0
 	Config.sections.map((section) => {
 		{
 			section.links.map((link) => {
 				{
 					if (link.name.toLowerCase().includes(command)) {
 						openLink(link.url, link.target)
+						filterCount++
 					}
 				}
 			})
 		}
 	})
+
+	if (filterCount === 0) {
+		const searchEngine = Config.search.default
+		const target = Config.search.target
+		openLink(searchEngine + command, target)
+	}
 }
 
 function tryParseCommand(command) {

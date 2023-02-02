@@ -19,6 +19,7 @@ You can;
 
 - Click on the links directly to launch link (duh)
 - Filter each entry by typing their names. Enter key launches all filtered links. For instance, `git` keyword will highlight both `github` and `gitlab`. Enter key will launch both links
+- Search with default search engine if no filter applied
 - Launch an url directly from prompt by submitting an url like `github.com`
 - Add your custom commands for quick-seraching. For instance, `s: some weird topic to search for` launches StackOverflow search with your query
 - Add your own categories, assign colors and add links easily
