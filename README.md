@@ -15,20 +15,13 @@
 
 ## Features
 
-You can;
+- Filter links by typing in prompt. `Enter` key will launch all filtered links
+- Unfiltered text in prompt will use default search engine to search on `Enter` key
+- Execute links directly from prompt (ie. `github.com`)
+- Search from various engines with custom commands (ie. `s: some weird bug` will search StackOverflow)
+- `CTRL + C` will clear prompt
 
-- Click on the links directly to launch link (duh)
-- Filter each entry by typing their names. Enter key launches all filtered links. For instance, `git` keyword will highlight both `github` and `gitlab`. Enter key will launch both links
-- Search with default search engine if no filter applied
-- Launch an url directly from prompt by submitting an url like `github.com`
-- Add your custom commands for quick-seraching. For instance, `s: some weird topic to search for` launches StackOverflow search with your query
-- Add your own categories, assign colors and add links easily
-- Fully customize the prompt line
-- Add glow around the window with your choice of colors
-- All public configurations are located in within [Start Page Config](src/startpage.config.js) file
-- Use this on mobile devices as well
-
-## How To Use
+## Customization
 
 You can fork this repository and configure everything you want as you wish. Please refer to [wiki](https://github.com/excalith/excalith-start-page/wiki) page for more information.
 
