@@ -9,7 +9,8 @@ const config = {
 		atcolor: "gray",
 		hostcolor: "magenta",
 		promptcolor: "magenta",
-		prompt: "❯"
+		prompt: "❯",
+		ctrlc: true
 	},
 	colors: {
 		backgroundcolor: "#121317",

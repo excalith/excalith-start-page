@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react"
 import { getBrowser } from "@/utils/getBrowser"
+import Config from "@/startpage.config"
 
 const Search = ({ username, prompt, commandChange }) => {
 	const [focus, setFocus] = useState(false)
@@ -14,6 +15,22 @@ const Search = ({ username, prompt, commandChange }) => {
 	useEffect(() => {
 		setBrowser(getBrowser())
 	}, [browser])
+
+	useEffect(() => {
+		if (Config.prompt.ctrlc) {
+			const handleKeyDown = (event) => {
+				if ((event.metaKey || event.ctrlKey) && event.code === "KeyC") {
+					inputElement.current.value = ""
+					commandChange({ target: { value: "" } })
+				}
+			}
+
+			document.addEventListener("keydown", handleKeyDown)
+			return () => {
+				document.removeEventListener("keydown", handleKeyDown)
+			}
+		}
+	})
 
 	return (
 		<div id="search" className="d-flex">
