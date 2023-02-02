@@ -1,15 +1,16 @@
 import React, { useRef, useEffect, useState } from "react"
 import { getBrowser } from "@/utils/getBrowser"
+import { RunCommand } from "@/utils/command"
 import Config from "@/startpage.config"
 
 const Search = ({ username, prompt, commandChange }) => {
 	const [focus, setFocus] = useState(false)
 	const [browser, setBrowser] = useState("unknown")
-	const inputElement = useRef(null)
+	const input = useRef(null)
 	const lower_username = username.toLowerCase()
 
 	useEffect(() => {
-		setTimeout(() => inputElement.current.focus(), 0)
+		setTimeout(() => input.current.focus(), 0)
 	}, [focus])
 
 	useEffect(() => {
@@ -17,18 +18,20 @@ const Search = ({ username, prompt, commandChange }) => {
 	}, [browser])
 
 	useEffect(() => {
-		if (Config.prompt.ctrlc) {
-			const handleKeyDown = (event) => {
+		const handleKeyDown = (event) => {
+			if (event.key === "Enter") {
+				RunCommand(input.current.value)
+			} else if (Config.prompt.ctrlc) {
 				if ((event.metaKey || event.ctrlKey) && event.code === "KeyC") {
-					inputElement.current.value = ""
+					input.current.value = ""
 					commandChange({ target: { value: "" } })
 				}
 			}
+		}
 
-			document.addEventListener("keydown", handleKeyDown)
-			return () => {
-				document.removeEventListener("keydown", handleKeyDown)
-			}
+		document.addEventListener("keydown", handleKeyDown)
+		return () => {
+			document.removeEventListener("keydown", handleKeyDown)
 		}
 	})
 
@@ -52,7 +55,7 @@ const Search = ({ username, prompt, commandChange }) => {
 				onBlur={() => {
 					setFocus(false)
 				}}
-				ref={inputElement}
+				ref={input}
 			/>
 		</div>
 	)

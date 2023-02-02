@@ -29,23 +29,28 @@ const config = {
 	},
 	commands: [
 		{
-			name: "g",
+			alias: "g",
+			name: "Google Search",
 			url: "https://google.com/search?q={}"
 		},
 		{
-			name: "d",
+			alias: "d",
+			name: "DuckDuckGo Search",
 			url: "https://duckduckgo.com/?q={}"
 		},
 		{
-			name: "b",
+			alias: "b",
+			name: "Brave Search",
 			url: "https://search.brave.com/search?q={}"
 		},
 		{
-			name: "s",
+			alias: "s",
+			name: "Stack Overflow Search",
 			url: "https://stackoverflow.com/search?q={}"
 		},
 		{
-			name: "w",
+			alias: "w",
+			name: "Wikipedia Search",
 			url: "https://en.wikipedia.org/wiki/{}"
 		}
 	],

@@ -1,0 +1,19 @@
+#help {
+	/* overflow: auto; */
+}
+
+#help h1 {
+	color: var(--green);
+}
+
+#help p, #help li {
+	color: var(--white);
+}
+
+#help span {
+	color: var(--blue);
+}
+
+#help ul {
+	list-style-type: none;
+}

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Icon } from "@iconify/react"
 
 const Link = ({ linkData, filter }) => {

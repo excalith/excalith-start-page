@@ -1,6 +1,6 @@
 import Link from "@/components/Link"
 
-const Section = ({ section, filter, onSubmit }) => {
+const Section = ({ section, filter }) => {
 	return (
 		<div className="section col-sm-4">
 			<h1 className={section.color}>{section.title}</h1>

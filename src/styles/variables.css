@@ -25,3 +25,14 @@ html {
 .cyan { color: var(--cyan); }
 .magenta { color: var(--magenta); }
 .purple { color: var(--purple); }
+
+.white-bg { background-color: var(--white); }
+.gray-bg { background-color: var(--gray); }
+.black-bg { background-color: var(--black); }
+.red-bg { background-color: var(--red); }
+.green-bg { background-color: var(--green); }
+.yellow-bg { background-color: var(--yellow); }
+.blue-bg { background-color: var(--blue); }
+.cyan-bg { background-color: var(--cyan); }
+.magenta-bg { background-color: var(--magenta); }
+.purple-bg { background-color: var(--purple); }

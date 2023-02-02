@@ -1,0 +1,21 @@
+#nfetch h1 {
+	color: var(--green);
+}
+
+#nfetch p, #nfetch li {
+	color: var(--white);
+}
+
+#colorbox {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+#colorbox div {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	height: 20px;
+	width: 20%;
+}
