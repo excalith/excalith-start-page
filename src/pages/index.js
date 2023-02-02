@@ -3,8 +3,7 @@ import Config from "@/startpage.config"
 import Meta from "@/components/Meta"
 import Search from "@/components/Search"
 import Section from "@/components/Section"
-import { isURL } from "@/utils/isURL"
-import { openLink } from "@/utils/openLink"
+import { RunCommand } from "@/utils/command"
 
 export default function Home() {
 	const [command, setCommand] = useState("")
@@ -19,27 +18,7 @@ export default function Home() {
 
 			const { key } = event
 			if (key !== "Enter") return
-			if (isURL(command)) {
-				openLink("https://" + command, "_blank")
-			} else {
-				{
-					Config.sections.map((section) => {
-						{
-							section.links.map((link) => {
-								{
-									if (
-										link.name
-											.toLowerCase()
-											.includes(command)
-									) {
-										openLink(link.url, link.target)
-									}
-								}
-							})
-						}
-					})
-				}
-			}
+			RunCommand(command)
 		}
 
 		document.addEventListener("keydown", handleKeyDown)

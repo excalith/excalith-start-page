@@ -22,6 +22,24 @@ const config = {
 		magenta: "#e069aa",
 		purple: "#d1aff8"
 	},
+	commands: [
+		{
+			name: "g",
+			url: "https://google.com/search?q={}"
+		},
+		{
+			name: "d",
+			url: "https://duckduckgo.com/?q={}"
+		},
+		{
+			name: "b",
+			url: "https://search.brave.com/search?q={}"
+		},
+		{
+			name: "s",
+			url: "https://stackoverflow.com/search?q={}"
+		}
+	],
 	sections: [
 		{
 			title: "General",
