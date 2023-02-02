@@ -29,7 +29,8 @@ function openFilteredLinks(command) {
 function tryParseCommand(command) {
 	if (command === "") return false
 
-	var commandPattern = new RegExp("([A-Za-z0-9]+): ([A-Za-z0-9]+)", "g")
+	// Split command and query seperated by colon
+	var commandPattern = new RegExp("([A-Za-z0-9]+): (.*)", "g")
 	let matchAll = command.matchAll(commandPattern)
 	matchAll = Array.from(matchAll)
 
