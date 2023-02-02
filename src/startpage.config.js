@@ -29,7 +29,7 @@ const config = {
 			links: [
 				{
 					name: "Portfolio",
-					url: "https://google.com",
+					url: "https://cancellek.com",
 					icon: "mdi:web",
 					target: "_blank"
 				}
@@ -50,12 +50,42 @@ const config = {
 					url: "https://gitlab.com",
 					icon: "ph:gitlab-logo-simple-fill",
 					target: "_blank"
+				},
+				{
+					name: "Stack Overflow",
+					url: "https://stackoverflow.com/",
+					icon: "mdi:stack-overflow",
+					target: "_blank"
+				}
+			]
+		},
+		{
+			title: "Gaming",
+			color: "cyan",
+			links: [
+				{
+					name: "Polygon",
+					url: "https://polygon.com",
+					icon: "uil:polygon",
+					target: "_blank"
+				},
+				{
+					name: "IGN",
+					url: "https://ign.com",
+					icon: "mdi:currency-sign",
+					target: "_blank"
+				},
+				{
+					name: "80lv",
+					url: "https://80.lv/",
+					icon: "teenyicons:game-controller-retro-solid",
+					target: "_blank"
 				}
 			]
 		},
 		{
 			title: "Social",
-			color: "blue",
+			color: "purple",
 			links: [
 				{
 					name: "Twitter",
@@ -64,15 +94,81 @@ const config = {
 					target: "_blank"
 				},
 				{
+					name: "Reddit",
+					url: "https://reddit.com",
+					icon: "mdi:reddit",
+					target: "_blank"
+				},
+				{
+					name: "Mastodon",
+					url: "https://mastodon.social/",
+					icon: "ri:mastodon-fill",
+					target: "_blank"
+				},
+				{
 					name: "Polywork",
 					url: "https://polywork.com",
 					icon: "simple-icons:polywork",
 					target: "_blank"
+				}
+			]
+		},
+		{
+			title: "Science",
+			color: "blue",
+			links: [
+				{
+					name: "PopSci",
+					url: "https://popsci.com/",
+					icon: "material-symbols:science",
+					target: "_blank"
 				},
 				{
-					name: "LinkedIn",
-					url: "https://linkedin.com",
-					icon: "mdi:linkedin",
+					name: "Space",
+					url: "fa6-solid:user-astronaut",
+					icon: "mdi:reddit",
+					target: "_blank"
+				},
+				{
+					name: "NASA",
+					url: "https://blogs.nasa.gov/",
+					icon: "simple-icons:nasa",
+					target: "_blank"
+				},
+				{
+					name: "ESA",
+					url: "https://blogs.esa.int/",
+					icon: "mdi:black-mesa",
+					target: "_blank"
+				}
+			]
+		},
+		{
+			title: "Tech",
+			color: "yellow",
+			links: [
+				{
+					name: "TechCrunch",
+					url: "https://techcrunch.com/",
+					icon: "game-icons:techno-heart",
+					target: "_blank"
+				},
+				{
+					name: "Verge",
+					url: "https://www.theverge.com/",
+					icon: "arcticons:verge",
+					target: "_blank"
+				},
+				{
+					name: "It's Foss",
+					url: "https://itsfoss.com/",
+					icon: "ri:mastodon-fill",
+					target: "_blank"
+				},
+				{
+					name: "9To5 Linux",
+					url: "https://9to5linux.com/",
+					icon: "uil:linux",
 					target: "_blank"
 				}
 			]
