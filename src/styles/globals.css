@@ -27,14 +27,3 @@ a:hover {
 	color: #d1aff8 !important;
 	transition: color 0.2s !important; 
 }
-
-.white { color: var(--white); }
-.gray { color: var(--gray); }
-.black { color: var(--black); }
-.red { color: var(--red); }
-.green { color: var(--green); }
-.yellow { color: var(--yellow); }
-.blue { color: var(--blue); }
-.cyan { color: var(--cyan); }
-.magenta { color: var(--magenta); }
-.purple { color: var(--purple); }
