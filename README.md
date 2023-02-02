@@ -29,7 +29,7 @@ You can;
 
 ## How To Use
 
-You can clone this repository and edit the [Start Page Config](src/startpage.config.js) file. I would suggest deploying it to a server to use it on all your devices.
+You can fork this repository and configure everything you want as you wish. Please refer to [wiki](https://github.com/excalith/excalith-start-page/wiki) page for more information.
 
 ## License
 
