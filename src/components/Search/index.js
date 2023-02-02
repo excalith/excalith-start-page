@@ -2,17 +2,18 @@ import React, { useRef, useEffect, useState } from "react"
 import { getBrowser } from "@/utils/getBrowser"
 
 const Search = ({ username, prompt, commandChange }) => {
-	const inputElement = useRef(null)
+	const [focus, setFocus] = useState(false)
 	const [browser, setBrowser] = useState("unknown")
+	const inputElement = useRef(null)
 	const lower_username = username.toLowerCase()
 
 	useEffect(() => {
-		if (inputElement.current) {
-			inputElement.current.focus()
-		}
+		setTimeout(() => inputElement.current.focus(), 0)
+	}, [focus])
 
+	useEffect(() => {
 		setBrowser(getBrowser())
-	}, [])
+	}, [browser])
 
 	return (
 		<div id="search" className="d-flex">
@@ -28,6 +29,12 @@ const Search = ({ username, prompt, commandChange }) => {
 				onChange={commandChange}
 				placeholder="command..."
 				autoFocus
+				onFocus={() => {
+					setFocus(true)
+				}}
+				onBlur={() => {
+					setFocus(false)
+				}}
 				ref={inputElement}
 			/>
 		</div>
