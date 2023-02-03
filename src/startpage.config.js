@@ -1,10 +1,13 @@
 const config = {
 	username: "Excalith",
-	search: {
-		default: "https://google.com/search?q=",
-		target: "_self"
+	terminal: {
+		fixedheight: true,
+		backgroundcolor: "#121317",
+		windowcolor: "#1e212b",
+		glowcolor: "none"
 	},
 	prompt: {
+		ctrlc: true,
 		usercolor: "green",
 		atcolor: "gray",
 		hostcolor: "magenta",
@@ -12,13 +15,9 @@ const config = {
 		promptsymbol: "❯",
 		caretcolor: "green",
 		selectionbg: "#e8b195",
-		selectionfg: "#16161e",
-		ctrlc: true
+		selectionfg: "#16161e"
 	},
 	colors: {
-		backgroundcolor: "#121317",
-		windowcolor: "#1e212b",
-		glowcolor: "none",
 		white: "#e2e2e2",
 		gray: "#97989d",
 		black: "#16161e",
@@ -29,6 +28,10 @@ const config = {
 		cyan: "#62e0e2",
 		magenta: "#e069aa",
 		purple: "#d1aff8"
+	},
+	search: {
+		default: "https://google.com/search?q=",
+		target: "_self"
 	},
 	commands: [
 		{

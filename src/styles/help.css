@@ -1,5 +1,6 @@
 #help {
-	/* overflow: auto; */
+	overflow-y: scroll;
+	height: 100%;
 }
 
 #help h1 {
