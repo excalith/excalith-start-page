@@ -64,6 +64,24 @@ const config = {
 					url: "https://cancellek.com",
 					icon: "mdi:web",
 					target: "_blank"
+				},
+				{
+					name: "Keybase",
+					url: "https://keybase.io/",
+					icon: "fa-brands:keybase",
+					target: "_blank"
+				},
+				{
+					name: "GPT",
+					url: "https://chat.openai.com/",
+					icon: "simple-icons:openai",
+					target: "_blank"
+				},
+				{
+					name: "OCI",
+					url: "https://www.oracle.com/cloud/",
+					icon: "simple-icons:oracle",
+					target: "_blank"
 				}
 			]
 		},
@@ -84,9 +102,9 @@ const config = {
 					target: "_blank"
 				},
 				{
-					name: "OCI",
-					url: "https://www.oracle.com/cloud/",
-					icon: "simple-icons:oracle",
+					name: "Dev.to",
+					url: "https://dev.to",
+					icon: "material-symbols:logo-dev",
 					target: "_blank"
 				},
 				{

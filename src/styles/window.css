@@ -5,16 +5,6 @@
 	border-radius: 10px;
 	background-color: var(--window-color) !important;
 	transition: box-shadow 0.2s;
-
-	/* min-height: 280px; */
-	/* height: var(--window-max-height) !important;
-	min-height: var(--window-max-height) !important;
-	max-height: var(--window-max-height) !important; */
-
-min-height: var(--window-max-height) !important;
-height:auto !important;
-height:var(--window-max-height) !important;
-
 }
 
 .shadow {
