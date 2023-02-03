@@ -15,7 +15,7 @@ const config = {
 	colors: {
 		backgroundcolor: "#121317",
 		windowcolor: "#1e212b",
-		glowcolor: "",
+		glowcolor: "none",
 		white: "#e2e2e2",
 		gray: "#97989d",
 		black: "#16161e",
