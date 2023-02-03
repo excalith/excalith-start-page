@@ -16,15 +16,15 @@ const Nfetch = () => {
 	const [info, setInfo] = useState({})
 
 	useEffect(() => {
-		console.log(Config.nfetch.timeformat)
 		setInfo({
 			time: moment().format(Config.nfetch.timeformat),
 			date: moment().format(Config.nfetch.dateformat),
-			osName: osName.toLowerCase(),
-			browser: browserName.toLowerCase(),
-			browserVersion: browserVersion.toLowerCase(),
-			engineName: engineName.toLowerCase(),
-			engineVersion: engineVersion.toLowerCase()
+			osName: osName,
+			browser: browserName,
+			browserLower: browserName.toLowerCase(),
+			browserVersion: browserVersion,
+			engineName: engineName,
+			engineVersion: engineVersion
 		})
 	}, [])
 
@@ -33,7 +33,7 @@ const Nfetch = () => {
 			if (
 				event.key === "q" ||
 				event.key === "Escape" ||
-				event.key === "Esc" ||
+				event.key === "Enter" ||
 				((event.altkey || event.ctrlKey) && event.code === "KeyD")
 			) {
 				publish("showList")
@@ -71,24 +71,20 @@ const Nfetch = () => {
 								</span>
 								<span className={prompt.atcolor}>@</span>
 								<span className={prompt.hostcolor}>
-									{info.browser}
-								</span>
-								<span className={prompt.promptcolor}>
-									{" "}
-									{prompt.prompt}{" "}
+									{info.browserLower}
 								</span>
 							</span>
 							<hr />
 							<ul>
 								<li>
 									<span className={Config.nfetch.titlecolor}>
-										time:
+										Time:
 									</span>{" "}
 									{info.time}
 								</li>
 								<li>
 									<span className={Config.nfetch.titlecolor}>
-										date:
+										Date:
 									</span>{" "}
 									{info.date}
 								</li>
@@ -96,25 +92,25 @@ const Nfetch = () => {
 							<ul>
 								<li>
 									<span className={Config.nfetch.titlecolor}>
-										os:
+										OS:
 									</span>{" "}
 									{info.osName}
 								</li>
 								<li>
 									<span className={Config.nfetch.titlecolor}>
-										browser:
+										Browser:
 									</span>{" "}
 									{info.browser}
 								</li>
 								<li>
 									<span className={Config.nfetch.titlecolor}>
-										version:
+										Version:
 									</span>{" "}
 									{info.browserVersion}
 								</li>
 								<li>
 									<span className={Config.nfetch.titlecolor}>
-										engine:
+										Engine:
 									</span>{" "}
 									{info.engineName}
 								</li>

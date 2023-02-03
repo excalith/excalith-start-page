@@ -8,7 +8,7 @@ const Help = () => {
 			if (
 				event.key === "q" ||
 				event.key === "Escape" ||
-				event.key === "Esc" ||
+				event.key === "Enter" ||
 				((event.altkey || event.ctrlKey) && event.code === "KeyD")
 			) {
 				publish("showList")

@@ -1,12 +1,19 @@
+import React, { useEffect, useState } from "react"
 import Head from "next/head"
+import Config from "@/startpage.config"
 
-const Meta = ({ username }) => {
+const Meta = () => {
+	const [title, setTitle] = useState("Start Page")
+	useEffect(() => {
+		setTitle(Config.username + " Start Page")
+	}, [])
+
 	return (
 		<Head>
-			<title>{username} Start Page</title>
+			<title>{title}</title>
 			<meta
 				name="description"
-				content={`Browser start page for ${username}`}
+				content={`Browser start page for ${title}`}
 			/>
 			<meta
 				name="viewport"

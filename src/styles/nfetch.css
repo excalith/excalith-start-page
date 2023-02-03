@@ -18,7 +18,7 @@
 
 
 #nfetch ul li span {
-	color: var(--yellow)
+	font-weight: bold;
 }
 
 #nfetch hr {
