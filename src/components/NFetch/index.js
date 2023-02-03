@@ -21,9 +21,13 @@ const Nfetch = () => {
 		}
 	})
 
+	const closeWindow = () => {
+		publish("showList")
+	}
+
 	return (
 		<>
-			<div id="nfetch" className="container-fluid">
+			<div id="nfetch" className="container-fluid" onClick={closeWindow}>
 				<div className="row">
 					<h1>Colors</h1>
 					<div id="colorbox">

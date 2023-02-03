@@ -21,9 +21,13 @@ const Help = () => {
 		}
 	})
 
+	const closeWindow = () => {
+		publish("showList")
+	}
+
 	return (
 		<>
-			<div id="help" className="container-fluid">
+			<div id="help" className="container-fluid" onClick={closeWindow}>
 				<div className="row">
 					<h1>Help</h1>
 					<p>Usage:</p>
