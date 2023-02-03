@@ -23,6 +23,12 @@ export default function App({ Component, pageProps }) {
 		documentStyle.setProperty("--background-color", backgroundColor)
 		documentStyle.setProperty("--window-color", windowColor)
 
+		// Set Prompt Selection Color
+		const selectionfg = Config.prompt.selectionfg
+		const selectionbg = Config.prompt.selectionbg
+		documentStyle.setProperty("--selection-fg", selectionfg)
+		documentStyle.setProperty("--selection-bg", selectionbg)
+
 		// Set Text Colors
 		const textWhite = colors.white
 		const textGray = colors.gray

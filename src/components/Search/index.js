@@ -44,7 +44,7 @@ const Search = ({ username, prompt, commandChange }) => {
 				<span className={prompt.promptcolor}> {prompt.prompt} </span>
 			</span>
 			<input
-				className="flex-grow-1"
+				className={`flex-grow-1 ${prompt.caretcolor}-caret`}
 				type="text"
 				onChange={commandChange}
 				placeholder="command..."

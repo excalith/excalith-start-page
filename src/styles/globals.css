@@ -31,3 +31,8 @@ a:hover {
 	color: #d1aff8 !important;
 	transition: color 0.2s !important; 
 }
+
+::selection {
+  color: var(--selection-fg);
+  background: var(--selection-bg);
+}

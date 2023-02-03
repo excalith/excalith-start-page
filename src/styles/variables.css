@@ -1,7 +1,10 @@
-html {
+:root {
 	--background-color: #121317;
 	--window-color: #1e212b;
 	--color-glow: transparent;
+
+	--selection-fg: black;
+	--selection-bg: white;
 
 	--white: #e2e2e2;
 	--gray: #97989d;
@@ -36,3 +39,14 @@ html {
 .cyan-bg { background-color: var(--cyan); }
 .magenta-bg { background-color: var(--magenta); }
 .purple-bg { background-color: var(--purple); }
+
+.white-caret { caret-color: var(--white) !important; }
+.gray-caret { caret-color: var(--gray) !important; }
+.black-caret { caret-color: var(--black) !important; }
+.red-caret { caret-color: var(--red) !important; }
+.green-caret { caret-color: var(--green) !important; }
+.yellow-caret { caret-color: var(--yellow) !important; }
+.blue-caret { caret-color: var(--blue) !important; }
+.cyan-caret { caret-color: var(--cyan) !important; }
+.magenta-caret { caret-color: var(--magenta) !important; }
+.purple-caret { caret-color: var(--purple) !important; }

@@ -8,10 +8,9 @@
 #search input:focus {
 	display: inline-block;
 	width: auto;
-
-	border:none;
-	color: white;
+	color: var(--white);
 	background-color: transparent;
+	border:none;
 	outline: none !important;
 	appearance: none;
 	box-shadow: none;
