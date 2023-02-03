@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react"
-import { getBrowser } from "@/utils/getBrowser"
+import { browserName } from "react-device-detect"
 import { RunCommand } from "@/utils/command"
 import Config from "@/startpage.config"
 
@@ -14,8 +14,8 @@ const Search = ({ username, prompt, commandChange }) => {
 	}, [focus])
 
 	useEffect(() => {
-		setBrowser(getBrowser())
-	}, [browser])
+		setBrowser(browserName.toLowerCase())
+	}, [])
 
 	useEffect(() => {
 		const handleKeyDown = (event) => {
