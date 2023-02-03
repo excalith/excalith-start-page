@@ -1,6 +1,7 @@
 #nfetch {
 	overflow-y: scroll;
 	height: 100%;
+	color: var(--white);
 }
 
 #nfetch h1 {
@@ -9,6 +10,25 @@
 
 #nfetch p, #nfetch li {
 	color: var(--white);
+}
+
+#nfetch ul {
+	list-style-type: none;
+}
+
+
+#nfetch ul li span {
+	color: var(--yellow)
+}
+
+#nfetch hr {
+	border-top: 1px dashed var(--gray);
+}
+
+#icon {
+	display:block;
+	height: 265px;
+	width: 265px;
 }
 
 #colorbox {

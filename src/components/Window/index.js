@@ -40,6 +40,7 @@ const Window = () => {
 			{windowMode === "showList" && <List />}
 			{windowMode === "showHelp" && <Help />}
 			{windowMode === "showNfetch" && <Nfetch />}
+			{/* <Nfetch /> */}
 		</div>
 	)
 }

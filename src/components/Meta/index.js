@@ -1,6 +1,6 @@
 import Head from "next/head"
 
-const Meta = ({ username, keywords, description }) => {
+const Meta = ({ username }) => {
 	return (
 		<Head>
 			<title>{username} Start Page</title>

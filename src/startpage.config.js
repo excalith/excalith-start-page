@@ -29,6 +29,11 @@ const config = {
 		magenta: "#e069aa",
 		purple: "#d1aff8"
 	},
+	nfetch: {
+		timeformat: "HH:mm",
+		dateformat: "DD/MM/YYYY",
+		titlecolor: "yellow"
+	},
 	search: {
 		default: "https://google.com/search?q=",
 		target: "_self"
