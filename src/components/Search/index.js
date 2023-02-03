@@ -47,7 +47,7 @@ const Search = ({ username, prompt, commandChange }) => {
 				className={`flex-grow-1 ${prompt.caretcolor}-caret`}
 				type="text"
 				onChange={commandChange}
-				placeholder="command..."
+				placeholder={Config.prompt.placeholder}
 				autoFocus
 				onFocus={() => {
 					setFocus(true)

@@ -8,6 +8,7 @@ const config = {
 	},
 	prompt: {
 		ctrlc: true,
+		placeholder: "command...",
 		usercolor: "green",
 		atcolor: "gray",
 		hostcolor: "magenta",
