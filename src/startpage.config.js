@@ -38,6 +38,9 @@ const config = {
 		default: "https://google.com/search?q=",
 		target: "_self"
 	},
+	url: {
+		target: "_self"
+	},
 	commands: [
 		{
 			alias: "g",

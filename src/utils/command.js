@@ -12,7 +12,7 @@ export function RunCommand(command) {
 	} else if (lower_command === "nfetch") {
 		showNfetch()
 	} else if (isURL(command)) {
-		openLink("https://" + command, "_blank")
+		openLink("https://" + command, Config.url.target)
 	} else if (tryParseCommand(command)) {
 		return
 	} else {
