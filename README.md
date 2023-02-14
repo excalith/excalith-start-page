@@ -2,9 +2,8 @@
 	<h1 align="center">Excalith Start Page</h1>
 	<img src=".github/startpage.gif" />
 
-	This is an interactive start page for browsers, inspired from my own terminal setup.
+	This is an interactive start page for browsers, inspired from my terminal setup.
 </div>
-
 
 ## Demo
 
@@ -25,6 +24,10 @@
 ## Customization
 
 You can fork the repository and configure everything as you wish. Please refer to [wiki](https://github.com/excalith/excalith-start-page/wiki) page for more information.
+
+## How To Contribute
+
+Please feel free to contribute any way you can. Just keep in mind that you should pay attention to [CONTRIBUTE.md](.github/CONTRIBUTING.md) before contributing.
 
 ## License
 
