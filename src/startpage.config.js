@@ -69,6 +69,11 @@ const config = {
 			url: "https://stackoverflow.com/search?q={}"
 		},
 		{
+			alias: "r",
+			name: "Subreddit Search",
+			url: "https://reddit.com/r/{}"
+		},
+		{
 			alias: "w",
 			name: "Wikipedia Search",
 			url: "https://en.wikipedia.org/wiki/{}"
