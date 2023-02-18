@@ -2,6 +2,8 @@
 	<h1 align="center">Excalith Start Page</h1>
 	<img src=".github/startpage.gif" />
 
+<a href="https://excalith-start-page.vercel.app"><img src="https://therealsujitk-vercel-badge.vercel.app/?app=excalith-start-page" /></a>
+
 	This is an interactive start page for browsers, inspired from my terminal setup.
 </div>
 
