@@ -97,7 +97,9 @@ const Config = ({ commands }) => {
 					{consoleLog.map((data, index) => {
 						return <li key={index}>{data}</li>
 					})}
-					{isDone && <li className="mt-line">Press ESC to continue</li>}
+					{isDone && (
+						<li className="mt-line">Press ESC to continue</li>
+					)}
 				</ul>
 			</div>
 		</div>
