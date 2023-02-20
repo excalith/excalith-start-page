@@ -7,9 +7,9 @@ let loaded = false
 const Config = ({ commands }) => {
 	const [command] = useState(commands.join(" "))
 	const [consoleLog, setConsoleLog] = useState([])
+	const [isDone, setDone] = useState(false)
 
 	useEffect(() => {
-		if (loaded) return
 		loaded = true
 
 		setConsoleLog([])
@@ -26,9 +26,13 @@ const Config = ({ commands }) => {
 			resetConfig()
 		} else {
 			appendToLog("Invalid config command: " + commands.join(" "), false)
-			appendToLog("Press ESC to continue", true)
+			setDone(true)
 		}
 	}, [commands])
+
+	useEffect(() => {
+		loaded = true
+	}, [isDone])
 
 	const importConfig = (url) => {
 		appendToLog("Fetching settings from remote", true)
@@ -50,14 +54,14 @@ const Config = ({ commands }) => {
 				appendToLog(err, false)
 			})
 			.finally(() => {
-				appendToLog("Press ESC to continue", true)
+				setDone(true)
 			})
 	}
 
 	const resetConfig = () => {
 		appendToLog("Removed local configuration", true)
 		localStorage.removeItem("settings")
-		appendToLog("Press ESC to continue", true)
+		setDone(true)
 	}
 
 	const exportConfig = () => {
@@ -72,7 +76,7 @@ const Config = ({ commands }) => {
 			appendToLog("No local configuration found", false)
 		}
 
-		appendToLog("Press ESC to continue", true)
+		setDone(true)
 	}
 
 	const appendToLog = (text, status) => {
@@ -93,6 +97,7 @@ const Config = ({ commands }) => {
 					{consoleLog.map((data, index) => {
 						return <li key={index}>{data}</li>
 					})}
+					{isDone && <li className="mt-line">Press ESC to continue</li>}
 				</ul>
 			</div>
 		</div>
