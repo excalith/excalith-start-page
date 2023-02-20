@@ -59,10 +59,7 @@ const Terminal = () => {
 
 	return (
 		<div
-			id="window"
-			className={`position-absolute top-50 start-50 translate-middle ${
-				Settings.colors.glowcolor === "none" ? "shadow" : "glow"
-			}`}
+			className="absolute w-full h-auto transform -translate-x-1/2 -translate-y-1/2 shadow-lg rounded-terminal bg-terminal max-w-terminal p-terminal top-1/2 left-1/2"
 			style={windowHeight}
 			ref={windowRef}>
 			{getWindow()}
@@ -71,3 +68,9 @@ const Terminal = () => {
 }
 
 export default Terminal
+
+/*
+	className={`max-w-xs p-4 rounded-lg bg-gray-800 ${
+		Settings.colors.glowcolor === "none" ? "shadow" : "glow"
+	}`}
+*/

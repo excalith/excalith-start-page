@@ -30,10 +30,10 @@ const Search = ({ prompt, commandChange }) => {
 	})
 
 	return (
-		<div id="search" className="d-flex">
+		<div id="search" className="flex">
 			<Prompt />
 			<input
-				className={`flex-grow-1 ${prompt.caretcolor}-caret`}
+				className={`grow inline-block bg-transparent text-white outline-none appearance-none shadow-none ml-2.5 caret-${prompt.caretcolor}`}
 				type="text"
 				onChange={commandChange}
 				placeholder={Settings.prompt.placeholder}

@@ -1,3 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--background-color: #121317;
+	--window-color: #1e212b;
+	--color-glow: transparent;
+
+	--selection-fg: black;
+	--selection-bg: white;
+
+	--white: #e2e2e2;
+	--gray: #97989d;
+	--black: #16161e;
+	--red: #ec6183;
+	--green: #2ed8a2;
+	--yellow: #e8b195;
+	--blue: #2bc3de;
+	--cyan: #62e0e2;
+	--magenta: #e069aa;
+	--purple: #d1aff8;
+}
+
 * {
 	box-sizing: border-box;
 	padding: 0;
@@ -22,13 +46,13 @@ h1 {
 a,
 a:active,
 a:visited {
-	color: #e2e2e2 !important;
+	color: var(--white) !important;
 	text-decoration: none;
 	transition: color 0.2s !important;
 }
 
 a:hover {
-	color: #d1aff8 !important;
+	color: var(--purple) !important;
 	transition: color 0.2s !important; 
 }
 
@@ -36,3 +60,50 @@ a:hover {
   color: var(--selection-fg);
   background: var(--selection-bg);
 }
+
+.shadow {
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	transition: box-shadow 0.2s;
+}
+
+.glow {
+	box-shadow: 0 0 5px var(--color-glow), 0 0 25px var(--color-glow),
+		0 0 50px var(--color-glow), 0 0 200px var(--color-glow);
+
+	transition: box-shadow 0.2s;
+}
+
+.text-white { color: var(--white); }
+.text-gray { color: var(--gray); }
+.text-black { color: var(--black); }
+.text-red { color: var(--red); }
+.text-green { color: var(--green); }
+.text-yellow { color: var(--yellow); }
+.text-blue { color: var(--blue); }
+.text-cyan { color: var(--cyan); }
+.text-magenta { color: var(--magenta); }
+.text-purple { color: var(--purple); }
+
+
+.bg-white { background-color: var(--white); }
+.bg-gray { background-color: var(--gray); }
+.bg-black { background-color: var(--black); }
+.bg-red { background-color: var(--red); }
+.bg-green { background-color: var(--green); }
+.bg-yellow { background-color: var(--yellow); }
+.bg-blue { background-color: var(--blue); }
+.bg-cyan { background-color: var(--cyan); }
+.bg-magenta { background-color: var(--magenta); }
+.bg-purple { background-color: var(--purple); }
+.bg-terminal { background-color: var(--window-color); }
+
+.caret-white { caret-color: var(--white) !important; }
+.caret-gray { caret-color: var(--gray) !important; }
+.caret-black { caret-color: var(--black) !important; }
+.caret-red { caret-color: var(--red) !important; }
+.caret-green { caret-color: var(--green) !important; }
+.caret-yellow { caret-color: var(--yellow) !important; }
+.caret-blue { caret-color: var(--blue) !important; }
+.caret-cyan { caret-color: var(--cyan) !important; }
+.caret-magenta { caret-color: var(--magenta) !important; }
+.caret-purple { caret-color: var(--purple) !important; }

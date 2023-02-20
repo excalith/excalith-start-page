@@ -12,20 +12,17 @@ const List = () => {
 
 	return (
 		<div id="list">
-			<div id="sections" className="container-fluid .col-3">
-				<div className="row">
-					{Settings.sections.map((section, index) => {
-						return (
-							<Section
-								key={index}
-								section={section}
-								filter={command}
-							/>
-						)
-					})}
-				</div>
+			<div className="grid grid-cols-3 gap-4 p-2.5 mb-4">
+				{Settings.sections.map((section, index) => {
+					return (
+						<Section
+							key={index}
+							section={section}
+							filter={command}
+						/>
+					)
+				})}
 			</div>
-
 			<Search
 				prompt={Settings.prompt}
 				commandChange={handleCommandChange}

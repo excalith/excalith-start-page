@@ -3,13 +3,15 @@ import Prompt from "@/components/Prompt"
 
 const Help = ({ closeCallback }) => {
 	return (
-		<div id="help" className="container-fluid" onClick={closeCallback}>
-			<div className="row">
+		<div
+			className="h-full overflow-y-auto text-white"
+			onClick={closeCallback}>
+			<div>
 				<span>
 					<Prompt command="help" />
 				</span>
 
-				<span className="title">Usage</span>
+				<span className="block mt-line text-green">Usage</span>
 				<ul>
 					<li>- Filter links by typing in the prompt</li>
 					<li>
@@ -21,43 +23,48 @@ const Help = ({ closeCallback }) => {
 					<li>- Use ENTER to exit windows</li>
 				</ul>
 
-				<span className="title">Built-in Commands</span>
+				<span className="block mt-line text-green">
+					Built-in Commands
+				</span>
 				<ul>
 					<li>
-						<span className="accent">help</span> Display this help
+						<span className="text-blue">help</span> Display this
+						help
 					</li>
 					<li>
-						<span className="accent">fetch</span> Display browser
+						<span className="text-blue">fetch</span> Display browser
 						information
 					</li>
 					<li>
-						<span className="accent">config</span> Configuration
-						menu
-						<ul>
+						<span className="text-blue">config</span> Configuration
+						settings
+						<ul className="ml-5">
 							<li>
-								<span className="accent">
+								<span className="text-blue">
 									config import [url]
 								</span>{" "}
 								Imports remote config JSON
 							</li>
 							<li>
-								<span className="accent">config export</span>{" "}
+								<span className="text-blue">config export</span>{" "}
 								Exports local config
 							</li>
 							<li>
-								<span className="accent">config reset</span>{" "}
+								<span className="text-blue">config reset</span>{" "}
 								Resets to default config
 							</li>
 						</ul>
 					</li>
 				</ul>
 
-				<span className="title">Custom Commands</span>
+				<span className="block mt-line text-green">
+					Custom Commands
+				</span>
 				<ul>
 					{Settings.search.shortcuts.map((cmd, index) => {
 						return (
 							<li key={index}>
-								<span className="accent">{cmd.alias}</span>{" "}
+								<span className="text-blue">{cmd.alias}</span>{" "}
 								{cmd.name}
 							</li>
 						)

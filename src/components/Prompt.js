@@ -12,14 +12,18 @@ const Search = ({ command }) => {
 
 	return (
 		<span>
-			<span className={Settings.prompt.usercolor}>{lower_username}</span>
-			<span className={Settings.prompt.atcolor}>@</span>
-			<span className={Settings.prompt.hostcolor}>{browser}</span>
-			<span className={Settings.prompt.promptcolor}>
+			<span className={`text-${Settings.prompt.usercolor}`}>
+				{lower_username}
+			</span>
+			<span className={`text-${Settings.prompt.atcolor}`}>@</span>
+			<span className={`text-${Settings.prompt.hostcolor}`}>
+				{browser}
+			</span>
+			<span className={`text-${Settings.prompt.promptcolor}`}>
 				{" "}
 				{Settings.prompt.promptsymbol}{" "}
 			</span>
-			{command && <span className="white">{command}</span>}
+			{command && <span className="text-white">{command}</span>}
 		</span>
 	)
 }

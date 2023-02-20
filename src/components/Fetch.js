@@ -29,88 +29,84 @@ const Fetch = ({ closeCallback }) => {
 	}, [])
 
 	return (
-		<div id="nfetch" className="container" onClick={closeCallback}>
+		<div className="h-full overflow-y-auto" onClick={closeCallback}>
 			<span>
 				<Prompt command="fetch" />
 			</span>
-			<div className="row">
-				<div className="col">
+			<div className="grid grid-cols-2 gap-4">
+				<div>
 					<img
-						id="icon"
-						className="mx-auto"
+						className="w-64 h-64 mx-auto"
 						src="icon.svg"
 						alt="Fetch Logo"
 					/>
 				</div>
-				<div className="col">
-					<div className="container-fluid">
+				<div className="mt-4 text-white">
+					<div className="mx-auto">
 						<div className="row">
 							{/* User*/}
-							<span>
-								<span className={prompt.usercolor}>
-									{lower_username}
-								</span>
-								<span className={prompt.atcolor}>@</span>
-								<span className={prompt.hostcolor}>
-									{info.browserLower}
-								</span>
-							</span>
-							<hr />
-							<ul>
+							<Prompt />
+							<hr className="border-dashed" />
+							<ul className="mt-2">
 								<li>
-									<span className={Settings.fetch.titlecolor}>
+									<span
+										className={`text-${Settings.fetch.titlecolor}`}>
 										Time:
 									</span>{" "}
 									{info.time}
 								</li>
 								<li>
-									<span className={Settings.fetch.titlecolor}>
+									<span
+										className={`text-${Settings.fetch.titlecolor}`}>
 										Date:
 									</span>{" "}
 									{info.date}
 								</li>
 							</ul>
-							<ul>
+							<ul className="mt-line">
 								<li>
-									<span className={Settings.fetch.titlecolor}>
+									<span
+										className={`text-${Settings.fetch.titlecolor}`}>
 										OS:
 									</span>{" "}
 									{info.osName}
 								</li>
 								<li>
-									<span className={Settings.fetch.titlecolor}>
+									<span
+										className={`text-${Settings.fetch.titlecolor}`}>
 										Browser:
 									</span>{" "}
 									{info.browser}
 								</li>
 								<li>
-									<span className={Settings.fetch.titlecolor}>
+									<span
+										className={`text-${Settings.fetch.titlecolor}`}>
 										Version:
 									</span>{" "}
 									{info.browserVersion}
 								</li>
 								<li>
-									<span className={Settings.fetch.titlecolor}>
+									<span
+										className={`text-${Settings.fetch.titlecolor}`}>
 										Engine:
 									</span>{" "}
 									{info.engineName}
 								</li>
 							</ul>
-							{/* Colors */}
 
-							<div id="colorbox">
-								{/* Top Row */}
-								<div className="black-bg"></div>
-								<div className="red-bg"></div>
-								<div className="green-bg"></div>
-								<div className="yellow-bg"></div>
-								<div className="purple-bg"></div>
-								{/* Bottom Row */}
-								<div className="gray-bg"></div>
-								<div className="blue-bg"></div>
-								<div className="cyan-bg"></div>
-								<div className="magenta-bg"></div>
-								<div className="white-bg"></div>
+							{/* Colors */}
+							<div className="mt-line">
+								<span className="inline-block w-1/5 h-5 bg-black"></span>
+								<span className="inline-block w-1/5 h-5 bg-red"></span>
+								<span className="inline-block w-1/5 h-5 bg-green"></span>
+								<span className="inline-block w-1/5 h-5 bg-yellow"></span>
+								<span className="inline-block w-1/5 h-5 bg-purple"></span>
+
+								<span className="inline-block w-1/5 h-5 bg-gray"></span>
+								<span className="inline-block w-1/5 h-5 bg-blue"></span>
+								<span className="inline-block w-1/5 h-5 bg-cyan"></span>
+								<span className="inline-block w-1/5 h-5 bg-magenta"></span>
+								<span className="inline-block w-1/5 h-5 bg-white"></span>
 							</div>
 						</div>
 					</div>

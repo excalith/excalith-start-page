@@ -24,14 +24,16 @@ const Link = ({ linkData, filter }) => {
 
 	return (
 		<a
-			className={`link ${isHidden ? "hidden" : ""}`}
+			className={`block ${isHidden && "opacity-20"}`}
 			href={url}
 			rel="noopener noreferrer nofollow"
 			target={target}>
-			<span className="link-icon">
+			<span className="inline-block w-4 h-4 align-middle">
 				<Icon icon={icon} />
 			</span>
-			<span className="link-name">{name}</span>
+			<span className="inline-block pl-2 leading-8 align-middle">
+				{name}
+			</span>
 		</a>
 	)
 }

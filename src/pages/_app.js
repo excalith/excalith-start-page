@@ -1,15 +1,6 @@
 import React, { useEffect, useState } from "react"
 import Settings from "@/utils/settings"
-import "bootstrap/dist/css/bootstrap.css"
 import "@/styles/globals.css"
-import "@/styles/variables.css"
-import "@/styles/window.css"
-import "@/styles/search.css"
-import "@/styles/section.css"
-import "@/styles/link.css"
-import "@/styles/help.css"
-import "@/styles/fetch.css"
-import "@/styles/config.css"
 
 export default function App({ Component, pageProps }) {
 	const [settings, setSettings] = useState()

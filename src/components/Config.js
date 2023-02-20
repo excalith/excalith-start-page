@@ -67,7 +67,6 @@ const Config = ({ commands }) => {
 		if (settings) {
 			const blob = new Blob([settings], { type: "application/json" })
 			const url = URL.createObjectURL(blob)
-			// const link = document.createElement("a")
 			openLink(url)
 		} else {
 			appendToLog("No local configuration found", false)
@@ -82,15 +81,15 @@ const Config = ({ commands }) => {
 	}
 
 	return (
-		<div id="config" className="container-fluid">
+		<div className="h-full overflow-y-auto text-white">
 			<div className="row">
-				<ul>
+				<ul className="list-none mb-line">
 					<li>
 						<Prompt />
 						{command}
 					</li>
 				</ul>
-				<ul>
+				<ul className="list-none">
 					{consoleLog.map((data, index) => {
 						return <li key={index}>{data}</li>
 					})}
