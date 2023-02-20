@@ -1,5 +1,5 @@
 {
-	"username": "Test",
+	"username": "Sample",
 	"terminal": {
 		"fixedheight": true,
 		"backgroundcolor": "#121317",
@@ -30,7 +30,7 @@
 		"magenta": "#e069aa",
 		"purple": "#d1aff8"
 	},
-	"nfetch": {
+	"fetch": {
 		"timeformat": "HH:mm",
 		"dateformat": "DD/MM/YYYY",
 		"titlecolor": "yellow"

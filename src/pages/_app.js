@@ -8,7 +8,8 @@ import "@/styles/search.css"
 import "@/styles/section.css"
 import "@/styles/link.css"
 import "@/styles/help.css"
-import "@/styles/nfetch.css"
+import "@/styles/fetch.css"
+import "@/styles/config.css"
 
 export default function App({ Component, pageProps }) {
 	const [settings, setSettings] = useState()

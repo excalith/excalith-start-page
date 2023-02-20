@@ -3,7 +3,7 @@
 	height: 100%;
 }
 
-#help h1 {
+.title {
 	color: var(--green);
 }
 
@@ -11,7 +11,7 @@
 	color: var(--white);
 }
 
-#help span {
+.accent {
 	color: var(--blue);
 }
 

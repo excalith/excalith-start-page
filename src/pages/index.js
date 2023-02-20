@@ -1,14 +1,11 @@
 import Meta from "@/components/Meta"
-import Window from "@/components/Window"
-import Settings from "@/utils/settings"
+import Terminal from "@/components/Terminal"
 
 export default function Home() {
-	console.log(Settings)
-
 	return (
 		<>
 			<Meta />
-			<Window />
+			<Terminal />
 		</>
 	)
 }

@@ -1,27 +1,27 @@
-#nfetch {
+#fetch {
 	overflow-y: scroll;
 	height: 100%;
 	color: var(--white);
 }
 
-#nfetch h1 {
+#fetch h1 {
 	color: var(--green);
 }
 
-#nfetch p, #nfetch li {
+#fetch p, #fetch li {
 	color: var(--white);
 }
 
-#nfetch ul {
+#fetch ul {
 	list-style-type: none;
 }
 
 
-#nfetch ul li span {
+#fetch ul li span {
 	font-weight: bold;
 }
 
-#nfetch hr {
+#fetch hr {
 	border-top: 1px dashed var(--gray);
 }
 

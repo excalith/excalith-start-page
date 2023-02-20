@@ -3,11 +3,11 @@ import Settings from "@/utils/settings"
 import List from "@/components/List"
 import Help from "@/components/Help"
 import Config from "@/components/Config"
-import Nfetch from "@/components/NFetch"
+import Nfetch from "@/components/Fetch"
 import { subscribe, unsubscribe } from "@/utils/event"
 import { RunCommand } from "@/utils/command"
 
-const Window = () => {
+const Terminal = () => {
 	const windowRef = useRef(null)
 	const [commands, setCommands] = useState("list")
 	const [windowHeight, setWindowHeight] = useState({})
@@ -50,7 +50,7 @@ const Window = () => {
 			return <Help closeCallback={closeWindow} />
 		} else if (cmd === "config" && commands.length >= 2) {
 			return <Config commands={commands} />
-		} else if (cmd === "nfetch") {
+		} else if (cmd === "fetch") {
 			return <Nfetch closeCallback={closeWindow} />
 		} else {
 			return <List />
@@ -70,4 +70,4 @@ const Window = () => {
 	)
 }
 
-export default Window
+export default Terminal

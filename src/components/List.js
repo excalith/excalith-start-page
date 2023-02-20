@@ -27,7 +27,6 @@ const List = () => {
 			</div>
 
 			<Search
-				username={Settings.username}
 				prompt={Settings.prompt}
 				commandChange={handleCommandChange}
 			/>

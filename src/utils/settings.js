@@ -30,7 +30,7 @@ const defaultConfig = {
 		magenta: "#e069aa",
 		purple: "#d1aff8"
 	},
-	nfetch: {
+	fetch: {
 		timeformat: "HH:mm",
 		dateformat: "DD/MM/YYYY",
 		titlecolor: "yellow"

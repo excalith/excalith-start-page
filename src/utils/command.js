@@ -3,12 +3,10 @@ import { isURL } from "@/utils/isURL"
 import { openLink } from "@/utils/openLink"
 import { publish } from "@/utils/event"
 
-const registeredCommands = ["list", "help", "nfetch", "config"]
+const registeredCommands = ["list", "help", "fetch", "config"]
 
 export function RunCommand(command) {
 	if (command === "") return false
-
-	const cmd = command.toLowerCase()
 	const cmd_split = command.split(" ")
 
 	if (registeredCommands.includes(cmd_split[0])) {

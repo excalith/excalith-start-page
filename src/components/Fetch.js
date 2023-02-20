@@ -8,16 +8,17 @@ import {
 } from "react-device-detect"
 import moment from "moment"
 import Settings from "@/utils/settings"
+import Prompt from "@/components/Prompt"
 
-const Nfetch = ({ closeCallback }) => {
+const Fetch = ({ closeCallback }) => {
 	const lower_username = Settings.username.toLowerCase()
 	const prompt = Settings.prompt
 	const [info, setInfo] = useState({})
 
 	useEffect(() => {
 		setInfo({
-			time: moment().format(Settings.nfetch.timeformat),
-			date: moment().format(Settings.nfetch.dateformat),
+			time: moment().format(Settings.fetch.timeformat),
+			date: moment().format(Settings.fetch.dateformat),
 			osName: osName,
 			browser: browserName,
 			browserLower: browserName.toLowerCase(),
@@ -29,13 +30,16 @@ const Nfetch = ({ closeCallback }) => {
 
 	return (
 		<div id="nfetch" className="container" onClick={closeCallback}>
+			<span>
+				<Prompt command="fetch" />
+			</span>
 			<div className="row">
 				<div className="col">
 					<img
 						id="icon"
 						className="mx-auto"
 						src="icon.svg"
-						alt="NFetch Icon"
+						alt="Fetch Logo"
 					/>
 				</div>
 				<div className="col">
@@ -54,15 +58,13 @@ const Nfetch = ({ closeCallback }) => {
 							<hr />
 							<ul>
 								<li>
-									<span
-										className={Settings.nfetch.titlecolor}>
+									<span className={Settings.fetch.titlecolor}>
 										Time:
 									</span>{" "}
 									{info.time}
 								</li>
 								<li>
-									<span
-										className={Settings.nfetch.titlecolor}>
+									<span className={Settings.fetch.titlecolor}>
 										Date:
 									</span>{" "}
 									{info.date}
@@ -70,29 +72,25 @@ const Nfetch = ({ closeCallback }) => {
 							</ul>
 							<ul>
 								<li>
-									<span
-										className={Settings.nfetch.titlecolor}>
+									<span className={Settings.fetch.titlecolor}>
 										OS:
 									</span>{" "}
 									{info.osName}
 								</li>
 								<li>
-									<span
-										className={Settings.nfetch.titlecolor}>
+									<span className={Settings.fetch.titlecolor}>
 										Browser:
 									</span>{" "}
 									{info.browser}
 								</li>
 								<li>
-									<span
-										className={Settings.nfetch.titlecolor}>
+									<span className={Settings.fetch.titlecolor}>
 										Version:
 									</span>{" "}
 									{info.browserVersion}
 								</li>
 								<li>
-									<span
-										className={Settings.nfetch.titlecolor}>
+									<span className={Settings.fetch.titlecolor}>
 										Engine:
 									</span>{" "}
 									{info.engineName}
@@ -122,4 +120,4 @@ const Nfetch = ({ closeCallback }) => {
 	)
 }
 
-export default Nfetch
+export default Fetch

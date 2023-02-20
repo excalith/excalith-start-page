@@ -1,21 +1,15 @@
 import React, { useRef, useEffect, useState } from "react"
-import { browserName } from "react-device-detect"
 import { RunCommand } from "@/utils/command"
+import Prompt from "@/components/Prompt"
 import Settings from "@/utils/settings"
 
-const Search = ({ username, prompt, commandChange }) => {
+const Search = ({ prompt, commandChange }) => {
 	const [focus, setFocus] = useState(false)
-	const [browser, setBrowser] = useState("unknown")
 	const input = useRef(null)
-	const lower_username = username.toLowerCase()
 
 	useEffect(() => {
 		setTimeout(() => input.current.focus(), 0)
 	}, [focus])
-
-	useEffect(() => {
-		setBrowser(browserName.toLowerCase())
-	}, [])
 
 	useEffect(() => {
 		const handleKeyDown = (event) => {
@@ -37,12 +31,7 @@ const Search = ({ username, prompt, commandChange }) => {
 
 	return (
 		<div id="search" className="d-flex">
-			<span>
-				<span className={prompt.usercolor}>{lower_username}</span>
-				<span className={prompt.atcolor}>@</span>
-				<span className={prompt.hostcolor}>{browser}</span>
-				<span className={prompt.promptcolor}> {prompt.prompt} </span>
-			</span>
+			<Prompt />
 			<input
 				className={`flex-grow-1 ${prompt.caretcolor}-caret`}
 				type="text"
