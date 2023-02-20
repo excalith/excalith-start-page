@@ -1,5 +1,5 @@
-import React, { useEffect } from "react"
-import Config from "@/startpage.config"
+import React, { useEffect, useState } from "react"
+import Settings from "@/utils/settings"
 import "bootstrap/dist/css/bootstrap.css"
 import "@/styles/globals.css"
 import "@/styles/variables.css"
@@ -11,17 +11,21 @@ import "@/styles/help.css"
 import "@/styles/nfetch.css"
 
 export default function App({ Component, pageProps }) {
+	const [settings, setSettings] = useState()
+
 	useEffect(() => {
+		setSettings(Settings)
+
 		// You can comment out this line and use the one below it for your own start page. Please do not remove the attribution to the original author.
 		const info = `\u00A9 2022-${new Date().getFullYear()} Can Cellek\n\nStart Page designed by Can Cellek\nCheck out the source code at\nhttps://github.com/excalith/excalith-start-page`
-		// const info = `${Config.username} Start Page\nForked from https://github.com/excalith/excalith-start-page\nModified by ${Config.username}`
+		// const info = `${Settingsusername} Start Page\nForked from https://github.com/excalith/excalith-start-page\nModified by ${Config.username}`
 		console.log(info)
 
 		// Get variables from config
 		const documentStyle = document.documentElement.style
 
 		// Set Terminal
-		const terminal = Config.terminal
+		const terminal = Settings.terminal
 		const glowColor = terminal.glowcolor
 		const backgroundColor = terminal.backgroundcolor
 		const windowColor = terminal.windowcolor
@@ -30,14 +34,14 @@ export default function App({ Component, pageProps }) {
 		documentStyle.setProperty("--window-color", windowColor)
 
 		// Set Prompt Selection Color
-		const prompt = Config.prompt
+		const prompt = Settings.prompt
 		const selectionfg = prompt.selectionfg
 		const selectionbg = prompt.selectionbg
 		documentStyle.setProperty("--selection-fg", selectionfg)
 		documentStyle.setProperty("--selection-bg", selectionbg)
 
 		// Set Text Colors
-		const colors = Config.colors
+		const colors = Settings.colors
 		const textWhite = colors.white
 		const textGray = colors.gray
 		const textBlack = colors.black
@@ -59,6 +63,8 @@ export default function App({ Component, pageProps }) {
 		documentStyle.setProperty("--magenta", textMagenta)
 		documentStyle.setProperty("--purple", textPurple)
 	}, [])
+
+	if (!settings) return null
 
 	return <Component {...pageProps} />
 }

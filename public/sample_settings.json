@@ -1,0 +1,176 @@
+{
+	"username": "Test",
+	"terminal": {
+		"fixedheight": true,
+		"backgroundcolor": "#121317",
+		"windowcolor": "#1e212b",
+		"glowcolor": "none"
+	},
+	"prompt": {
+		"ctrlc": true,
+		"placeholder": "command...",
+		"usercolor": "green",
+		"atcolor": "gray",
+		"hostcolor": "magenta",
+		"promptcolor": "magenta",
+		"promptsymbol": "❯",
+		"caretcolor": "green",
+		"selectionbg": "#e8b195",
+		"selectionfg": "#16161e"
+	},
+	"colors": {
+		"white": "#e2e2e2",
+		"gray": "#97989d",
+		"black": "#16161e",
+		"red": "#ec6183",
+		"green": "#2ed8a2",
+		"yellow": "#e8b195",
+		"blue": "#2bc3de",
+		"cyan": "#62e0e2",
+		"magenta": "#e069aa",
+		"purple": "#d1aff8"
+	},
+	"nfetch": {
+		"timeformat": "HH:mm",
+		"dateformat": "DD/MM/YYYY",
+		"titlecolor": "yellow"
+	},
+	"urlLaunch": {
+		"target": "_self"
+	},
+	"search": {
+		"default": "https://google.com/search?q=",
+		"target": "_self",
+		"shortcutRegex": "([A-Za-z0-9]+) (.*)",
+		"shortcuts": [
+			{
+				"alias": "g",
+				"name": "Google Search",
+				"url": "https://google.com/search?q={}"
+			},
+			{
+				"alias": "d",
+				"name": "DuckDuckGo Search",
+				"url": "https://duckduckgo.com/?q={}"
+			},
+			{
+				"alias": "b",
+				"name": "Brave Search",
+				"url": "https://search.brave.com/search?q={}"
+			},
+			{
+				"alias": "gh",
+				"name": "Github Search",
+				"url": "https://github.com/search?q={}"
+			},
+			{
+				"alias": "s",
+				"name": "Stack Overflow Search",
+				"url": "https://stackoverflow.com/search?q={}"
+			},
+			{
+				"alias": "r",
+				"name": "Subreddit Search",
+				"url": "https://reddit.com/r/{}"
+			},
+			{
+				"alias": "w",
+				"name": "Wikipedia Search",
+				"url": "https://en.wikipedia.org/wiki/{}"
+			}
+		]
+	},
+	"sections": [
+		{
+			"title": "General",
+			"color": "green",
+			"links": [
+				{
+					"name": "Portfolio",
+					"url": "https://cancellek.com",
+					"icon": "mdi:web",
+					"target": "_blank"
+				},
+				{
+					"name": "Keybase",
+					"url": "https://keybase.io/",
+					"icon": "fa-brands:keybase",
+					"target": "_blank"
+				},
+				{
+					"name": "GPT",
+					"url": "https://chat.openai.com/",
+					"icon": "simple-icons:openai",
+					"target": "_blank"
+				},
+				{
+					"name": "OCI",
+					"url": "https://www.oracle.com/cloud/",
+					"icon": "simple-icons:oracle",
+					"target": "_blank"
+				}
+			]
+		},
+		{
+			"title": "Dev",
+			"color": "magenta",
+			"links": [
+				{
+					"name": "GitHub",
+					"url": "https://github.com",
+					"icon": "mdi:github",
+					"target": "_blank"
+				},
+				{
+					"name": "GitLab",
+					"url": "https://gitlab.com",
+					"icon": "ph:gitlab-logo-simple-fill",
+					"target": "_blank"
+				},
+				{
+					"name": "Dev.to",
+					"url": "https://dev.to",
+					"icon": "material-symbols:logo-dev",
+					"target": "_blank"
+				},
+				{
+					"name": "Stack Overflow",
+					"url": "https://stackoverflow.com/",
+					"icon": "mdi:stack-overflow",
+					"target": "_blank"
+				}
+			]
+		},
+		{
+			"title": "Social",
+			"color": "purple",
+			"links": [
+				{
+					"name": "Twitter",
+					"url": "https://twitter.com",
+					"icon": "mdi:twitter",
+					"target": "_blank"
+				},
+				{
+					"name": "Mastodon",
+					"url": "https://mastodon.social/",
+					"icon": "ri:mastodon-fill",
+					"target": "_blank"
+				},
+				{
+					"name": "Reddit",
+					"url": "https://reddit.com",
+					"icon": "mdi:reddit",
+					"target": "_blank"
+				},
+				{
+					"name": "Polywork",
+					"url": "https://polywork.com",
+					"icon": "simple-icons:polywork",
+					"target": "_blank"
+				}
+			]
+		}
+	]
+}
+

@@ -1,19 +1,21 @@
-import Config from "@/startpage.config"
+import Settings from "@/utils/settings"
 import { isURL } from "@/utils/isURL"
 import { openLink } from "@/utils/openLink"
 import { publish } from "@/utils/event"
 
+const registeredCommands = ["list", "help", "nfetch", "config"]
+
 export function RunCommand(command) {
 	if (command === "") return false
 
-	const lower_command = command.toLowerCase()
-	if (lower_command === "help") {
-		showHelp()
-	} else if (lower_command === "nfetch") {
-		showNfetch()
+	const cmd = command.toLowerCase()
+	const cmd_split = command.split(" ")
+
+	if (registeredCommands.includes(cmd_split[0])) {
+		publish("command", cmd_split)
 	} else if (isURL(command)) {
-		openLink("https://" + command, Config.url.target)
-	} else if (tryParseCommand(command)) {
+		openLink("https://" + command, Settings.urlLaunch.target)
+	} else if (tryParseSearchShortcut(command)) {
 		return
 	} else {
 		openFilteredLinks(command)
@@ -22,7 +24,7 @@ export function RunCommand(command) {
 
 function openFilteredLinks(command) {
 	let filterCount = 0
-	Config.sections.map((section) => {
+	Settings.sections.map((section) => {
 		{
 			section.links.map((link) => {
 				{
@@ -36,23 +38,23 @@ function openFilteredLinks(command) {
 	})
 
 	if (filterCount === 0) {
-		const searchEngine = Config.search.default
-		const target = Config.search.target
+		const searchEngine = Settings.search.default
+		const target = Settings.search.target
 		openLink(searchEngine + command, target)
 	}
 }
 
-function tryParseCommand(command) {
-	// Split command and query seperated by colon
-	var commandPattern = new RegExp("([A-Za-z0-9]+): (.*)", "g")
+function tryParseSearchShortcut(command) {
+	// Split command and query seperated by shortcut regex
+	var commandPattern = new RegExp(Settings.search.shortcutRegex, "g")
 	let matchAll = command.matchAll(commandPattern)
 	matchAll = Array.from(matchAll)
 
 	if (matchAll.length === 0) return false
 
 	let regex_cmd = matchAll[0]
-	for (var i = 0; i < Config.commands.length; i++) {
-		const commandData = Config.commands[i]
+	for (var i = 0; i < Settings.search.shortcuts.length; i++) {
+		const commandData = Settings.search.shortcuts[i]
 		const name = commandData.alias
 
 		if (name === regex_cmd[1]) {
@@ -62,12 +64,4 @@ function tryParseCommand(command) {
 		}
 	}
 	return false
-}
-
-function showHelp() {
-	publish("showHelp")
-}
-
-function showNfetch() {
-	publish("showNfetch")
 }

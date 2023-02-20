@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react"
 import { browserName } from "react-device-detect"
 import { RunCommand } from "@/utils/command"
-import Config from "@/startpage.config"
+import Settings from "@/utils/settings"
 
 const Search = ({ username, prompt, commandChange }) => {
 	const [focus, setFocus] = useState(false)
@@ -21,7 +21,7 @@ const Search = ({ username, prompt, commandChange }) => {
 		const handleKeyDown = (event) => {
 			if (event.key === "Enter") {
 				RunCommand(input.current.value)
-			} else if (Config.prompt.ctrlc) {
+			} else if (Settings.prompt.ctrlc) {
 				if ((event.metaKey || event.ctrlKey) && event.code === "KeyC") {
 					input.current.value = ""
 					commandChange({ target: { value: "" } })
@@ -47,7 +47,7 @@ const Search = ({ username, prompt, commandChange }) => {
 				className={`flex-grow-1 ${prompt.caretcolor}-caret`}
 				type="text"
 				onChange={commandChange}
-				placeholder={Config.prompt.placeholder}
+				placeholder={Settings.prompt.placeholder}
 				autoFocus
 				onFocus={() => {
 					setFocus(true)

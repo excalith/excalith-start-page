@@ -1,4 +1,4 @@
-const config = {
+const defaultConfig = {
 	username: "Excalith",
 	terminal: {
 		fixedheight: true,
@@ -35,50 +35,51 @@ const config = {
 		dateformat: "DD/MM/YYYY",
 		titlecolor: "yellow"
 	},
+	urlLaunch: {
+		target: "_self"
+	},
 	search: {
 		default: "https://google.com/search?q=",
-		target: "_self"
+		target: "_self",
+		shortcutRegex: "([A-Za-z0-9]+) (.*)",
+		shortcuts: [
+			{
+				alias: "g",
+				name: "Google Search",
+				url: "https://google.com/search?q={}"
+			},
+			{
+				alias: "d",
+				name: "DuckDuckGo Search",
+				url: "https://duckduckgo.com/?q={}"
+			},
+			{
+				alias: "b",
+				name: "Brave Search",
+				url: "https://search.brave.com/search?q={}"
+			},
+			{
+				alias: "gh",
+				name: "Github Search",
+				url: "https://github.com/search?q={}"
+			},
+			{
+				alias: "s",
+				name: "Stack Overflow Search",
+				url: "https://stackoverflow.com/search?q={}"
+			},
+			{
+				alias: "r",
+				name: "Subreddit Search",
+				url: "https://reddit.com/r/{}"
+			},
+			{
+				alias: "w",
+				name: "Wikipedia Search",
+				url: "https://en.wikipedia.org/wiki/{}"
+			}
+		]
 	},
-	url: {
-		target: "_self"
-	},
-	commands: [
-		{
-			alias: "g",
-			name: "Google Search",
-			url: "https://google.com/search?q={}"
-		},
-		{
-			alias: "d",
-			name: "DuckDuckGo Search",
-			url: "https://duckduckgo.com/?q={}"
-		},
-		{
-			alias: "b",
-			name: "Brave Search",
-			url: "https://search.brave.com/search?q={}"
-		},
-		{
-			alias: "gh",
-			name: "Github Search",
-			url: "https://github.com/search?q={}"
-		},
-		{
-			alias: "s",
-			name: "Stack Overflow Search",
-			url: "https://stackoverflow.com/search?q={}"
-		},
-		{
-			alias: "r",
-			name: "Subreddit Search",
-			url: "https://reddit.com/r/{}"
-		},
-		{
-			alias: "w",
-			name: "Wikipedia Search",
-			url: "https://en.wikipedia.org/wiki/{}"
-		}
-	],
 	sections: [
 		{
 			title: "General",
@@ -263,4 +264,17 @@ const config = {
 	]
 }
 
-module.exports = config
+let config
+const getConfig = function () {
+	if (config) return config
+
+	let localSettings
+	if (typeof localStorage !== "undefined") {
+		localSettings = localStorage.getItem("settings")
+	}
+	config = localSettings ? JSON.parse(localSettings) : defaultConfig
+
+	return config
+}
+
+export default getConfig()
