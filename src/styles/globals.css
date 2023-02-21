@@ -20,6 +20,7 @@
 	--cyan: #62e0e2;
 	--magenta: #e069aa;
 	--purple: #d1aff8;
+	--orange: #ff8800;
 }
 
 * {
@@ -83,6 +84,7 @@ a:hover {
 .text-cyan { color: var(--cyan); }
 .text-magenta { color: var(--magenta); }
 .text-purple { color: var(--purple); }
+.text-orange { color: var(--orange); }
 
 
 .bg-white { background-color: var(--white); }
@@ -95,6 +97,7 @@ a:hover {
 .bg-cyan { background-color: var(--cyan); }
 .bg-magenta { background-color: var(--magenta); }
 .bg-purple { background-color: var(--purple); }
+.bg-orange { background-color: var(--orange); }
 .bg-terminal { background-color: var(--window-color); }
 
 .caret-white { caret-color: var(--white) !important; }
@@ -107,3 +110,4 @@ a:hover {
 .caret-cyan { caret-color: var(--cyan) !important; }
 .caret-magenta { caret-color: var(--magenta) !important; }
 .caret-purple { caret-color: var(--purple) !important; }
+.caret-orange { caret-color: var(--orange) !important; }

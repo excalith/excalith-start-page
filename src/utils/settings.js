@@ -1,22 +1,22 @@
 const defaultConfig = {
 	username: "Excalith",
 	terminal: {
-		fixedheight: true,
-		backgroundcolor: "#121317",
-		windowcolor: "#1e212b",
-		glowcolor: "none"
+		fixedHeight: true,
+		backgroundColor: "#121317",
+		windowColor: "#1e212b",
+		glowColor: "#6b5cb157"
 	},
 	prompt: {
-		ctrlc: true,
+		ctrlC: true,
 		placeholder: "command...",
-		usercolor: "green",
-		atcolor: "gray",
-		hostcolor: "magenta",
-		promptcolor: "magenta",
-		promptsymbol: "❯",
-		caretcolor: "green",
-		selectionbg: "#e8b195",
-		selectionfg: "#16161e"
+		userColor: "green",
+		atColor: "gray",
+		hostColor: "magenta",
+		promptColor: "magenta",
+		promptSymbol: "❯",
+		caretColor: "green",
+		selectionBg: "#e8b195",
+		selectionFg: "#16161e"
 	},
 	colors: {
 		white: "#e2e2e2",
@@ -28,12 +28,13 @@ const defaultConfig = {
 		blue: "#2bc3de",
 		cyan: "#62e0e2",
 		magenta: "#e069aa",
-		purple: "#d1aff8"
+		purple: "#d1aff8",
+		orange: "#ff8800"
 	},
 	fetch: {
-		timeformat: "HH:mm",
-		dateformat: "DD/MM/YYYY",
-		titlecolor: "yellow"
+		timeFormat: "HH:mm",
+		dateFormat: "DD/MM/YYYY",
+		titleColor: "yellow"
 	},
 	urlLaunch: {
 		target: "_self"
@@ -88,26 +89,22 @@ const defaultConfig = {
 				{
 					name: "Portfolio",
 					url: "https://cancellek.com",
-					icon: "mdi:web",
-					target: "_blank"
+					icon: "mdi:web"
 				},
 				{
 					name: "Keybase",
 					url: "https://keybase.io/",
-					icon: "fa-brands:keybase",
-					target: "_blank"
+					icon: "fa-brands:keybase"
 				},
 				{
 					name: "GPT",
 					url: "https://chat.openai.com/",
-					icon: "simple-icons:openai",
-					target: "_blank"
+					icon: "simple-icons:openai"
 				},
 				{
 					name: "OCI",
 					url: "https://www.oracle.com/cloud/",
-					icon: "simple-icons:oracle",
-					target: "_blank"
+					icon: "simple-icons:oracle"
 				}
 			]
 		},
@@ -118,26 +115,22 @@ const defaultConfig = {
 				{
 					name: "GitHub",
 					url: "https://github.com",
-					icon: "mdi:github",
-					target: "_blank"
+					icon: "mdi:github"
 				},
 				{
 					name: "GitLab",
 					url: "https://gitlab.com",
-					icon: "ph:gitlab-logo-simple-fill",
-					target: "_blank"
+					icon: "ph:gitlab-logo-simple-fill"
 				},
 				{
 					name: "Dev.to",
 					url: "https://dev.to",
-					icon: "material-symbols:logo-dev",
-					target: "_blank"
+					icon: "material-symbols:logo-dev"
 				},
 				{
 					name: "Stack Overflow",
 					url: "https://stackoverflow.com/",
-					icon: "mdi:stack-overflow",
-					target: "_blank"
+					icon: "mdi:stack-overflow"
 				}
 			]
 		},
@@ -148,26 +141,22 @@ const defaultConfig = {
 				{
 					name: "Twitter",
 					url: "https://twitter.com",
-					icon: "mdi:twitter",
-					target: "_blank"
+					icon: "mdi:twitter"
 				},
 				{
 					name: "Mastodon",
 					url: "https://mastodon.social/",
-					icon: "ri:mastodon-fill",
-					target: "_blank"
+					icon: "ri:mastodon-fill"
 				},
 				{
 					name: "Reddit",
 					url: "https://reddit.com",
-					icon: "mdi:reddit",
-					target: "_blank"
+					icon: "mdi:reddit"
 				},
 				{
 					name: "Polywork",
 					url: "https://polywork.com",
-					icon: "simple-icons:polywork",
-					target: "_blank"
+					icon: "simple-icons:polywork"
 				}
 			]
 		},
@@ -178,26 +167,22 @@ const defaultConfig = {
 				{
 					name: "Polygon",
 					url: "https://polygon.com",
-					icon: "uil:polygon",
-					target: "_blank"
+					icon: "uil:polygon"
 				},
 				{
 					name: "IGN",
 					url: "https://ign.com",
-					icon: "mdi:currency-sign",
-					target: "_blank"
+					icon: "mdi:currency-sign"
 				},
 				{
 					name: "RPS",
 					url: "https://rockpapershotgun.com/",
-					icon: "ph:toilet-paper-bold",
-					target: "_blank"
+					icon: "ph:toilet-paper-bold"
 				},
 				{
 					name: "80lv",
 					url: "https://80.lv/",
-					icon: "tabler:hand-rock",
-					target: "_blank"
+					icon: "tabler:hand-rock"
 				}
 			]
 		},
@@ -208,26 +193,22 @@ const defaultConfig = {
 				{
 					name: "PopSci",
 					url: "https://popsci.com/",
-					icon: "material-symbols:science",
-					target: "_blank"
+					icon: "material-symbols:science"
 				},
 				{
 					name: "Space",
 					url: "fa6-solid:user-astronaut",
-					icon: "mdi:reddit",
-					target: "_blank"
+					icon: "mdi:reddit"
 				},
 				{
 					name: "NASA",
 					url: "https://blogs.nasa.gov/",
-					icon: "simple-icons:nasa",
-					target: "_blank"
+					icon: "simple-icons:nasa"
 				},
 				{
 					name: "ESA",
 					url: "https://blogs.esa.int/",
-					icon: "mdi:black-mesa",
-					target: "_blank"
+					icon: "mdi:black-mesa"
 				}
 			]
 		},
@@ -238,26 +219,22 @@ const defaultConfig = {
 				{
 					name: "TechCrunch",
 					url: "https://techcrunch.com/",
-					icon: "game-icons:techno-heart",
-					target: "_blank"
+					icon: "game-icons:techno-heart"
 				},
 				{
 					name: "Verge",
 					url: "https://www.theverge.com/",
-					icon: "arcticons:verge",
-					target: "_blank"
+					icon: "arcticons:verge"
 				},
 				{
 					name: "It's Foss",
 					url: "https://itsfoss.com/",
-					icon: "ri:mastodon-fill",
-					target: "_blank"
+					icon: "ri:mastodon-fill"
 				},
 				{
 					name: "9To5 Linux",
 					url: "https://9to5linux.com/",
-					icon: "uil:linux",
-					target: "_blank"
+					icon: "uil:linux"
 				}
 			]
 		}

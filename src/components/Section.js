@@ -2,16 +2,17 @@ import Link from "@/components/Link"
 
 const Section = ({ section, filter }) => {
 	return (
-		<div>
-			<h1 className={`font-medium mt-1 mb-2 text-${section.color}`}>
+		<div className="mb-4">
+			<h2
+				className={`text-title font-medium mt-0 mb-2 text-${section.color}`}>
 				{section.title}
-			</h1>
+			</h2>
 
 			{section.links.map((link, index) => {
 				{
 					return (
 						<Link
-							className="text-white"
+							className="font-normal"
 							key={index}
 							linkData={link}
 							filter={filter}

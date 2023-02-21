@@ -70,6 +70,9 @@ const Help = ({ closeCallback }) => {
 						)
 					})}
 				</ul>
+				<ul>
+					<li className="my-line">Press Enter to continue...</li>
+				</ul>
 			</div>
 		</div>
 	)

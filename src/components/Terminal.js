@@ -3,7 +3,7 @@ import Settings from "@/utils/settings"
 import List from "@/components/List"
 import Help from "@/components/Help"
 import Config from "@/components/Config"
-import Nfetch from "@/components/Fetch"
+import Fetch from "@/components/Fetch"
 import { subscribe, unsubscribe } from "@/utils/event"
 import { RunCommand } from "@/utils/command"
 
@@ -13,7 +13,7 @@ const Terminal = () => {
 	const [windowHeight, setWindowHeight] = useState({})
 
 	useEffect(() => {
-		if (Settings.terminal.fixedheight) {
+		if (Settings.terminal.fixedHeight) {
 			const clientHeight = windowRef.current.clientHeight
 			setWindowHeight({
 				height: clientHeight
@@ -49,9 +49,9 @@ const Terminal = () => {
 		if (cmd === "help") {
 			return <Help closeCallback={closeWindow} />
 		} else if (cmd === "config" && commands.length >= 2) {
-			return <Config commands={commands} />
+			return <Config commands={commands} closeCallback={closeWindow} />
 		} else if (cmd === "fetch") {
-			return <Nfetch closeCallback={closeWindow} />
+			return <Fetch closeCallback={closeWindow} />
 		} else {
 			return <List />
 		}
@@ -59,7 +59,9 @@ const Terminal = () => {
 
 	return (
 		<div
-			className="absolute w-full h-auto transform -translate-x-1/2 -translate-y-1/2 shadow-lg rounded-terminal bg-terminal max-w-terminal p-terminal top-1/2 left-1/2"
+			className={`absolute w-full h-auto transform -translate-x-1/2 -translate-y-1/2 shadow-lg rounded-terminal bg-terminal max-w-terminal p-terminal top-1/2 left-1/2 ${
+				Settings.colors.glowcolor === "none" ? "shadow" : "glow"
+			}`}
 			style={windowHeight}
 			ref={windowRef}>
 			{getWindow()}
@@ -68,9 +70,3 @@ const Terminal = () => {
 }
 
 export default Terminal
-
-/*
-	className={`max-w-xs p-4 rounded-lg bg-gray-800 ${
-		Settings.colors.glowcolor === "none" ? "shadow" : "glow"
-	}`}
-*/

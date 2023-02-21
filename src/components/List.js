@@ -12,7 +12,7 @@ const List = () => {
 
 	return (
 		<div id="list">
-			<div className="grid grid-cols-3 gap-4 p-2.5 mb-4">
+			<div className="grid grid-cols-3 gap-4 px-3 py-2 mb-5">
 				{Settings.sections.map((section, index) => {
 					return (
 						<Section

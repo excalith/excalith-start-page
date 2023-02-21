@@ -21,24 +21,28 @@ export function RunCommand(command) {
 }
 
 function openFilteredLinks(command) {
-	let filterCount = 0
+	let filteredUrls = []
 	Settings.sections.map((section) => {
 		{
 			section.links.map((link) => {
 				{
 					if (link.name.toLowerCase().includes(command)) {
-						openLink(link.url, link.target)
-						filterCount++
+						filteredUrls.push(link.url)
 					}
 				}
 			})
 		}
 	})
 
+	let filterCount = filteredUrls.length
 	if (filterCount === 0) {
-		const searchEngine = Settings.search.default
+		const defaultSerachEngine = Settings.search.default
 		const target = Settings.search.target
-		openLink(searchEngine + command, target)
+		openLink(defaultSerachEngine + command, target)
+	} else {
+		filteredUrls.map((url, index) => {
+			openLink(url, index === filterCount - 1 ? "_self" : "_blank")
+		})
 	}
 }
 

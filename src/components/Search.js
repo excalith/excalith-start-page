@@ -15,7 +15,7 @@ const Search = ({ prompt, commandChange }) => {
 		const handleKeyDown = (event) => {
 			if (event.key === "Enter") {
 				RunCommand(input.current.value)
-			} else if (Settings.prompt.ctrlc) {
+			} else if (Settings.prompt.ctrlC) {
 				if ((event.metaKey || event.ctrlKey) && event.code === "KeyC") {
 					input.current.value = ""
 					commandChange({ target: { value: "" } })

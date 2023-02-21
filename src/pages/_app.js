@@ -18,17 +18,17 @@ export default function App({ Component, pageProps }) {
 
 		// Set Terminal
 		const terminal = Settings.terminal
-		const glowColor = terminal.glowcolor
-		const backgroundColor = terminal.backgroundcolor
-		const windowColor = terminal.windowcolor
+		const glowColor = terminal.glowColor
+		const backgroundColor = terminal.backgroundColor
+		const windowColor = terminal.windowColor
 		documentStyle.setProperty("--color-glow", glowColor)
 		documentStyle.setProperty("--background-color", backgroundColor)
 		documentStyle.setProperty("--window-color", windowColor)
 
 		// Set Prompt Selection Color
 		const prompt = Settings.prompt
-		const selectionfg = prompt.selectionfg
-		const selectionbg = prompt.selectionbg
+		const selectionfg = prompt.selectionFg
+		const selectionbg = prompt.selectionBg
 		documentStyle.setProperty("--selection-fg", selectionfg)
 		documentStyle.setProperty("--selection-bg", selectionbg)
 

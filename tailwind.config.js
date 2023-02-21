@@ -7,9 +7,9 @@ module.exports = {
 			mono: ["FiraCode", "ui-monospace", "SFMono-Regular"]
 		},
 		fontSize: {
-			xs: ["14px", "20px"],
+			DEFAULT: ["1rem", "2em"],
+			title: ["20px", "1.2"],
 			sm: ["15px", "20px"],
-			base: ["16px", "24px"],
 			lg: ["18px", "28px"],
 			xl: ["20px", "32px"],
 			"2xl": ["30px", "36px"],
@@ -23,7 +23,7 @@ module.exports = {
 				terminal: "50rem"
 			},
 			padding: {
-				terminal: "0.938rem"
+				terminal: "0.9rem"
 			},
 			margin: {
 				line: "1.4rem"

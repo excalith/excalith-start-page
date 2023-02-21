@@ -2,16 +2,13 @@ import React, { useEffect, useState } from "react"
 import { isURL } from "@/utils/isURL"
 import Prompt from "@/components/Prompt"
 import { openLink } from "@/utils/openLink"
-let loaded = false
 
-const Config = ({ commands }) => {
+const Config = ({ commands, closeCallback }) => {
 	const [command] = useState(commands.join(" "))
 	const [consoleLog, setConsoleLog] = useState([])
 	const [isDone, setDone] = useState(false)
 
 	useEffect(() => {
-		loaded = true
-
 		setConsoleLog([])
 
 		if (
@@ -25,22 +22,18 @@ const Config = ({ commands }) => {
 		} else if (commands[1] === "reset") {
 			resetConfig()
 		} else {
-			appendToLog("Invalid config command: " + commands.join(" "), false)
+			invalidCommand()
 			setDone(true)
 		}
 	}, [commands])
 
-	useEffect(() => {
-		loaded = true
-	}, [isDone])
-
 	const importConfig = (url) => {
-		appendToLog("Fetching settings from remote", true)
+		appendToLog("Fetching settings from remote", "[✓]")
 		fetch(url)
 			.then((res) => {
 				if (!res.ok) {
 					const message = "File not found on URL"
-					appendToLog(message, false)
+					appendToLog(message, "[✖]")
 					throw Error(message)
 				}
 
@@ -48,10 +41,10 @@ const Config = ({ commands }) => {
 			})
 			.then((data) => {
 				localStorage.setItem("settings", JSON.stringify(data))
-				appendToLog("Successfully saved to local storage", true)
+				appendToLog("Successfully saved to local storage", "[✓]")
 			})
 			.catch((err) => {
-				appendToLog(err, false)
+				appendToLog(err, "[✖]")
 			})
 			.finally(() => {
 				setDone(true)
@@ -59,13 +52,13 @@ const Config = ({ commands }) => {
 	}
 
 	const resetConfig = () => {
-		appendToLog("Removed local configuration", true)
+		appendToLog("Removed local configuration", "[✓]")
 		localStorage.removeItem("settings")
 		setDone(true)
 	}
 
 	const exportConfig = () => {
-		appendToLog("Exporting local configuration", true)
+		appendToLog("Exporting local configuration", "[✓]")
 		const settings = localStorage.getItem("settings")
 
 		if (settings) {
@@ -73,19 +66,29 @@ const Config = ({ commands }) => {
 			const url = URL.createObjectURL(blob)
 			openLink(url)
 		} else {
-			appendToLog("No local configuration found", false)
+			appendToLog("No local configuration found", "[✖]")
 		}
 
 		setDone(true)
 	}
 
-	const appendToLog = (text, status) => {
-		const prefix = status ? "[✓] " : "[✖] "
+	const invalidCommand = () => {
+		appendToLog("Invalid config command: " + commands.join(" "), "[✖]")
+		appendToLog("Usage:")
+		appendToLog("config import <url>: Import remote config")
+		appendToLog("config export: Export local config")
+		appendToLog("config reset: Reset to default config")
+	}
+
+	const appendToLog = (text, symbol) => {
+		const prefix = symbol ? symbol : ""
 		setConsoleLog((consoleLog) => [...consoleLog, prefix + text])
 	}
 
 	return (
-		<div className="h-full overflow-y-auto text-white">
+		<div
+			className="h-full overflow-y-auto text-white"
+			onClick={closeCallback}>
 			<div className="row">
 				<ul className="list-none mb-line">
 					<li>
@@ -98,7 +101,7 @@ const Config = ({ commands }) => {
 						return <li key={index}>{data}</li>
 					})}
 					{isDone && (
-						<li className="mt-line">Press ESC to continue</li>
+						<li className="mt-line">Press Enter to continue...</li>
 					)}
 				</ul>
 			</div>

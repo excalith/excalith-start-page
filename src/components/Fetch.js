@@ -11,14 +11,12 @@ import Settings from "@/utils/settings"
 import Prompt from "@/components/Prompt"
 
 const Fetch = ({ closeCallback }) => {
-	const lower_username = Settings.username.toLowerCase()
-	const prompt = Settings.prompt
 	const [info, setInfo] = useState({})
 
 	useEffect(() => {
 		setInfo({
-			time: moment().format(Settings.fetch.timeformat),
-			date: moment().format(Settings.fetch.dateformat),
+			time: moment().format(Settings.fetch.timeFormat),
+			date: moment().format(Settings.fetch.dateFormat),
 			osName: osName,
 			browser: browserName,
 			browserLower: browserName.toLowerCase(),
@@ -50,14 +48,14 @@ const Fetch = ({ closeCallback }) => {
 							<ul className="mt-2">
 								<li>
 									<span
-										className={`text-${Settings.fetch.titlecolor}`}>
+										className={`text-${Settings.fetch.titleColor}`}>
 										Time:
 									</span>{" "}
 									{info.time}
 								</li>
 								<li>
 									<span
-										className={`text-${Settings.fetch.titlecolor}`}>
+										className={`text-${Settings.fetch.titleColor}`}>
 										Date:
 									</span>{" "}
 									{info.date}
@@ -66,28 +64,28 @@ const Fetch = ({ closeCallback }) => {
 							<ul className="mt-line">
 								<li>
 									<span
-										className={`text-${Settings.fetch.titlecolor}`}>
+										className={`text-${Settings.fetch.titleColor}`}>
 										OS:
 									</span>{" "}
 									{info.osName}
 								</li>
 								<li>
 									<span
-										className={`text-${Settings.fetch.titlecolor}`}>
+										className={`text-${Settings.fetch.titleColor}`}>
 										Browser:
 									</span>{" "}
 									{info.browser}
 								</li>
 								<li>
 									<span
-										className={`text-${Settings.fetch.titlecolor}`}>
+										className={`text-${Settings.fetch.titleColor}`}>
 										Version:
 									</span>{" "}
 									{info.browserVersion}
 								</li>
 								<li>
 									<span
-										className={`text-${Settings.fetch.titlecolor}`}>
+										className={`text-${Settings.fetch.titleColor}`}>
 										Engine:
 									</span>{" "}
 									{info.engineName}

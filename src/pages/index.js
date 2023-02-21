@@ -3,7 +3,7 @@ import Terminal from "@/components/Terminal"
 import { Fira_Code } from "@next/font/google"
 
 const firaCode = Fira_Code({
-	weight: "500",
+	weight: ["400", "500"],
 	subsets: ["latin"]
 })
 
