@@ -2,9 +2,11 @@
 	<h1 align="center">Excalith Start Page</h1>
 	<img src=".github/startpage.gif" />
 
-<a href="https://excalith-start-page.vercel.app"><img src="https://therealsujitk-vercel-badge.vercel.app/?app=excalith-start-page" /></a>
+This is an interactive start age for browsers, inspired from my terminal setup.
 
-	This is an interactive start page for browsers, inspired from my terminal setup.
+[![Vercel Status](https://therealsujitk-vercel-badge.vercel.app/?app=excalith-start-page)](https://excalith-start-page.vercel.app)
+[![GitHub Version (latest semver)](https://img.shields.io/github/v/release/excalith/excalith-start-page?label=github)](https://github.com/excalith/excalith-start-page)
+[![Docker Version (latest semver)](https://img.shields.io/docker/v/excalith/start-page?label=docker)](https://hub.docker.com/r/excalith/start-page)
 </div>
 
 ## Demo
@@ -32,11 +34,17 @@
 
 ## Customization
 
-You can fork the repository and configure everything as you wish. Please refer to [wiki](https://github.com/excalith/excalith-start-page/wiki) page for more information.
+There are multiple ways of customizing the start page to making it yours!
+
+- You can use the deployed web app and import your own configuration from a URL
+- You can clone this repo and modify the configuration file as you will
+- You can use the Docker image and import your own configuration file to the container
+
+Please refer to [wiki page](https://github.com/excalith/excalith-start-page/wiki) for more information.
 
 ## How To Contribute
 
-Please feel free to contribute any way you can. Just keep in mind that you should pay attention to [CONTRIBUTE.md](.github/CONTRIBUTING.md) before contributing.
+Please feel free to contribute any way you can. Just keep in mind that you should pay attention to [contributing guideline](.github/CONTRIBUTING.md) before contributing.
 
 ## License
 
