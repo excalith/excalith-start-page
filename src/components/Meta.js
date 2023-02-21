@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react"
 import Head from "next/head"
-import Config from "@/startpage.config"
+import Settings from "@/utils/settings"
 
 const Meta = () => {
 	const [title, setTitle] = useState("Start Page")
 	useEffect(() => {
-		setTitle(Config.username + " Start Page")
+		setTitle(Settings.username + " Start Page")
 	}, [])
 
 	return (

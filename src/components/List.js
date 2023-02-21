@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import Config from "@/startpage.config"
+import Settings from "@/utils/settings"
 import Search from "@/components/Search"
 import Section from "@/components/Section"
 
@@ -12,23 +12,19 @@ const List = () => {
 
 	return (
 		<div id="list">
-			<div id="sections" className="container-fluid .col-3">
-				<div className="row">
-					{Config.sections.map((section, index) => {
-						return (
-							<Section
-								key={index}
-								section={section}
-								filter={command}
-							/>
-						)
-					})}
-				</div>
+			<div className="grid grid-cols-3 gap-4 px-3 py-2 mb-5">
+				{Settings.sections.map((section, index) => {
+					return (
+						<Section
+							key={index}
+							section={section}
+							filter={command}
+						/>
+					)
+				})}
 			</div>
-
 			<Search
-				username={Config.username}
-				prompt={Config.prompt}
+				prompt={Settings.prompt}
 				commandChange={handleCommandChange}
 			/>
 		</div>

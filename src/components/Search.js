@@ -1,27 +1,21 @@
 import React, { useRef, useEffect, useState } from "react"
-import { browserName } from "react-device-detect"
 import { RunCommand } from "@/utils/command"
-import Config from "@/startpage.config"
+import Prompt from "@/components/Prompt"
+import Settings from "@/utils/settings"
 
-const Search = ({ username, prompt, commandChange }) => {
+const Search = ({ prompt, commandChange }) => {
 	const [focus, setFocus] = useState(false)
-	const [browser, setBrowser] = useState("unknown")
 	const input = useRef(null)
-	const lower_username = username.toLowerCase()
 
 	useEffect(() => {
 		setTimeout(() => input.current.focus(), 0)
 	}, [focus])
 
 	useEffect(() => {
-		setBrowser(browserName.toLowerCase())
-	}, [])
-
-	useEffect(() => {
 		const handleKeyDown = (event) => {
 			if (event.key === "Enter") {
 				RunCommand(input.current.value)
-			} else if (Config.prompt.ctrlc) {
+			} else if (Settings.prompt.ctrlC) {
 				if ((event.metaKey || event.ctrlKey) && event.code === "KeyC") {
 					input.current.value = ""
 					commandChange({ target: { value: "" } })
@@ -36,18 +30,13 @@ const Search = ({ username, prompt, commandChange }) => {
 	})
 
 	return (
-		<div id="search" className="d-flex">
-			<span>
-				<span className={prompt.usercolor}>{lower_username}</span>
-				<span className={prompt.atcolor}>@</span>
-				<span className={prompt.hostcolor}>{browser}</span>
-				<span className={prompt.promptcolor}> {prompt.prompt} </span>
-			</span>
+		<div id="search" className="flex">
+			<Prompt />
 			<input
-				className={`flex-grow-1 ${prompt.caretcolor}-caret`}
+				className={`grow inline-block bg-transparent text-white outline-none appearance-none shadow-none ml-2.5 caret-${prompt.caretcolor}`}
 				type="text"
 				onChange={commandChange}
-				placeholder={Config.prompt.placeholder}
+				placeholder={Settings.prompt.placeholder}
 				autoFocus
 				onFocus={() => {
 					setFocus(true)

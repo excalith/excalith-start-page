@@ -1,0 +1,81 @@
+import Settings from "@/utils/settings"
+import Prompt from "@/components/Prompt"
+
+const Help = ({ closeCallback }) => {
+	return (
+		<div
+			className="h-full overflow-y-auto text-white"
+			onClick={closeCallback}>
+			<div>
+				<span>
+					<Prompt command="help" />
+				</span>
+
+				<span className="block mt-line text-green">Usage</span>
+				<ul>
+					<li>- Filter links by typing in the prompt</li>
+					<li>
+						- Unfiltered prompt will search using default search
+						engine
+					</li>
+					<li>- Launch URL's directly from prompt</li>
+					<li>- Use CTRL+C to clear prompt</li>
+					<li>- Use ENTER to exit windows</li>
+				</ul>
+
+				<span className="block mt-line text-green">
+					Built-in Commands
+				</span>
+				<ul>
+					<li>
+						<span className="text-blue">help</span> Display this
+						help
+					</li>
+					<li>
+						<span className="text-blue">fetch</span> Display browser
+						information
+					</li>
+					<li>
+						<span className="text-blue">config</span> Configuration
+						settings
+						<ul className="ml-5">
+							<li>
+								<span className="text-blue">
+									config import [url]
+								</span>{" "}
+								Imports remote config JSON
+							</li>
+							<li>
+								<span className="text-blue">config export</span>{" "}
+								Exports local config
+							</li>
+							<li>
+								<span className="text-blue">config reset</span>{" "}
+								Resets to default config
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+				<span className="block mt-line text-green">
+					Custom Commands
+				</span>
+				<ul>
+					{Settings.search.shortcuts.map((cmd, index) => {
+						return (
+							<li key={index}>
+								<span className="text-blue">{cmd.alias}</span>{" "}
+								{cmd.name}
+							</li>
+						)
+					})}
+				</ul>
+				<ul>
+					<li className="my-line">Press Enter to continue...</li>
+				</ul>
+			</div>
+		</div>
+	)
+}
+
+export default Help

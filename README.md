@@ -17,11 +17,18 @@
 - Quickly filter links by typing in the prompt. Hitting `Enter` will open all filtered links at once
 - If nothing filtered, the text in prompt will use the default search engine for searching your input
 - Launch websites directly from the prompt. Just type the URL (ie. `github.com`)
-- Search websites with custom commands. For example, type `s: some weird bug` to search StackOverflow for `some weird bug`
+- Search websites with custom commands. For example, type `s some weird bug` to search StackOverflow for `some weird bug`
 - Clear the prompt quickly with `CTRL + C`
-- Show usage with `help` command
-- Show info (time, date, system and browser data) with `nfetch` command
-- Changing colors, adding links and custom commands can be done through a single configuration file
+- Changing colors, adding links and custom commands can be done through a [single configuration file](src/utils/settings.js)
+
+### Built-In Commands
+
+- Show usage with `help` command (shows basic usage and your configured search shortcuts)
+- Show info with `fetch` command (time, date, system and browser data)
+- Update your configuration with `config` command
+  - `config import <url>` - Import configuration from a URL to your local storage
+  - `config export` - Export your configuration as a blob
+  - `config reset` - Reset your configuration to default
 
 ## Customization
 
