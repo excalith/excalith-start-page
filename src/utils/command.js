@@ -61,7 +61,7 @@ function tryParseSearchShortcut(command) {
 
 		if (name === regex_cmd[1]) {
 			const url = commandData.url
-			openLink(url.replace("{}", regex_cmd[2]), "_blank")
+			openLink(url.replace("{}", regex_cmd[2]), Settings.urlLaunch.target)
 			return true
 		}
 	}
