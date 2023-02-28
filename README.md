@@ -10,9 +10,28 @@ This is an interactive start age for browsers, inspired from my terminal setup.
 </div>
 
 ## Demo
+### Online
+You can check the working version from [here](https://excalith-start-page.vercel.app)
 
-- You can check the working version from [here](https://excalith-start-page.vercel.app)
-- Clone this repo and run `yarn dev` command to view on your machine
+### Docker
+**From Docker Registry**
+```bash
+docker pull excalith/start-page:latest
+```
+
+**From GitHub Registry**
+```bash
+docker pull ghcr.io/excalith/excalith-start-page:latest
+```
+
+**Start Container**
+```bash
+# You can change the port mapping of 8080 into something you want
+docker run --name start-page --restart=always -p 8080:3000 -d excalith/start-page
+```
+
+### Local
+Clone this repo and run `yarn dev` command to host it locally on your machine
 
 ## Features
 
