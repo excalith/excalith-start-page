@@ -36,7 +36,7 @@ const Terminal = () => {
 	}, [settings])
 
 	const closeWindow = () => {
-		RunCommand("list")
+		RunCommand("list", settings)
 	}
 
 	const getWindow = () => {

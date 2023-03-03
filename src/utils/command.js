@@ -1,11 +1,10 @@
 import { isURL } from "@/utils/isURL"
 import { openLink } from "@/utils/openLink"
 import { publish } from "@/utils/event"
-import { settings } from "@/context/settings"
 
 const registeredCommands = ["list", "help", "fetch", "config"]
 
-export function RunCommand(command) {
+export function RunCommand(command, settings) {
 	if (command === "") return false
 	const cmd_split = command.split(" ")
 
@@ -13,16 +12,16 @@ export function RunCommand(command) {
 		publish("command", cmd_split)
 	} else if (isURL(command)) {
 		openLink("https://" + command, settings.urlLaunch.target)
-	} else if (tryParseSearchShortcut(command)) {
+	} else if (tryParseSearchShortcut(command, settings)) {
 		return
 	} else {
-		openFilteredLinks(command)
+		openFilteredLinks(command, settings)
 	}
 }
 
-function openFilteredLinks(command) {
+function openFilteredLinks(command, settings) {
 	let filteredUrls = []
-	Settings.sections.map((section) => {
+	settings.sections.map((section) => {
 		{
 			section.links.map((link) => {
 				{
@@ -46,7 +45,7 @@ function openFilteredLinks(command) {
 	}
 }
 
-function tryParseSearchShortcut(command) {
+function tryParseSearchShortcut(command, settings) {
 	// Split command and query seperated by shortcut regex
 	var commandPattern = new RegExp(settings.search.shortcutRegex, "g")
 	let matchAll = command.matchAll(commandPattern)
