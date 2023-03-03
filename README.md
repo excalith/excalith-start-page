@@ -39,8 +39,7 @@ Clone this repo and run `yarn dev` command to host it locally on your machine
 - If nothing filtered, the text in prompt will use the default search engine for searching your input
 - Launch websites directly from the prompt. Just type the URL (ie. `github.com`)
 - Search websites with custom commands. For example, type `s some weird bug` to search StackOverflow for `some weird bug`
-- Clear the prompt quickly with `CTRL + C`
-- Changing colors, adding links and custom commands can be done through a [single configuration file](src/utils/settings.js)
+- Multiple ways to customize the start page to your liking
 
 ### Built-In Commands
 
@@ -51,13 +50,18 @@ Clone this repo and run `yarn dev` command to host it locally on your machine
   - `config edit` - Edit local configuration within editor
   - `config reset` - Reset your configuration to default
 
+### Key Bindings
+
+- Clear the prompt quickly with `CTRL + C`
+- Close window with `ESC`
+
 ## Customization
 
 There are multiple ways of customizing the start page to making it yours!
 
-- You can use the deployed web app and import your own configuration from a URL
-- You can clone this repo and modify the configuration file as you will
-- You can use the Docker image and import your own configuration file to the container
+- Use `config edit` to edit your configuration within the start page code editor
+- Use `config import <url>` to import configuration from a URL
+- Change the default configuration in `startpage.config.js` file and deploy your own version
 
 Please refer to [wiki page](https://github.com/excalith/excalith-start-page/wiki) for more information.
 
