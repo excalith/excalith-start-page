@@ -1,12 +1,20 @@
-import React, { useEffect, useState } from "react"
-import { isURL } from "@/utils/isURL"
+import React, { useEffect, useRef, useState } from "react"
 import Prompt from "@/components/Prompt"
+import { isURL } from "@/utils/isURL"
 import { openLink } from "@/utils/openLink"
+import { useSettings } from "@hooks/useSettings"
+import dynamic from "next/dynamic"
 
 const Config = ({ commands, closeCallback }) => {
 	const [command] = useState(commands.join(" "))
 	const [consoleLog, setConsoleLog] = useState([])
 	const [isDone, setDone] = useState(false)
+	const [isEditMode, setIsEditMode] = useState(false)
+	const [settings, setSettings] = useSettings()
+
+	const CodeEditor = dynamic(() => import("@/components/Editor"), {
+		ssr: false
+	})
 
 	useEffect(() => {
 		setConsoleLog([])
@@ -17,8 +25,10 @@ const Config = ({ commands, closeCallback }) => {
 			isURL(commands[2])
 		) {
 			importConfig(commands[2])
-		} else if (commands[1] === "export") {
-			exportConfig()
+		} else if (commands[1] === "edit") {
+			editConfig()
+		} else if (commands[1] === "show") {
+			showConfig()
 		} else if (commands[1] === "reset") {
 			resetConfig()
 		} else {
@@ -40,7 +50,7 @@ const Config = ({ commands, closeCallback }) => {
 				return res.json()
 			})
 			.then((data) => {
-				localStorage.setItem("settings", JSON.stringify(data))
+				setSettings(JSON.stringify(data))
 				appendToLog("Successfully saved to local storage", "[✓]")
 			})
 			.catch((err) => {
@@ -57,19 +67,20 @@ const Config = ({ commands, closeCallback }) => {
 		setDone(true)
 	}
 
-	const exportConfig = () => {
+	const showConfig = () => {
 		appendToLog("Exporting local configuration", "[✓]")
-		const settings = localStorage.getItem("settings")
 
 		if (settings) {
 			const blob = new Blob([settings], { type: "application/json" })
 			const url = URL.createObjectURL(blob)
 			openLink(url)
-		} else {
-			appendToLog("No local configuration found", "[✖]")
 		}
 
 		setDone(true)
+	}
+
+	const editConfig = () => {
+		setIsEditMode(true)
 	}
 
 	const invalidCommand = () => {
@@ -85,25 +96,40 @@ const Config = ({ commands, closeCallback }) => {
 		setConsoleLog((consoleLog) => [...consoleLog, prefix + text])
 	}
 
+	function closeConfigWindow(forceClose) {
+		if (isEditMode) return
+
+		setIsEditMode(false)
+		closeCallback()
+	}
+
 	return (
 		<div
 			className="h-full overflow-y-auto text-white"
-			onClick={closeCallback}>
+			onClick={closeConfigWindow}>
 			<div className="row">
-				<ul className="list-none mb-line">
+				<ul className="list-none">
 					<li>
 						<Prompt />
 						{command}
 					</li>
 				</ul>
-				<ul className="list-none">
-					{consoleLog.map((data, index) => {
-						return <li key={index}>{data}</li>
-					})}
-					{isDone && (
-						<li className="mt-line">Press Enter to continue...</li>
-					)}
-				</ul>
+				{isEditMode ? (
+					<>
+						<CodeEditor />
+					</>
+				) : (
+					<ul className="list-none mt-line">
+						{consoleLog.map((data, index) => {
+							return <li key={index}>{data}</li>
+						})}
+						{isDone && (
+							<li className="mt-line">
+								Press Enter to continue...
+							</li>
+						)}
+					</ul>
+				)}
 			</div>
 		</div>
 	)

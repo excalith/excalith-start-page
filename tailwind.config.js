@@ -2,6 +2,7 @@
 module.exports = {
 	content: ["./src/**/*.{js,ts,jsx,tsx}"],
 	darkMode: ["class", '[data-mode="dark"]'],
+	// important: true,
 	theme: {
 		fontFamily: {
 			mono: ["FiraCode", "ui-monospace", "SFMono-Regular"]

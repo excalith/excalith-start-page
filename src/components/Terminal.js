@@ -21,12 +21,7 @@ const Terminal = () => {
 		}
 
 		const handleKeyDown = (event) => {
-			if (
-				event.key === "q" ||
-				event.key === "Escape" ||
-				event.key === "Enter" ||
-				((event.altkey || event.ctrlKey) && event.code === "KeyD")
-			) {
+			if (event.key === "Escape") {
 				closeWindow()
 			}
 		}
