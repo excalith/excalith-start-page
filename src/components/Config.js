@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useState } from "react"
 import Prompt from "@/components/Prompt"
 import { isURL } from "@/utils/isURL"
 import { useSettings } from "@/context/settings"
-import defaultConfig from "startpage.config"
 import dynamic from "next/dynamic"
 
 const Config = ({ commands, closeCallback }) => {
@@ -36,23 +35,22 @@ const Config = ({ commands, closeCallback }) => {
 	}, [commands])
 
 	const importConfig = (url) => {
-		appendToLog("Fetching settings from remote", "[✓]")
+		appendToLog("Fetching settings from remote", "success")
 		fetch(url)
 			.then((res) => {
 				if (!res.ok) {
-					const message = "File not found on URL"
-					appendToLog(message, "[✖]")
+					appendToLog("File not found on URL", "error")
 					throw Error(message)
 				}
 
 				return res.json()
 			})
 			.then((data) => {
-				setSettings(JSON.stringify(data))
-				appendToLog("Successfully saved to local storage", "[✓]")
+				setSettings(data)
+				appendToLog("Successfully saved to local storage", "success")
 			})
 			.catch((err) => {
-				appendToLog(err, "[✖]")
+				appendToLog(err, true)
 			})
 			.finally(() => {
 				setDone(true)
@@ -60,7 +58,7 @@ const Config = ({ commands, closeCallback }) => {
 	}
 
 	const resetConfig = () => {
-		appendToLog("Reverted back to default configuration", "[✓]")
+		appendToLog("Reverted back to default configuration", "success")
 		resetSettings()
 		setDone(true)
 	}
@@ -70,19 +68,21 @@ const Config = ({ commands, closeCallback }) => {
 	}
 
 	const invalidCommand = () => {
-		appendToLog("Invalid config command: " + commands.join(" "), "[✖]")
+		appendToLog("Invalid config command: " + commands.join(" "), "error")
 		appendToLog("Usage:")
 		appendToLog("config import <url>: Import remote config")
 		appendToLog("config edit: Edit local config")
 		appendToLog("config reset: Reset to default config")
 	}
 
-	const appendToLog = (text, symbol) => {
-		const prefix = symbol ? symbol : ""
-		setConsoleLog((consoleLog) => [...consoleLog, prefix + text])
+	const appendToLog = (text, type) => {
+		setConsoleLog((consoleLog) => [
+			...consoleLog,
+			{ type: type, text: text }
+		])
 	}
 
-	function closeConfigWindow(forceClose) {
+	function closeConfigWindow() {
 		if (isEditMode) return
 
 		setIsEditMode(false)
@@ -107,11 +107,33 @@ const Config = ({ commands, closeCallback }) => {
 				) : (
 					<ul className="list-none mt-line">
 						{consoleLog.map((data, index) => {
-							return <li key={index}>{data}</li>
+							return (
+								<li key={index}>
+									{data.type === "error" && (
+										<p>
+											<span className="text-red">
+												[✖]{" "}
+											</span>
+											{data.text}
+										</p>
+									)}
+									{data.type === "success" && (
+										<p>
+											<span className="text-green">
+												[✓]{" "}
+											</span>
+											{data.text}
+										</p>
+									)}
+									{data.type === undefined && (
+										<p>{data.text}</p>
+									)}
+								</li>
+							)
 						})}
 						{isDone && (
 							<li className="mt-line">
-								Press Enter to continue...
+								Press ESC to continue...
 							</li>
 						)}
 					</ul>

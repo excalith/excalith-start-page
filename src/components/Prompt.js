@@ -12,7 +12,7 @@ const Search = ({ command }) => {
 	}, [])
 
 	return (
-		<span>
+		<span className="cursor-default">
 			<span className={`text-${settings.prompt.userColor}`}>
 				{lower_username}
 			</span>
