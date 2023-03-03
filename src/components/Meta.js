@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useContext } from "react"
 import Head from "next/head"
-import Settings from "@/utils/settings"
+import { useSettings } from "@/context/settings"
 
 const Meta = () => {
 	const [title, setTitle] = useState("Start Page")
+	const { settings } = useSettings()
+
 	useEffect(() => {
-		setTitle(Settings.username + " Start Page")
-	}, [])
+		setTitle(settings.username + " Start Page")
+	}, [settings.username])
 
 	return (
 		<Head>

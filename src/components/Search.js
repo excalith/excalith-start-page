@@ -1,10 +1,11 @@
 import React, { useRef, useEffect, useState } from "react"
 import { RunCommand } from "@/utils/command"
 import Prompt from "@/components/Prompt"
-import Settings from "@/utils/settings"
+import { useSettings } from "@/context/settings"
 
 const Search = ({ prompt, commandChange }) => {
 	const [focus, setFocus] = useState(false)
+	const { settings } = useSettings()
 	const input = useRef(null)
 
 	useEffect(() => {
@@ -15,7 +16,7 @@ const Search = ({ prompt, commandChange }) => {
 		const handleKeyDown = (event) => {
 			if (event.key === "Enter") {
 				RunCommand(input.current.value)
-			} else if (Settings.prompt.ctrlC) {
+			} else if (settings.prompt.ctrlC) {
 				if ((event.metaKey || event.ctrlKey) && event.code === "KeyC") {
 					input.current.value = ""
 					commandChange({ target: { value: "" } })
@@ -36,7 +37,7 @@ const Search = ({ prompt, commandChange }) => {
 				className={`grow inline-block bg-transparent text-white outline-none appearance-none shadow-none ml-2.5 caret-${prompt.caretcolor}`}
 				type="text"
 				onChange={commandChange}
-				placeholder={Settings.prompt.placeholder}
+				placeholder={settings.prompt.placeholder}
 				autoFocus
 				onFocus={() => {
 					setFocus(true)

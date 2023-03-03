@@ -2,12 +2,12 @@ import React, { useEffect, useState, useRef } from "react"
 import AceEditor from "react-ace"
 import "ace-builds/src-noconflict/mode-json"
 import "one-theme-ace/one-dark"
-import { useSettings } from "@hooks/useSettings"
+import { useSettings } from "@/context/settings"
 
 const Editor = () => {
 	const editor = useRef(null)
 	const [hasError, setError] = useState(false)
-	const [settings, setSettings] = useSettings()
+	const { settings, setSettings } = useSettings()
 
 	useEffect(() => {
 		editor.current.editor.session.foldAll(
@@ -29,13 +29,13 @@ const Editor = () => {
 		const val = editor.current.editor.getValue()
 		try {
 			const data = JSON.parse(val)
-			const settings = JSON.stringify(data)
-			setSettings(settings)
+			setSettings(data)
 			setError(false)
 		} catch (e) {
 			setError(true)
 		}
 	}
+
 	return (
 		<>
 			<div className="relative w-full mt-2">

@@ -1,7 +1,9 @@
-import Settings from "@/utils/settings"
 import Prompt from "@/components/Prompt"
+import { useSettings } from "@/context/settings"
 
 const Help = ({ closeCallback }) => {
+	const { settings } = useSettings()
+
 	return (
 		<div
 			className="h-full overflow-y-auto text-white"
@@ -20,7 +22,7 @@ const Help = ({ closeCallback }) => {
 					</li>
 					<li>- Launch URL's directly from prompt</li>
 					<li>- Use CTRL+C to clear prompt</li>
-					<li>- Use ENTER to exit windows</li>
+					<li>- Use ESC to exit windows</li>
 				</ul>
 
 				<span className="block mt-line text-green">
@@ -46,8 +48,8 @@ const Help = ({ closeCallback }) => {
 								Imports remote config JSON
 							</li>
 							<li>
-								<span className="text-blue">config export</span>{" "}
-								Exports local config
+								<span className="text-blue">config edit</span>{" "}
+								Opens local config in editor
 							</li>
 							<li>
 								<span className="text-blue">config reset</span>{" "}
@@ -61,7 +63,7 @@ const Help = ({ closeCallback }) => {
 					Custom Commands
 				</span>
 				<ul>
-					{Settings.search.shortcuts.map((cmd, index) => {
+					{settings.search.shortcuts.map((cmd, index) => {
 						return (
 							<li key={index}>
 								<span className="text-blue">{cmd.alias}</span>{" "}

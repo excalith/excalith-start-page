@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react"
 import Prompt from "@/components/Prompt"
 import { isURL } from "@/utils/isURL"
-import { openLink } from "@/utils/openLink"
-import { useSettings } from "@hooks/useSettings"
+import { useSettings } from "@/context/settings"
+import defaultConfig from "startpage.config"
 import dynamic from "next/dynamic"
 
 const Config = ({ commands, closeCallback }) => {
@@ -10,7 +10,7 @@ const Config = ({ commands, closeCallback }) => {
 	const [consoleLog, setConsoleLog] = useState([])
 	const [isDone, setDone] = useState(false)
 	const [isEditMode, setIsEditMode] = useState(false)
-	const [settings, setSettings] = useSettings()
+	const { setSettings, resetSettings } = useSettings()
 
 	const CodeEditor = dynamic(() => import("@/components/Editor"), {
 		ssr: false
@@ -27,8 +27,6 @@ const Config = ({ commands, closeCallback }) => {
 			importConfig(commands[2])
 		} else if (commands[1] === "edit") {
 			editConfig()
-		} else if (commands[1] === "show") {
-			showConfig()
 		} else if (commands[1] === "reset") {
 			resetConfig()
 		} else {
@@ -62,20 +60,8 @@ const Config = ({ commands, closeCallback }) => {
 	}
 
 	const resetConfig = () => {
-		appendToLog("Removed local configuration", "[✓]")
-		localStorage.removeItem("settings")
-		setDone(true)
-	}
-
-	const showConfig = () => {
-		appendToLog("Exporting local configuration", "[✓]")
-
-		if (settings) {
-			const blob = new Blob([settings], { type: "application/json" })
-			const url = URL.createObjectURL(blob)
-			openLink(url)
-		}
-
+		appendToLog("Reverted back to default configuration", "[✓]")
+		resetSettings()
 		setDone(true)
 	}
 
@@ -87,7 +73,7 @@ const Config = ({ commands, closeCallback }) => {
 		appendToLog("Invalid config command: " + commands.join(" "), "[✖]")
 		appendToLog("Usage:")
 		appendToLog("config import <url>: Import remote config")
-		appendToLog("config export: Export local config")
+		appendToLog("config edit: Edit local config")
 		appendToLog("config reset: Reset to default config")
 	}
 
