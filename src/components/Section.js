@@ -4,7 +4,7 @@ const Section = ({ section, filter }) => {
 	return (
 		<div className="mb-4">
 			<h2
-				className={`text-title font-medium mt-0 mb-2 text-${section.color}`}>
+				className={`text-title font-bold mt-0 mb-2 cursor-default text-${section.color}`}>
 				{section.title}
 			</h2>
 

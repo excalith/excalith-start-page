@@ -241,17 +241,4 @@ const defaultConfig = {
 	]
 }
 
-let config
-const getConfig = function () {
-	if (config) return config
-
-	let localSettings
-	if (typeof localStorage !== "undefined") {
-		localSettings = localStorage.getItem("settings")
-	}
-	config = localSettings ? JSON.parse(localSettings) : defaultConfig
-
-	return config
-}
-
-export default getConfig()
+export default defaultConfig

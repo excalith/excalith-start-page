@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from "react"
-import Settings from "@/utils/settings"
 import List from "@/components/List"
 import Help from "@/components/Help"
 import Config from "@/components/Config"
 import Fetch from "@/components/Fetch"
+import { useSettings } from "@/context/settings"
 import { subscribe, unsubscribe } from "@/utils/event"
 import { RunCommand } from "@/utils/command"
 
@@ -11,9 +11,10 @@ const Terminal = () => {
 	const windowRef = useRef(null)
 	const [commands, setCommands] = useState("list")
 	const [windowHeight, setWindowHeight] = useState({})
+	const { settings } = useSettings()
 
 	useEffect(() => {
-		if (Settings.terminal.fixedHeight) {
+		if (settings.terminal.fixedHeight) {
 			const clientHeight = windowRef.current.clientHeight
 			setWindowHeight({
 				height: clientHeight
@@ -21,12 +22,7 @@ const Terminal = () => {
 		}
 
 		const handleKeyDown = (event) => {
-			if (
-				event.key === "q" ||
-				event.key === "Escape" ||
-				event.key === "Enter" ||
-				((event.altkey || event.ctrlKey) && event.code === "KeyD")
-			) {
+			if (event.key === "Escape") {
 				closeWindow()
 			}
 		}
@@ -37,7 +33,7 @@ const Terminal = () => {
 			unsubscribe("command", (e) => setCommands(e.detail))
 			document.removeEventListener("keydown", handleKeyDown)
 		}
-	}, [])
+	}, [settings])
 
 	const closeWindow = () => {
 		RunCommand("list")
@@ -57,10 +53,12 @@ const Terminal = () => {
 		}
 	}
 
+	if (!settings) return
+
 	return (
 		<div
 			className={`absolute w-full h-auto transform -translate-x-1/2 -translate-y-1/2 shadow-lg rounded-terminal bg-terminal max-w-terminal p-terminal top-1/2 left-1/2 ${
-				Settings.colors.glowcolor === "none" ? "shadow" : "glow"
+				settings.colors.glowcolor === "none" ? "shadow" : "glow"
 			}`}
 			style={windowHeight}
 			ref={windowRef}>

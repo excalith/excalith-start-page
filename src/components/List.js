@@ -1,10 +1,11 @@
 import React, { useState } from "react"
-import Settings from "@/utils/settings"
 import Search from "@/components/Search"
 import Section from "@/components/Section"
+import { useSettings } from "@/context/settings"
 
 const List = () => {
 	const [command, setCommand] = useState("")
+	const { settings } = useSettings()
 
 	const handleCommandChange = (e) => {
 		setCommand(e.target.value)
@@ -13,7 +14,7 @@ const List = () => {
 	return (
 		<div id="list">
 			<div className="grid grid-cols-3 gap-4 px-3 py-2 mb-5">
-				{Settings.sections.map((section, index) => {
+				{settings.sections.map((section, index) => {
 					return (
 						<Section
 							key={index}
@@ -24,7 +25,7 @@ const List = () => {
 				})}
 			</div>
 			<Search
-				prompt={Settings.prompt}
+				prompt={settings.prompt}
 				commandChange={handleCommandChange}
 			/>
 		</div>

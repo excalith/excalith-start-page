@@ -1,7 +1,7 @@
-import Settings from "@/utils/settings"
 import { isURL } from "@/utils/isURL"
 import { openLink } from "@/utils/openLink"
 import { publish } from "@/utils/event"
+import { settings } from "@/context/settings"
 
 const registeredCommands = ["list", "help", "fetch", "config"]
 
@@ -12,7 +12,7 @@ export function RunCommand(command) {
 	if (registeredCommands.includes(cmd_split[0])) {
 		publish("command", cmd_split)
 	} else if (isURL(command)) {
-		openLink("https://" + command, Settings.urlLaunch.target)
+		openLink("https://" + command, settings.urlLaunch.target)
 	} else if (tryParseSearchShortcut(command)) {
 		return
 	} else {
@@ -36,8 +36,8 @@ function openFilteredLinks(command) {
 
 	let filterCount = filteredUrls.length
 	if (filterCount === 0) {
-		const defaultSerachEngine = Settings.search.default
-		const target = Settings.search.target
+		const defaultSerachEngine = settings.search.default
+		const target = settings.search.target
 		openLink(defaultSerachEngine + command, target)
 	} else {
 		filteredUrls.map((url, index) => {
@@ -48,20 +48,20 @@ function openFilteredLinks(command) {
 
 function tryParseSearchShortcut(command) {
 	// Split command and query seperated by shortcut regex
-	var commandPattern = new RegExp(Settings.search.shortcutRegex, "g")
+	var commandPattern = new RegExp(settings.search.shortcutRegex, "g")
 	let matchAll = command.matchAll(commandPattern)
 	matchAll = Array.from(matchAll)
 
 	if (matchAll.length === 0) return false
 
 	let regex_cmd = matchAll[0]
-	for (var i = 0; i < Settings.search.shortcuts.length; i++) {
-		const commandData = Settings.search.shortcuts[i]
+	for (var i = 0; i < settings.search.shortcuts.length; i++) {
+		const commandData = settings.search.shortcuts[i]
 		const name = commandData.alias
 
 		if (name === regex_cmd[1]) {
 			const url = commandData.url
-			openLink(url.replace("{}", regex_cmd[2]), Settings.urlLaunch.target)
+			openLink(url.replace("{}", regex_cmd[2]), settings.urlLaunch.target)
 			return true
 		}
 	}

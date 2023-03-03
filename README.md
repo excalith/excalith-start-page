@@ -48,7 +48,7 @@ Clone this repo and run `yarn dev` command to host it locally on your machine
 - Show info with `fetch` command (time, date, system and browser data)
 - Update your configuration with `config` command
   - `config import <url>` - Import configuration from a URL to your local storage
-  - `config export` - Export your configuration as a blob
+  - `config edit` - Edit local configuration within editor
   - `config reset` - Reset your configuration to default
 
 ## Customization
