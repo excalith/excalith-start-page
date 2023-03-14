@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { osName, browserName, engineName, engineVersion, browserVersion } from "react-device-detect"
 
-const DEFAULT_BROWSER_DATA = {
+let data = {
 	osName: "Unknown",
 	browser: "Unknown",
 	browserLower: "unknown",
@@ -11,10 +11,8 @@ const DEFAULT_BROWSER_DATA = {
 }
 
 const useBrowserData = () => {
-	const [browserData, setBrowserData] = useState(DEFAULT_BROWSER_DATA)
-
 	useEffect(() => {
-		const data = {
+		data = {
 			osName: osName,
 			browser: browserName,
 			browserLower: browserName.toLowerCase(),
@@ -22,11 +20,9 @@ const useBrowserData = () => {
 			engineName: engineName,
 			engineVersion: engineVersion
 		}
-
-		setBrowserData(data)
 	}, [])
 
-	return [browserData]
+	return [data]
 }
 
 export default useBrowserData
