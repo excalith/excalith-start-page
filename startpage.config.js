@@ -1,5 +1,18 @@
 const defaultConfig = {
 	username: "Excalith",
+	colors: {
+		white: "#e2e2e2",
+		gray: "#97989d",
+		black: "#16161e",
+		red: "#ec6183",
+		green: "#2ed8a2",
+		yellow: "#e8b195",
+		blue: "#2bc3de",
+		cyan: "#62e0e2",
+		magenta: "#e069aa",
+		purple: "#d1aff8",
+		orange: "#ff8800"
+	},
 	terminal: {
 		fixedHeight: true,
 		backgroundColor: "#121317",
@@ -15,21 +28,8 @@ const defaultConfig = {
 		promptColor: "magenta",
 		promptSymbol: "❯",
 		caretColor: "green",
-		selectionBg: "#e8b195",
-		selectionFg: "#16161e"
-	},
-	colors: {
-		white: "#e2e2e2",
-		gray: "#97989d",
-		black: "#16161e",
-		red: "#ec6183",
-		green: "#2ed8a2",
-		yellow: "#e8b195",
-		blue: "#2bc3de",
-		cyan: "#62e0e2",
-		magenta: "#e069aa",
-		purple: "#d1aff8",
-		orange: "#ff8800"
+		selectionBg: "yellow",
+		selectionFg: "black"
 	},
 	fetch: {
 		timeFormat: "HH:mm",

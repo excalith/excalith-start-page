@@ -5,9 +5,7 @@ const Help = ({ closeCallback }) => {
 	const { settings } = useSettings()
 
 	return (
-		<div
-			className="h-full overflow-y-auto text-white"
-			onClick={closeCallback}>
+		<div className="h-full overflow-y-auto text-white" onClick={closeCallback}>
 			<div>
 				<span>
 					<Prompt command="help" />
@@ -16,58 +14,45 @@ const Help = ({ closeCallback }) => {
 				<span className="block mt-line text-green">Usage</span>
 				<ul>
 					<li>- Filter links by typing in the prompt</li>
-					<li>
-						- Unfiltered prompt will search using default search
-						engine
-					</li>
+					<li>- Unfiltered prompt will search using default search engine</li>
 					<li>- Launch URL's directly from prompt</li>
 					<li>- Use CTRL+C to clear prompt</li>
 					<li>- Use ESC to exit windows</li>
 				</ul>
 
-				<span className="block mt-line text-green">
-					Built-in Commands
-				</span>
+				<span className="block mt-line text-green">Built-in Commands</span>
 				<ul>
 					<li>
-						<span className="text-blue">help</span> Display this
-						help
+						<span className="text-blue">help</span> Display this help
 					</li>
 					<li>
-						<span className="text-blue">fetch</span> Display browser
-						information
+						<span className="text-blue">fetch</span> Display browser information
 					</li>
 					<li>
-						<span className="text-blue">config</span> Configuration
-						settings
+						<span className="text-blue">config</span> Configuration settings
 						<ul className="ml-5">
 							<li>
-								<span className="text-blue">
-									config import [url]
-								</span>{" "}
-								Imports remote config JSON
+								<span className="text-blue">config import [url]</span> Imports
+								remote config JSON
 							</li>
 							<li>
-								<span className="text-blue">config edit</span>{" "}
-								Opens local config in editor
+								<span className="text-blue">config edit</span> Opens local config in
+								editor
 							</li>
 							<li>
-								<span className="text-blue">config reset</span>{" "}
-								Resets to default config
+								<span className="text-blue">config reset</span> Resets to default
+								config
 							</li>
 						</ul>
 					</li>
 				</ul>
 
-				<span className="block mt-line text-green">
-					Custom Commands
-				</span>
+				<span className="block mt-line text-green">Custom Commands</span>
 				<ul>
 					{settings.search.shortcuts.map((cmd, index) => {
 						return (
 							<li key={index}>
-								<span className="text-blue">{cmd.alias}</span>{" "}
-								{cmd.name}
+								<span className="text-blue">{cmd.alias}</span> {cmd.name}
 							</li>
 						)
 					})}

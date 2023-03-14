@@ -18,11 +18,7 @@ const Config = ({ commands, closeCallback }) => {
 	useEffect(() => {
 		setConsoleLog([])
 
-		if (
-			commands[1] === "import" &&
-			commands.length === 3 &&
-			isURL(commands[2])
-		) {
+		if (commands[1] === "import" && commands.length === 3 && isURL(commands[2])) {
 			importConfig(commands[2])
 		} else if (commands[1] === "edit") {
 			editConfig()
@@ -76,10 +72,7 @@ const Config = ({ commands, closeCallback }) => {
 	}
 
 	const appendToLog = (text, type) => {
-		setConsoleLog((consoleLog) => [
-			...consoleLog,
-			{ type: type, text: text }
-		])
+		setConsoleLog((consoleLog) => [...consoleLog, { type: type, text: text }])
 	}
 
 	function closeConfigWindow() {
@@ -90,9 +83,7 @@ const Config = ({ commands, closeCallback }) => {
 	}
 
 	return (
-		<div
-			className="h-full overflow-y-auto text-white"
-			onClick={closeConfigWindow}>
+		<div className="h-full overflow-y-auto text-white" onClick={closeConfigWindow}>
 			<div className="row">
 				<ul className="list-none">
 					<li>
@@ -111,31 +102,21 @@ const Config = ({ commands, closeCallback }) => {
 								<li key={index}>
 									{data.type === "error" && (
 										<p>
-											<span className="text-red">
-												[✖]{" "}
-											</span>
+											<span className="text-red">[✖] </span>
 											{data.text}
 										</p>
 									)}
 									{data.type === "success" && (
 										<p>
-											<span className="text-green">
-												[✓]{" "}
-											</span>
+											<span className="text-green">[✓] </span>
 											{data.text}
 										</p>
 									)}
-									{data.type === undefined && (
-										<p>{data.text}</p>
-									)}
+									{data.type === undefined && <p>{data.text}</p>}
 								</li>
 							)
 						})}
-						{isDone && (
-							<li className="mt-line">
-								Press ESC to continue...
-							</li>
-						)}
+						{isDone && <li className="mt-line">Press ESC to continue...</li>}
 					</ul>
 				)}
 			</div>

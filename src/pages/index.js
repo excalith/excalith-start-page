@@ -25,40 +25,25 @@ export default function Home() {
 		const documentStyle = document.documentElement.style
 
 		// Set Terminal
-		const glowColor = loadedSettings.terminal.glowColor
-		const backgroundColor = loadedSettings.terminal.backgroundColor
-		const windowColor = loadedSettings.terminal.windowColor
-		documentStyle.setProperty("--color-glow", glowColor)
-		documentStyle.setProperty("--background-color", backgroundColor)
-		documentStyle.setProperty("--window-color", windowColor)
+		documentStyle.setProperty("--color-glow", loadedSettings.terminal.glowColor)
+		documentStyle.setProperty("--background-color", loadedSettings.terminal.backgroundColor)
+		documentStyle.setProperty("--window-color", loadedSettings.terminal.windowColor)
 
 		// Set Prompt Selection Color
-		const selectionfg = loadedSettings.prompt.selectionFg
-		const selectionbg = loadedSettings.prompt.selectionBg
-		documentStyle.setProperty("--selection-fg", selectionfg)
-		documentStyle.setProperty("--selection-bg", selectionbg)
+		documentStyle.setProperty("--selection-fg", loadedSettings.prompt.selectionFg)
+		documentStyle.setProperty("--selection-bg", loadedSettings.prompt.selectionBg)
 
 		// Set Text Colors
-		const textWhite = loadedSettings.colors.white
-		const textGray = loadedSettings.colors.gray
-		const textBlack = loadedSettings.colors.black
-		const textRed = loadedSettings.colors.red
-		const textGreen = loadedSettings.colors.green
-		const textYellow = loadedSettings.colors.yellow
-		const textBlue = loadedSettings.colors.blue
-		const textCyan = loadedSettings.colors.cyan
-		const textMagenta = loadedSettings.colors.magenta
-		const textPurple = loadedSettings.colors.purple
-		documentStyle.setProperty("--white", textWhite)
-		documentStyle.setProperty("--gray", textGray)
-		documentStyle.setProperty("--black", textBlack)
-		documentStyle.setProperty("--red", textRed)
-		documentStyle.setProperty("--green", textGreen)
-		documentStyle.setProperty("--yellow", textYellow)
-		documentStyle.setProperty("--blue", textBlue)
-		documentStyle.setProperty("--cyan", textCyan)
-		documentStyle.setProperty("--magenta", textMagenta)
-		documentStyle.setProperty("--purple", textPurple)
+		documentStyle.setProperty("--white", loadedSettings.colors.white)
+		documentStyle.setProperty("--gray", loadedSettings.colors.gray)
+		documentStyle.setProperty("--black", loadedSettings.colors.black)
+		documentStyle.setProperty("--red", loadedSettings.colors.red)
+		documentStyle.setProperty("--green", loadedSettings.colors.green)
+		documentStyle.setProperty("--yellow", loadedSettings.colors.yellow)
+		documentStyle.setProperty("--blue", loadedSettings.colors.blue)
+		documentStyle.setProperty("--cyan", loadedSettings.colors.cyan)
+		documentStyle.setProperty("--magenta", loadedSettings.colors.magenta)
+		documentStyle.setProperty("--purple", loadedSettings.colors.purple)
 
 		setIsReady(true)
 	}, [settings])

@@ -1,32 +1,24 @@
-import React, { useEffect, useState } from "react"
-import { browserName } from "react-device-detect"
 import { useSettings } from "@/context/settings"
+import useBrowserData from "@/hooks/useBrowserData"
 
-const Search = ({ command }) => {
-	const [browser, setBrowser] = useState("unknown")
+const Prompt = ({ command }) => {
 	const { settings } = useSettings()
+	const [browserData] = useBrowserData()
 	const lower_username = settings.username.toLowerCase()
-
-	useEffect(() => {
-		setBrowser(browserName.toLowerCase())
-	}, [])
+	const promptSettings = settings.prompt
 
 	return (
 		<span className="cursor-default">
-			<span className={`text-${settings.prompt.userColor}`}>
-				{lower_username}
-			</span>
-			<span className={`text-${settings.prompt.atColor}`}>@</span>
-			<span className={`text-${settings.prompt.hostColor}`}>
-				{browser}
-			</span>
-			<span className={`text-${settings.prompt.promptColor}`}>
+			<span className={`text-${promptSettings.userColor}`}>{lower_username}</span>
+			<span className={`text-${promptSettings.atColor}`}>@</span>
+			<span className={`text-${promptSettings.hostColor}`}>{browserData.browserLower}</span>
+			<span className={`text-${promptSettings.promptColor}`}>
 				{" "}
-				{settings.prompt.promptSymbol}{" "}
+				{promptSettings.promptSymbol}{" "}
 			</span>
 			{command && <span className="text-white">{command}</span>}
 		</span>
 	)
 }
 
-export default Search
+export default Prompt
