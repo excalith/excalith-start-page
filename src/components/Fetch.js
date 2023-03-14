@@ -1,31 +1,15 @@
-import React, { useEffect, useState } from "react"
-import {
-	osName,
-	browserName,
-	engineName,
-	engineVersion,
-	browserVersion
-} from "react-device-detect"
 import moment from "moment"
 import Prompt from "@/components/Prompt"
 import { useSettings } from "@/context/settings"
+import useBrowserData from "@/hooks/useBrowserData"
 
 const Fetch = ({ closeCallback }) => {
-	const [info, setInfo] = useState({})
 	const { settings } = useSettings()
+	const [browserData] = useBrowserData()
 
-	useEffect(() => {
-		setInfo({
-			time: moment().format(settings.fetch.timeFormat),
-			date: moment().format(settings.fetch.dateFormat),
-			osName: osName,
-			browser: browserName,
-			browserLower: browserName.toLowerCase(),
-			browserVersion: browserVersion,
-			engineName: engineName,
-			engineVersion: engineVersion
-		})
-	}, [])
+	const titleColor = settings.fetch.titleColor
+	const time = moment().format(settings.fetch.timeFormat)
+	const date = moment().format(settings.fetch.dateFormat)
 
 	return (
 		<div className="h-full overflow-y-auto" onClick={closeCallback}>
@@ -43,57 +27,49 @@ const Fetch = ({ closeCallback }) => {
 				<div className="mt-4 text-white">
 					<div className="mx-auto">
 						<div className="row">
-							{/* User*/}
 							<Prompt />
 							<hr className="border-dashed" />
 							<ul className="mt-2">
 								<li>
-									<span
-										className={`text-${settings.fetch.titleColor}`}>
+									<span className={`text-${titleColor}`}>
 										Time:
 									</span>{" "}
-									{info.time}
+									{time}
 								</li>
 								<li>
-									<span
-										className={`text-${settings.fetch.titleColor}`}>
+									<span className={`text-${titleColor}`}>
 										Date:
 									</span>{" "}
-									{info.date}
+									{date}
 								</li>
 							</ul>
 							<ul className="mt-line">
 								<li>
-									<span
-										className={`text-${settings.fetch.titleColor}`}>
+									<span className={`text-${titleColor}`}>
 										OS:
 									</span>{" "}
-									{info.osName}
+									{browserData.osName}
 								</li>
 								<li>
-									<span
-										className={`text-${settings.fetch.titleColor}`}>
+									<span className={`text-${titleColor}`}>
 										Browser:
 									</span>{" "}
-									{info.browser}
+									{browserData.browser}
 								</li>
 								<li>
-									<span
-										className={`text-${settings.fetch.titleColor}`}>
+									<span className={`text-${titleColor}`}>
 										Version:
 									</span>{" "}
-									{info.browserVersion}
+									{browserData.browserVersion}
 								</li>
 								<li>
-									<span
-										className={`text-${settings.fetch.titleColor}`}>
+									<span className={`text-${titleColor}`}>
 										Engine:
 									</span>{" "}
-									{info.engineName}
+									{browserData.engineName}
 								</li>
 							</ul>
 
-							{/* Colors */}
 							<div className="mt-line">
 								<span className="inline-block w-1/5 h-5 bg-black"></span>
 								<span className="inline-block w-1/5 h-5 bg-red"></span>
