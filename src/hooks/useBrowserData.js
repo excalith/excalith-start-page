@@ -1,11 +1,5 @@
 import { useState, useEffect } from "react"
-import {
-	osName,
-	browserName,
-	engineName,
-	engineVersion,
-	browserVersion
-} from "react-device-detect"
+import { osName, browserName, engineName, engineVersion, browserVersion } from "react-device-detect"
 
 const DEFAULT_BROWSER_DATA = {
 	osName: "Unknown",

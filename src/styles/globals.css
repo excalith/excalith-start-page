@@ -54,12 +54,12 @@ a:visited {
 
 a:hover {
 	color: var(--purple) !important;
-	transition: color 0.2s !important; 
+	transition: color 0.2s !important;
 }
 
 ::selection {
-  color: var(--selection-fg);
-  background: var(--selection-bg);
+	color: var(--selection-fg);
+	background: var(--selection-bg);
 }
 
 .shadow {
@@ -68,12 +68,13 @@ a:hover {
 }
 
 .glow {
-	box-shadow: 0 0 5px var(--color-glow), 0 0 25px var(--color-glow),
-		0 0 50px var(--color-glow), 0 0 200px var(--color-glow);
+	box-shadow: 0 0 5px var(--color-glow), 
+				0 0 25px var(--color-glow), 
+				0 0 50px var(--color-glow),
+				0 0 200px var(--color-glow);
 
 	transition: box-shadow 0.2s;
 }
-
 
 .ace_editor,
 .ace_gutter {

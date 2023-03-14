@@ -9,13 +9,9 @@ const Prompt = ({ command }) => {
 
 	return (
 		<span className="cursor-default">
-			<span className={`text-${promptSettings.userColor}`}>
-				{lower_username}
-			</span>
+			<span className={`text-${promptSettings.userColor}`}>{lower_username}</span>
 			<span className={`text-${promptSettings.atColor}`}>@</span>
-			<span className={`text-${promptSettings.hostColor}`}>
-				{browserData.browserLower}
-			</span>
+			<span className={`text-${promptSettings.hostColor}`}>{browserData.browserLower}</span>
 			<span className={`text-${promptSettings.promptColor}`}>
 				{" "}
 				{promptSettings.promptSymbol}{" "}

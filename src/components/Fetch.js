@@ -18,11 +18,7 @@ const Fetch = ({ closeCallback }) => {
 			</span>
 			<div className="grid grid-cols-2 gap-4">
 				<div>
-					<img
-						className="w-64 h-64 mx-auto"
-						src="icon.svg"
-						alt="Fetch Logo"
-					/>
+					<img className="w-64 h-64 mx-auto" src="icon.svg" alt="Fetch Logo" />
 				</div>
 				<div className="mt-4 text-white">
 					<div className="mx-auto">
@@ -31,41 +27,27 @@ const Fetch = ({ closeCallback }) => {
 							<hr className="border-dashed" />
 							<ul className="mt-2">
 								<li>
-									<span className={`text-${titleColor}`}>
-										Time:
-									</span>{" "}
-									{time}
+									<span className={`text-${titleColor}`}>Time:</span> {time}
 								</li>
 								<li>
-									<span className={`text-${titleColor}`}>
-										Date:
-									</span>{" "}
-									{date}
+									<span className={`text-${titleColor}`}>Date:</span> {date}
 								</li>
 							</ul>
 							<ul className="mt-line">
 								<li>
-									<span className={`text-${titleColor}`}>
-										OS:
-									</span>{" "}
+									<span className={`text-${titleColor}`}>OS:</span>{" "}
 									{browserData.osName}
 								</li>
 								<li>
-									<span className={`text-${titleColor}`}>
-										Browser:
-									</span>{" "}
+									<span className={`text-${titleColor}`}>Browser:</span>{" "}
 									{browserData.browser}
 								</li>
 								<li>
-									<span className={`text-${titleColor}`}>
-										Version:
-									</span>{" "}
+									<span className={`text-${titleColor}`}>Version:</span>{" "}
 									{browserData.browserVersion}
 								</li>
 								<li>
-									<span className={`text-${titleColor}`}>
-										Engine:
-									</span>{" "}
+									<span className={`text-${titleColor}`}>Engine:</span>{" "}
 									{browserData.engineName}
 								</li>
 							</ul>
