@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        description: "Test Name"
+        description: "Tag For Build"
         required: true
         default: ""
 jobs:
