@@ -1,9 +1,11 @@
-name: Publish Development Image To Docker and GHCR
+name: Publish Dev Image Manually
 
 on:
-  push:
-    tags:        
-      - test/*
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Version Tag"
+        default: "v0.0.0"
 jobs:
   push_to_registries:
     name: Push Docker image to multiple registries
@@ -42,5 +44,5 @@ jobs:
           context: .
           push: true
           tags: |
-            excalith/start-page:${{ steps.meta.outputs.tags }} 
-            ghcr.io/excalith/excalith-start-page:${{ steps.meta.outputs.tags }}
+            excalith/start-page:${{ env.BRANCH }}
+            ghcr.io/excalith/excalith-start-page:${{ env.BRANCH }}
