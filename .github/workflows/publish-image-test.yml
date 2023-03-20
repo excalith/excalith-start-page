@@ -42,4 +42,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: |
+            excalith/start-page:develop 
+            ghcr.io/excalith/excalith-start-page:develop
