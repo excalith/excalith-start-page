@@ -1,10 +1,9 @@
-name: Publish Docker Image For Testing
+name: Publish Development Image To Docker and GHCR
 
 on:
   push:
     branches:
       - 'develop'
-
 jobs:
   push_to_registries:
     name: Push Docker image to multiple registries
@@ -35,7 +34,7 @@ jobs:
         with:
           images: |
             excalith/start-page
-            ghcr.io/${{ github.repository }}
+            ghcr.io/excalith/excalith-start-page
 
       - name: Build and Push Docker images
         uses: docker/build-push-action@v4

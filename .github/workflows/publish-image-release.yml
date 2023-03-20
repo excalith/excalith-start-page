@@ -1,4 +1,4 @@
-name: Publish Docker Image For Release
+name: Publish Release Image To Docker and GHCR
 
 on:
   release:
@@ -34,7 +34,7 @@ jobs:
         with:
           images: |
             excalith/start-page
-            ghcr.io/${{ github.repository }}
+            ghcr.io/excalith/excalith-start-page
 
       - name: Build and Push Docker images
         uses: docker/build-push-action@v4
@@ -42,4 +42,4 @@ jobs:
           context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }} 
+          labels: ${{ steps.meta.outputs.labels }}
