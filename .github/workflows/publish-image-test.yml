@@ -2,8 +2,8 @@ name: Publish Development Image To Docker and GHCR
 
 on:
   push:
-    branches:
-      - 'develop'
+    tags:        
+      - test/*
 jobs:
   push_to_registries:
     name: Push Docker image to multiple registries
@@ -42,5 +42,5 @@ jobs:
           context: .
           push: true
           tags: |
-            excalith/start-page:develop 
-            ghcr.io/excalith/excalith-start-page:develop
+            excalith/start-page:${{ steps.meta.outputs.tags }} 
+            ghcr.io/excalith/excalith-start-page:${{ steps.meta.outputs.tags }}
