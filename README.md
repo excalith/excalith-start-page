@@ -2,7 +2,7 @@
 	<h1 align="center">Excalith Start Page</h1>
 	<img src=".github/startpage.gif" />
 
-This is an interactive start age for browsers, inspired from my terminal setup.
+This is an interactive start page for browsers, inspired from my terminal setup.
 
 [![Vercel Status](https://therealsujitk-vercel-badge.vercel.app/?app=excalith-start-page)](https://excalith-start-page.vercel.app)
 [![GitHub Version (latest semver)](https://img.shields.io/github/v/tag/excalith/excalith-start-page?sort=semver&label=github)](https://github.com/excalith/excalith-start-page)
