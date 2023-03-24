@@ -45,11 +45,9 @@ const Config = ({ commands, closeCallback }) => {
 				})
 			} else {
 				invalidTheme()
-				setDone(true)
 			}
 		} else {
 			invalidCommand()
-			setDone(true)
 		}
 	}, [])
 
@@ -93,6 +91,7 @@ const Config = ({ commands, closeCallback }) => {
 		appendToLog("config theme <theme-name>: Switch theme")
 		appendToLog("config edit: Edit local config")
 		appendToLog("config reset: Reset to default config")
+		setDone(true)
 	}
 
 	const invalidTheme = (themeName) => {
@@ -104,6 +103,7 @@ const Config = ({ commands, closeCallback }) => {
 		appendToLog("catppuccin")
 		appendToLog("dracula")
 		appendToLog("nord")
+		setDone(true)
 	}
 
 	function setTheme(themeData, themeName) {
