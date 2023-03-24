@@ -108,23 +108,7 @@ const Config = ({ commands, closeCallback }) => {
 
 	function setTheme(themeData, themeName) {
 		let newSettings = Object.assign({}, settings)
-
-		newSettings.theme.backgroundColor = themeData.backgroundColor
-		newSettings.theme.windowColor = themeData.windowColor
-		newSettings.theme.glowColor = themeData.glowColor
-
-		newSettings.theme.white = themeData.white
-		newSettings.theme.gray = themeData.gray
-		newSettings.theme.black = themeData.black
-		newSettings.theme.red = themeData.red
-		newSettings.theme.green = themeData.green
-		newSettings.theme.yellow = themeData.yellow
-		newSettings.theme.blue = themeData.blue
-		newSettings.theme.cyan = themeData.cyan
-		newSettings.theme.magenta = themeData.magenta
-		newSettings.theme.purple = themeData.purple
-		newSettings.theme.orange = themeData.orange
-
+		newSettings.theme = themeData
 		setSettings(newSettings)
 		appendToLog("Theme set to " + themeName, "success")
 		setDone(true)
