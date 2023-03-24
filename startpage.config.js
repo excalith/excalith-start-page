@@ -38,7 +38,9 @@ const defaultConfig = {
 		titleColor: "yellow"
 	},
 	urlLaunch: {
-		target: "_self"
+		target: "_self",
+		defaultColor: "white",
+		hoverColor: "purple"
 	},
 	search: {
 		default: "https://google.com/search?q=",

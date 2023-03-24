@@ -29,6 +29,10 @@ export default function Home() {
 		documentStyle.setProperty("--selection-fg", "var(--" + settings.prompt.selectionFg + ")")
 		documentStyle.setProperty("--selection-bg", "var(--" + settings.prompt.selectionBg + ")")
 
+		// Set URL Color
+		documentStyle.setProperty("--url-default", "var(--" + settings.urlLaunch.defaultColor + ")")
+		documentStyle.setProperty("--url-hover", "var(--" + settings.urlLaunch.hoverColor + ")")
+
 		// Set Text Colors
 		documentStyle.setProperty("--white", settings.theme.white)
 		documentStyle.setProperty("--gray", settings.theme.gray)

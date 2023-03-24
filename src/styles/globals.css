@@ -19,6 +19,9 @@
 	--purple: #d1aff8;
 	--orange: #ff8800;
 
+	--url-default: var(--white);
+	--url-hover: var(--purple);
+
 	--selection-fg: var(--black);
 	--selection-bg: var(--yellow);
 }
@@ -47,24 +50,19 @@ h1 {
 a,
 a:active,
 a:visited {
-	color: var(--white) !important;
+	color: var(--url-default) !important;
 	text-decoration: none;
 	transition: color 0.2s !important;
 }
 
 a:hover {
-	color: var(--purple) !important;
+	color: var(--url-hover) !important;
 	transition: color 0.2s !important;
 }
 
 ::selection {
 	color: var(--selection-fg);
 	background: var(--selection-bg);
-}
-
-.shadow {
-	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-	transition: box-shadow 0.2s;
 }
 
 .glow {
