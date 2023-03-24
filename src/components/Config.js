@@ -90,6 +90,7 @@ const Config = ({ commands, closeCallback }) => {
 		appendToLog("Invalid config command: " + commands.join(" "), "error")
 		appendToLog("Usage:")
 		appendToLog("config import <url>: Import remote config")
+		appendToLog("config theme <theme-name>: Switch theme")
 		appendToLog("config edit: Edit local config")
 		appendToLog("config reset: Reset to default config")
 	}
