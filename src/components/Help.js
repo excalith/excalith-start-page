@@ -36,6 +36,10 @@ const Help = ({ closeCallback }) => {
 								remote config JSON
 							</li>
 							<li>
+								<span className="text-blue">config theme [theme-name]</span>{" "}
+								Switches theme
+							</li>
+							<li>
 								<span className="text-blue">config edit</span> Opens local config in
 								editor
 							</li>

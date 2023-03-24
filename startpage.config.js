@@ -29,7 +29,7 @@ const defaultConfig = {
 		promptColor: "magenta",
 		promptSymbol: "❯",
 		caretColor: "green",
-		selectionBg: "red",
+		selectionBg: "yellow",
 		selectionFg: "black"
 	},
 	fetch: {
@@ -38,7 +38,9 @@ const defaultConfig = {
 		titleColor: "yellow"
 	},
 	urlLaunch: {
-		target: "_self"
+		target: "_self",
+		defaultColor: "white",
+		hoverColor: "purple"
 	},
 	search: {
 		default: "https://google.com/search?q=",
