@@ -55,7 +55,7 @@ Clone this repo and run `yarn dev` command to host it locally on your machine
 - Show info with `fetch` command (time, date, system and browser data)
 - Update your configuration with `config` command
   - `config import <url>` - Import configuration from a URL to your local storage
-  - `config theme <theme-name>` - Switches between ([available themes](./public/themes/))
+  - `config theme <theme-name>` - Switches between [available themes](./public/themes/)
   - `config edit` - Edit local configuration within editor
   - `config reset` - Reset your configuration to default
 
@@ -69,7 +69,7 @@ Clone this repo and run `yarn dev` command to host it locally on your machine
 There are multiple ways of customizing the start page to making it yours!
 
 - Use `config import <url>` to import configuration from a URL
-- Use `config theme <theme-name>` to switch between ([available themes](./public/themes/))
+- Use `config theme <theme-name>` to switch between [available themes](./public/themes/)
 - Use `config edit` to edit your configuration within the start page code editor
 - Change the default configuration in `startpage.config.js` file and deploy your own version
 
