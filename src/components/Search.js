@@ -34,7 +34,7 @@ const Search = ({ prompt, commandChange }) => {
 		<div id="search" className="flex">
 			<Prompt />
 			<input
-				className={`grow inline-block bg-transparent text-white outline-none appearance-none shadow-none ml-2.5 caret-${prompt.caretcolor}`}
+				className={`grow inline-block bg-transparent text-white outline-none appearance-none shadow-none ml-2.5 caret-${prompt.caretColor}`}
 				type="text"
 				onChange={commandChange}
 				placeholder={settings.prompt.placeholder}

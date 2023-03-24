@@ -11,10 +11,24 @@ export const SettingsContext = createContext({
 export const useSettings = () => useContext(SettingsContext)
 
 export const SettingsProvider = ({ children }) => {
-	const [settings, setSettings] = useState(defaultConfig)
+	const [settings, setSettings] = useState()
 
 	useEffect(() => {
-		if (JSON.stringify(settings) !== JSON.stringify(defaultConfig)) {
+		const settings = localStorage.getItem(SETTINGS_KEY)
+		if (settings && settings !== "undefined") {
+			try {
+				setSettings(JSON.parse(settings))
+			} catch (e) {
+				setSettings(defaultConfig)
+				console.log("Error parsing settings, resetting to default")
+			}
+		} else {
+			setSettings(defaultConfig)
+		}
+	}, [])
+
+	useEffect(() => {
+		if (settings && settings !== "undefined") {
 			localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings))
 		}
 	}, [settings])

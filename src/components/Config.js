@@ -4,13 +4,21 @@ import { isURL } from "@/utils/isURL"
 import { useSettings } from "@/context/settings"
 import dynamic from "next/dynamic"
 
+async function getTheme(themeName) {
+	try {
+		const theme = await fetch("/themes/" + themeName + ".json").then((res) => res.json())
+		return theme
+	} catch {
+		return null
+	}
+}
+
 const Config = ({ commands, closeCallback }) => {
 	const [command] = useState(commands.join(" "))
 	const [consoleLog, setConsoleLog] = useState([])
 	const [isDone, setDone] = useState(false)
 	const [isEditMode, setIsEditMode] = useState(false)
-	const { setSettings, resetSettings } = useSettings()
-
+	const { settings, setSettings, resetSettings } = useSettings()
 	const CodeEditor = dynamic(() => import("@/components/Editor"), {
 		ssr: false
 	})
@@ -18,17 +26,32 @@ const Config = ({ commands, closeCallback }) => {
 	useEffect(() => {
 		setConsoleLog([])
 
-		if (commands[1] === "import" && commands.length === 3 && isURL(commands[2])) {
+		const cmd = commands[1]
+		if (cmd === "import" && commands.length === 3 && isURL(commands[2])) {
 			importConfig(commands[2])
-		} else if (commands[1] === "edit") {
+		} else if (cmd === "edit") {
 			editConfig()
-		} else if (commands[1] === "reset") {
+		} else if (cmd === "reset") {
 			resetConfig()
+		} else if (cmd === "theme") {
+			if (commands.length === 3) {
+				const themeName = commands[2]
+				getTheme(themeName).then((theme) => {
+					if (theme === null) {
+						invalidTheme(theme)
+					} else {
+						setTheme(theme, themeName)
+					}
+				})
+			} else {
+				invalidTheme()
+				setDone(true)
+			}
 		} else {
 			invalidCommand()
 			setDone(true)
 		}
-	}, [commands])
+	}, [])
 
 	const importConfig = (url) => {
 		appendToLog("Fetching settings from remote", "success")
@@ -69,6 +92,41 @@ const Config = ({ commands, closeCallback }) => {
 		appendToLog("config import <url>: Import remote config")
 		appendToLog("config edit: Edit local config")
 		appendToLog("config reset: Reset to default config")
+	}
+
+	const invalidTheme = (themeName) => {
+		appendToLog("Invalid theme: " + commands[2], "error")
+		appendToLog("Usage:")
+		appendToLog("config theme <theme>: Set theme")
+		appendToLog("Available Themes:")
+		appendToLog("default")
+		appendToLog("catppuccin")
+		appendToLog("dracula")
+		appendToLog("nord")
+	}
+
+	function setTheme(themeData, themeName) {
+		let newSettings = Object.assign({}, settings)
+
+		newSettings.theme.backgroundColor = themeData.backgroundColor
+		newSettings.theme.windowColor = themeData.windowColor
+		newSettings.theme.glowColor = themeData.glowColor
+
+		newSettings.theme.white = themeData.white
+		newSettings.theme.gray = themeData.gray
+		newSettings.theme.black = themeData.black
+		newSettings.theme.red = themeData.red
+		newSettings.theme.green = themeData.green
+		newSettings.theme.yellow = themeData.yellow
+		newSettings.theme.blue = themeData.blue
+		newSettings.theme.cyan = themeData.cyan
+		newSettings.theme.magenta = themeData.magenta
+		newSettings.theme.purple = themeData.purple
+		newSettings.theme.orange = themeData.orange
+
+		setSettings(newSettings)
+		appendToLog("Theme set to " + themeName, "success")
+		setDone(true)
 	}
 
 	const appendToLog = (text, type) => {
