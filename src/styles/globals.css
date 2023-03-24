@@ -82,7 +82,7 @@ a:hover {
 	background-color: var(--window-color) !important;
 }
 
-.text-white { color: var(--white); }
+/* .text-white { color: var(--white); }
 .text-gray { color: var(--gray); }
 .text-black { color: var(--black); }
 .text-red { color: var(--red); }
@@ -130,4 +130,4 @@ a:hover {
 .caret-cyan { caret-color: var(--cyan) !important; }
 .caret-magenta { caret-color: var(--magenta) !important; }
 .caret-purple { caret-color: var(--purple) !important; }
-.caret-orange { caret-color: var(--orange) !important; }
+.caret-orange { caret-color: var(--orange) !important; } */

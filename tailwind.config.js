@@ -19,6 +19,22 @@ module.exports = {
 		borderRadius: {
 			terminal: "0.625rem"
 		},
+		colors: {
+			"background-color": "var(--background-color)",
+			"window-color": "var(--window-color)",
+			"glow-color": "var(--color)",
+			white: "var(--white)",
+			gray: "var(--gray)",
+			black: "var(--black)",
+			red: "var(--red)",
+			green: "var(--green)",
+			yellow: "var(--yellow)",
+			blue: "var(--blue)",
+			cyan: "var(--cyan)",
+			magenta: "var(--magenta)",
+			purple: "var(--purple)",
+			orange: "var(--orange)"
+		},
 		extend: {
 			maxWidth: {
 				terminal: "50rem"
