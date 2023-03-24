@@ -1,4 +1,4 @@
-name: Publish Dev Image Manually
+name: Publish Development
 
 on:
   workflow_dispatch:
