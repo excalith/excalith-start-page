@@ -4,13 +4,21 @@ import { isURL } from "@/utils/isURL"
 import { useSettings } from "@/context/settings"
 import dynamic from "next/dynamic"
 
+async function getTheme(themeName) {
+	try {
+		const theme = await fetch("/themes/" + themeName + ".json").then((res) => res.json())
+		return theme
+	} catch {
+		return null
+	}
+}
+
 const Config = ({ commands, closeCallback }) => {
 	const [command] = useState(commands.join(" "))
 	const [consoleLog, setConsoleLog] = useState([])
 	const [isDone, setDone] = useState(false)
 	const [isEditMode, setIsEditMode] = useState(false)
-	const { setSettings, resetSettings } = useSettings()
-
+	const { settings, setSettings, resetSettings } = useSettings()
 	const CodeEditor = dynamic(() => import("@/components/Editor"), {
 		ssr: false
 	})
@@ -18,17 +26,30 @@ const Config = ({ commands, closeCallback }) => {
 	useEffect(() => {
 		setConsoleLog([])
 
-		if (commands[1] === "import" && commands.length === 3 && isURL(commands[2])) {
+		const cmd = commands[1]
+		if (cmd === "import" && commands.length === 3 && isURL(commands[2])) {
 			importConfig(commands[2])
-		} else if (commands[1] === "edit") {
+		} else if (cmd === "edit") {
 			editConfig()
-		} else if (commands[1] === "reset") {
+		} else if (cmd === "reset") {
 			resetConfig()
+		} else if (cmd === "theme") {
+			if (commands.length === 3) {
+				const themeName = commands[2]
+				getTheme(themeName).then((theme) => {
+					if (theme === null) {
+						invalidTheme(theme)
+					} else {
+						setTheme(theme, themeName)
+					}
+				})
+			} else {
+				invalidTheme()
+			}
 		} else {
 			invalidCommand()
-			setDone(true)
 		}
-	}, [commands])
+	}, [])
 
 	const importConfig = (url) => {
 		appendToLog("Fetching settings from remote", "success")
@@ -67,8 +88,30 @@ const Config = ({ commands, closeCallback }) => {
 		appendToLog("Invalid config command: " + commands.join(" "), "error")
 		appendToLog("Usage:")
 		appendToLog("config import <url>: Import remote config")
+		appendToLog("config theme <theme-name>: Switch theme")
 		appendToLog("config edit: Edit local config")
 		appendToLog("config reset: Reset to default config")
+		setDone(true)
+	}
+
+	const invalidTheme = (themeName) => {
+		appendToLog("Invalid theme: " + commands[2], "error")
+		appendToLog("Usage:")
+		appendToLog("config theme <theme>: Set theme")
+		appendToLog("Available Themes:")
+		appendToLog("default")
+		appendToLog("catppuccin")
+		appendToLog("dracula")
+		appendToLog("nord")
+		setDone(true)
+	}
+
+	function setTheme(themeData, themeName) {
+		let newSettings = Object.assign({}, settings)
+		newSettings.theme = themeData
+		setSettings(newSettings)
+		appendToLog("Theme set to " + themeName, "success")
+		setDone(true)
 	}
 
 	const appendToLog = (text, type) => {

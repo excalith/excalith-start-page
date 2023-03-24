@@ -1,6 +1,9 @@
 const defaultConfig = {
 	username: "Excalith",
-	colors: {
+	theme: {
+		backgroundColor: "#121317",
+		windowColor: "#1e212b",
+		glowColor: "#6b5cb157",
 		white: "#e2e2e2",
 		gray: "#97989d",
 		black: "#16161e",
@@ -15,9 +18,7 @@ const defaultConfig = {
 	},
 	terminal: {
 		fixedHeight: true,
-		backgroundColor: "#121317",
-		windowColor: "#1e212b",
-		glowColor: "#6b5cb157"
+		glowEnabled: true
 	},
 	prompt: {
 		ctrlC: true,
@@ -28,7 +29,7 @@ const defaultConfig = {
 		promptColor: "magenta",
 		promptSymbol: "❯",
 		caretColor: "green",
-		selectionBg: "yellow",
+		selectionBg: "red",
 		selectionFg: "black"
 	},
 	fetch: {

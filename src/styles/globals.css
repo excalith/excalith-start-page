@@ -7,9 +7,6 @@
 	--window-color: #1e212b;
 	--color-glow: transparent;
 
-	--selection-fg: black;
-	--selection-bg: white;
-
 	--white: #e2e2e2;
 	--gray: #97989d;
 	--black: #16161e;
@@ -21,6 +18,9 @@
 	--magenta: #e069aa;
 	--purple: #d1aff8;
 	--orange: #ff8800;
+
+	--selection-fg: var(--yellow);
+	--selection-bg: var(--black);
 }
 
 * {
@@ -59,6 +59,7 @@ a:hover {
 
 ::selection {
 	color: var(--selection-fg);
+	/* background: var(--selection-bg); */
 	background: var(--selection-bg);
 }
 
