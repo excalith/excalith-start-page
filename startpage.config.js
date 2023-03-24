@@ -29,7 +29,7 @@ const defaultConfig = {
 		promptColor: "magenta",
 		promptSymbol: "❯",
 		caretColor: "green",
-		selectionBg: "red",
+		selectionBg: "yellow",
 		selectionFg: "black"
 	},
 	fetch: {

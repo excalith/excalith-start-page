@@ -22,7 +22,7 @@ module.exports = {
 		colors: {
 			"background-color": "var(--background-color)",
 			"window-color": "var(--window-color)",
-			"glow-color": "var(--color)",
+			"glow-color": "var(--glow-color)",
 			white: "var(--white)",
 			gray: "var(--gray)",
 			black: "var(--black)",
@@ -56,5 +56,14 @@ module.exports = {
 			})
 		}
 	},
-	plugins: []
+	plugins: [],
+	safelist: [
+		"background-color",
+		"window-color",
+		"glow-color",
+		{
+			pattern:
+				/(bg|text|border|caret)-(white|gray|black|red|green|yellow|blue|cyan|magenta|purple|orange)/
+		}
+	]
 }

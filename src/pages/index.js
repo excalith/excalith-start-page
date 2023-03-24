@@ -21,13 +21,13 @@ export default function Home() {
 		const documentStyle = document.documentElement.style
 
 		// Set Terminal
-		documentStyle.setProperty("--color-glow", settings.theme.glowColor)
+		documentStyle.setProperty("--glow-color", settings.theme.glowColor)
 		documentStyle.setProperty("--background-color", settings.theme.backgroundColor)
 		documentStyle.setProperty("--window-color", settings.theme.windowColor)
 
 		// Set Prompt Selection Color
-		documentStyle.setProperty("--selection-fg", settings.prompt.selectionFg)
-		documentStyle.setProperty("--selection-bg", settings.prompt.selectionBg)
+		documentStyle.setProperty("--selection-fg", "var(--" + settings.prompt.selectionFg + ")")
+		documentStyle.setProperty("--selection-bg", "var(--" + settings.prompt.selectionBg + ")")
 
 		// Set Text Colors
 		documentStyle.setProperty("--white", settings.theme.white)
