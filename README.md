@@ -43,7 +43,7 @@ Clone this repo and run `yarn dev` command to host it locally on your machine
 
 ## Features
 
-- Quickly filter links by typing in the prompt. Hitting `Enter` will open all filtered links at once
+- Quickly filter links by typing in the prompt. Hitting <kbd>Enter</kbd> will open all filtered links at once
 - If nothing filtered, the text in prompt will use the default search engine for searching your input
 - Launch websites directly from the prompt. Just type the URL (ie. `github.com`)
 - Search websites with custom commands. For example, type `s some weird bug` to search StackOverflow for `some weird bug`
@@ -61,17 +61,12 @@ Clone this repo and run `yarn dev` command to host it locally on your machine
 
 ### Key Bindings
 
-- Clear the prompt quickly with `CTRL + C`
-- Close window with `ESC`
+- Clear the prompt quickly with <kbd>CTRL</kbd> + <kbd>C</kbd>
+- Close window with <kbd>ESC</kbd>
 
 ## Customization
 
 There are multiple ways of customizing the start page to making it yours!
-
-- Use `config import <url>` to import configuration from a URL
-- Use `config theme <theme-name>` to switch between [available themes](./public/themes/)
-- Use `config edit` to edit your configuration within the start page code editor
-- Change the default configuration in `startpage.config.js` file and deploy your own version
 
 Please refer to [wiki page](https://github.com/excalith/excalith-start-page/wiki) for more information.
 
