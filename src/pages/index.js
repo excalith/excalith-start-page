@@ -28,6 +28,10 @@ export default function Home() {
 		// Set Prompt Selection Color
 		documentStyle.setProperty("--selection-fg", "var(--" + settings.prompt.selectionFg + ")")
 		documentStyle.setProperty("--selection-bg", "var(--" + settings.prompt.selectionBg + ")")
+		documentStyle.setProperty(
+			"--placeholder-color",
+			"var(--" + settings.prompt.placeholderColor + ")"
+		)
 
 		// Set URL Color
 		documentStyle.setProperty("--url-default", "var(--" + settings.urlLaunch.defaultColor + ")")
@@ -43,7 +47,14 @@ export default function Home() {
 		documentStyle.setProperty("--blue", settings.theme.blue)
 		documentStyle.setProperty("--cyan", settings.theme.cyan)
 		documentStyle.setProperty("--magenta", settings.theme.magenta)
-		documentStyle.setProperty("--purple", settings.theme.purple)
+		documentStyle.setProperty("--violet", settings.theme.violet)
+
+		// Check text glow
+		if (settings.terminal.textGlow) {
+			document.body.classList.add("text-glow")
+		} else {
+			document.body.classList.remove("text-glow")
+		}
 
 		setIsReady(true)
 	}, [settings])

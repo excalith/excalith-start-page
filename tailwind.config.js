@@ -32,7 +32,7 @@ module.exports = {
 			blue: "var(--blue)",
 			cyan: "var(--cyan)",
 			magenta: "var(--magenta)",
-			purple: "var(--purple)",
+			violet: "var(--violet)",
 			orange: "var(--orange)"
 		},
 		extend: {
@@ -63,7 +63,7 @@ module.exports = {
 		"glow-color",
 		{
 			pattern:
-				/(bg|text|border|caret)-(white|gray|black|red|green|yellow|blue|cyan|magenta|purple|orange)/
+				/(bg|text|border|caret)-(white|gray|black|red|green|yellow|blue|cyan|magenta|violet|orange)/
 		}
 	]
 }

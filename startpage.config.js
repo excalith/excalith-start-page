@@ -13,16 +13,18 @@ const defaultConfig = {
 		blue: "#2bc3de",
 		cyan: "#62e0e2",
 		magenta: "#e069aa",
-		purple: "#d1aff8",
+		violet: "#d1aff8",
 		orange: "#ff8800"
 	},
 	terminal: {
 		fixedHeight: true,
-		glowEnabled: true
+		windowGlow: true,
+		textGlow: false
 	},
 	prompt: {
 		ctrlC: true,
 		placeholder: "command...",
+		placeholderColor: "gray",
 		userColor: "green",
 		atColor: "gray",
 		hostColor: "magenta",
@@ -40,7 +42,7 @@ const defaultConfig = {
 	urlLaunch: {
 		target: "_self",
 		defaultColor: "white",
-		hoverColor: "purple"
+		hoverColor: "violet"
 	},
 	search: {
 		default: "https://google.com/search?q=",
@@ -139,7 +141,7 @@ const defaultConfig = {
 		},
 		{
 			title: "Social",
-			color: "purple",
+			color: "violet",
 			links: [
 				{
 					name: "Twitter",
