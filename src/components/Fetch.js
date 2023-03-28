@@ -57,7 +57,7 @@ const Fetch = ({ closeCallback }) => {
 								<span className="inline-block w-1/5 h-5 bg-red"></span>
 								<span className="inline-block w-1/5 h-5 bg-green"></span>
 								<span className="inline-block w-1/5 h-5 bg-yellow"></span>
-								<span className="inline-block w-1/5 h-5 bg-purple"></span>
+								<span className="inline-block w-1/5 h-5 bg-violet"></span>
 
 								<span className="inline-block w-1/5 h-5 bg-gray"></span>
 								<span className="inline-block w-1/5 h-5 bg-blue"></span>

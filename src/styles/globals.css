@@ -16,14 +16,17 @@
 	--blue: #2bc3de;
 	--cyan: #62e0e2;
 	--magenta: #e069aa;
-	--purple: #d1aff8;
+	--violet: #d1aff8;
 	--orange: #ff8800;
 
 	--url-default: var(--white);
-	--url-hover: var(--purple);
+	--url-hover: var(--violet);
 
 	--selection-fg: var(--black);
 	--selection-bg: var(--yellow);
+	--placeholder-color: var(--gray);
+
+	--text-glow: false;
 }
 
 * {
@@ -65,13 +68,21 @@ a:hover {
 	background: var(--selection-bg);
 }
 
-.glow {
+::placeholder {
+	color: var(--placeholder-color) !important;
+}
+
+.window-glow {
 	box-shadow: 0 0 5px var(--glow-color), 
 				0 0 25px var(--glow-color), 
 				0 0 50px var(--glow-color),
 				0 0 200px var(--glow-color);
 
 	transition: box-shadow 0.2s;
+}
+
+.text-glow {
+	text-shadow: 0px 0px 10px;
 }
 
 .ace_editor,

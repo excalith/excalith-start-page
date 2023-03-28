@@ -43,7 +43,7 @@ export default function Home() {
 		documentStyle.setProperty("--blue", settings.theme.blue)
 		documentStyle.setProperty("--cyan", settings.theme.cyan)
 		documentStyle.setProperty("--magenta", settings.theme.magenta)
-		documentStyle.setProperty("--purple", settings.theme.purple)
+		documentStyle.setProperty("--violet", settings.theme.violet)
 
 		setIsReady(true)
 	}, [settings])
