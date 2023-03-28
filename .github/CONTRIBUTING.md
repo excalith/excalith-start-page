@@ -67,7 +67,13 @@ In order to contribute to the source of the project
 I really appreciate contributions in the form of new themes to the project. If you'd like to add a new theme, please follow these steps:
 
 1. Create a new `json` file in the `public/themes` folder using the theme name as the file name. Please use `kebab-case` for the file name. You can use the default theme file as a starting point.
-2. Test your theme by running the project locally (`yarn dev`)
+2. Add the theme name to the array in the `public/themes.json` file. Please use the same name as the file and use alphabetical order.
+3. Test your theme by running the project locally by running `yarn dev` command
+   1. Use `set theme` command to see your theme on the list
+   2. Use `set theme <theme-name>` to see your theme in action
+
+> **Warning**
+> Since themes are stored in the local storage, you should run the `set theme <theme-name>` command to see your changes.
 
 More information about themes can be found in the [Wiki Page](https://github.com/excalith/excalith-start-page/wiki/Themes).
 
