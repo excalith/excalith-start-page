@@ -47,7 +47,8 @@ Clone this repo and run `yarn dev` command to host it locally on your machine
 - If nothing filtered, the text in prompt will use the default search engine for searching your input
 - Launch websites directly from the prompt. Just type the URL (ie. `github.com`)
 - Search websites with custom commands. For example, type `s some weird bug` to search StackOverflow for `some weird bug`
-- Multiple ways to customize the start page to your liking
+- Built-in configuration editor to easily edit and save your configuration
+- Multiple theme support (check all [available themes](./public/themes/))
 
 ### Built-In Commands
 
