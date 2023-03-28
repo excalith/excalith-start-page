@@ -13,6 +13,16 @@ async function getTheme(themeName) {
 	}
 }
 
+async function getThemes() {
+	try {
+		const themes = await fetch("/themes.json").then((res) => res.json())
+		return themes
+	} catch {
+		console.log("Error fetching themes")
+		return null
+	}
+}
+
 const Config = ({ commands, closeCallback }) => {
 	const [command] = useState(commands.join(" "))
 	const [consoleLog, setConsoleLog] = useState([])
@@ -44,7 +54,13 @@ const Config = ({ commands, closeCallback }) => {
 					}
 				})
 			} else {
-				invalidTheme()
+				getThemes().then((themes) => {
+					appendToLog("Available themes:")
+					for (let i in themes) {
+						appendToLog(themes[i])
+					}
+					setDone(true)
+				})
 			}
 		} else {
 			invalidCommand()
@@ -97,12 +113,8 @@ const Config = ({ commands, closeCallback }) => {
 	const invalidTheme = (themeName) => {
 		appendToLog("Invalid theme: " + commands[2], "error")
 		appendToLog("Usage:")
+		appendToLog("config theme: Show available themes")
 		appendToLog("config theme <theme>: Set theme")
-		appendToLog("Available Themes:")
-		appendToLog("default")
-		appendToLog("catppuccin")
-		appendToLog("dracula")
-		appendToLog("nord")
 		setDone(true)
 	}
 
