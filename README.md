@@ -13,34 +13,10 @@ This is an interactive start page for browsers, inspired from my terminal setup.
 
 ## Demo
 
-### Online
-
 You can check the working version from [here](https://excalith-start-page.vercel.app)
 
-### Docker
+> **Warning**: This is a demo version of the start page. It is not recommended to use this version for your daily browsing. Please refer to [wiki page](https://github.com/excalith/excalith-start-page/wiki/Getting-Started) for more information.
 
-**From Docker Registry**
-
-```bash
-docker pull excalith/start-page:latest
-```
-
-**From GitHub Registry**
-
-```bash
-docker pull ghcr.io/excalith/excalith-start-page:latest
-```
-
-**Start Container**
-
-```bash
-# You can change the port mapping of 8080 into something you want
-docker run --name start-page --restart=always -p 8080:3000 -d excalith/start-page
-```
-
-### Local
-
-Clone this repo and run `yarn dev` command to host it locally on your machine
 
 ## Features
 
@@ -67,11 +43,60 @@ Clone this repo and run `yarn dev` command to host it locally on your machine
 - Clear the prompt quickly with <kbd>CTRL</kbd> + <kbd>C</kbd>
 - Close window with <kbd>ESC</kbd>
 
+
+## Using
+
+There are multiple ways of using this app. Here is a quick preview of them. For more information please refer to [getting started](https://github.com/excalith/excalith-start-page/wiki/Getting-Started) page
+### Docker
+
+Docker is the most convenient way to host the start page. You can either use the image from Docker Hub or Github Registry.
+
+<details>
+<summary>Using Docker Registry</summary>
+<br>
+
+Pull the latest image
+```bash
+docker pull excalith/start-page:latest
+```
+
+Run the image (change the port mapping of 8080 into something you want)
+```bash
+docker run --name start-page --restart=always -p 8080:3000 -d excalith/start-page
+```
+</details>
+
+<details>
+<summary>Using Github Registry</summary>
+<br>
+
+Pull the latest image
+```bash
+docker pull ghcr.io/excalith/excalith-start-page:latest
+```
+
+Run the image (change the port mapping of 8080 into something you want)
+```bash
+docker run --name start-page --restart=always -p 8080:3000 -d ghcr.io/excalith/excalith-start-page
+```
+</details>
+
+### Clone
+
+You can clone this repository and host it on your own server.
+
+1. Clone this repository
+2. Run `yarn dev` command to test it
+3. Modify the `startpage.config.js` to your liking
+4. Host somewhere (Vercel, Netlify, etc.) or run locally
+
+### Remote Config Import
+
+If you prefer to use the online version, I would recommend you to use the remote configuration import feature. This feature allows you to import your configuration from a URL. This way, you will always have a backup file of your configuration. Please refer to [getting started](https://github.com/excalith/excalith-start-page/wiki/Getting-Started) page for more information.
+
 ## Customization
 
-There are multiple ways of customizing the start page to making it yours!
-
-Please refer to [wiki page](https://github.com/excalith/excalith-start-page/wiki) for more information.
+There are multiple ways of customizing the start page to making it yours! Please refer to [configuration](https://github.com/excalith/excalith-start-page/wiki/Configuration) and [themes](https://github.com/excalith/excalith-start-page/wiki/Themes) pages for more information.
 
 ## How To Contribute
 

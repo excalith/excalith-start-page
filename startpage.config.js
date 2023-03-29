@@ -37,7 +37,18 @@ const defaultConfig = {
 	fetch: {
 		timeFormat: "HH:mm",
 		dateFormat: "DD/MM/YYYY",
-		titleColor: "yellow"
+		titleColor: "yellow",
+		image: "icon.svg",
+		data: [
+			"Time: {time}",
+			"Date: {date}",
+			"{seperator}",
+			"OS: {osName} {osVersion}",
+			"Browser: {browser} {browserVersion}",
+			"Engine: {engineName}",
+			"{seperator}",
+			"{colors}"
+		]
 	},
 	urlLaunch: {
 		target: "_self",
