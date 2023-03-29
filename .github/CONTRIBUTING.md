@@ -28,7 +28,7 @@ Before creating bug reports, please perform a [cursory search on issues](https:/
 
 To report a new issue, please follow these steps:
 
-- **Use a clear and descriptive title** for the issue to identify the problem after the prefix of `[BUG]`
+- **Use a clear and descriptive title** for the issue to identify the problem after the prefix (ie. `[BUG] Page Freezes Upon Returning`)
 - Use the **bug report template** and **fill out** the required fields.
 - **Describe the exact steps which reproduce the problem** in as many details as possible. For example, start by explaining how you started the app, e.g. which command exactly you used in the terminal. When listing steps, **don't just say what you did, but explain how you did it**.
 - Explain the **expected behaviour**
