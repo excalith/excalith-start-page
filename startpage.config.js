@@ -90,6 +90,7 @@ const defaultConfig = {
 		{
 			title: "General",
 			color: "green",
+			align: "left",
 			links: [
 				{
 					name: "Portfolio",
@@ -116,6 +117,7 @@ const defaultConfig = {
 		{
 			title: "Dev",
 			color: "magenta",
+			align: "left",
 			links: [
 				{
 					name: "GitHub",
@@ -142,6 +144,7 @@ const defaultConfig = {
 		{
 			title: "Social",
 			color: "violet",
+			align: "left",
 			links: [
 				{
 					name: "Twitter",
@@ -168,6 +171,7 @@ const defaultConfig = {
 		{
 			title: "Gaming",
 			color: "cyan",
+			align: "left",
 			links: [
 				{
 					name: "Polygon",
@@ -194,6 +198,7 @@ const defaultConfig = {
 		{
 			title: "Science",
 			color: "blue",
+			align: "left",
 			links: [
 				{
 					name: "PopSci",
@@ -220,6 +225,7 @@ const defaultConfig = {
 		{
 			title: "Tech",
 			color: "yellow",
+			align: "left",
 			links: [
 				{
 					name: "TechCrunch",
