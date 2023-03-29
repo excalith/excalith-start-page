@@ -46,10 +46,6 @@ body {
 	font-family: "Fira Code", monospace;
 }
 
-h1 {
-	font-size: 20px;
-}
-
 a,
 a:active,
 a:visited {
@@ -84,6 +80,10 @@ a:hover {
 .text-glow {
 	text-shadow: 0px 0px 10px;
 }
+
+.align-left { text-align: left; }
+.align-center { text-align: center; }
+.align-right { text-align: right; }
 
 .ace_editor,
 .ace_gutter {

@@ -1,8 +1,9 @@
 import Link from "@/components/Link"
 
 const Section = ({ section, filter }) => {
+	const alignment = section.align || "left"
 	return (
-		<div className="mb-4">
+		<div className={`mb-4 align-${alignment}`}>
 			<h2 className={`text-title font-bold mt-0 mb-2 cursor-default text-${section.color}`}>
 				{section.title}
 			</h2>
