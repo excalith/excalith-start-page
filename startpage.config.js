@@ -38,14 +38,13 @@ const defaultConfig = {
 		timeFormat: "HH:mm",
 		dateFormat: "DD/MM/YYYY",
 		titleColor: "yellow",
-		image: "https://cdn.openart.ai/stable_diffusion/15b3f508d40d4df62fc69d640ea3113682ead4a3_2000x2000.webp",
+		image: "icon.svg",
 		data: [
 			"Time: {time}",
 			"Date: {date}",
 			"{seperator}",
 			"OS: {osName} {osVersion}",
 			"Browser: {browser} {browserVersion}",
-			"{seperator}",
 			"Engine: {engineName}",
 			"{seperator}",
 			"{colors}"

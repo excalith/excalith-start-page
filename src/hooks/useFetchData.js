@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import moment from "moment"
+import getConfig from "next/config"
 import {
 	osName,
 	osVersion,
@@ -11,6 +12,7 @@ import {
 import { useSettings } from "@/context/settings"
 
 let data = {
+	version: "Unknown",
 	time: "Unknown",
 	date: "Unknown",
 	osName: "Unknown",
@@ -24,9 +26,12 @@ let data = {
 
 const useFetchData = () => {
 	const { settings } = useSettings()
+	const { publicRuntimeConfig } = getConfig()
+	const version = publicRuntimeConfig?.version
 
 	useEffect(() => {
 		data = {
+			version: version,
 			time: moment().format(settings.fetch.timeFormat),
 			date: moment().format(settings.fetch.dateFormat),
 			osName: osName,
