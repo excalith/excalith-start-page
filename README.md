@@ -5,7 +5,8 @@
 This is an interactive start page for browsers, inspired from my terminal setup.
 
 [![Vercel Status](https://therealsujitk-vercel-badge.vercel.app/?app=excalith-start-page)](https://excalith-start-page.vercel.app)
-[![GitHub Version (latest semver)](https://img.shields.io/github/v/tag/excalith/excalith-start-page?sort=semver&label=github)](https://github.com/excalith/excalith-start-page)
+[![Web Version (latest semver)](https://img.shields.io/github/package-json/v/excalith/excalith-start-page?label=web)](https://github.com/excalith/excalith-start-page)
+[![GHCR Version (latest semver)](https://img.shields.io/github/v/tag/excalith/excalith-start-page?sort=semver&label=ghcr)](https://github.com/excalith/excalith-start-page)
 [![Docker Version (latest semver)](https://img.shields.io/docker/v/excalith/start-page?sort=semver&label=docker)](https://hub.docker.com/r/excalith/start-page)
 
 </div>
