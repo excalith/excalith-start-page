@@ -11,6 +11,7 @@ Thanks to [r/unixporn](https://www.reddit.com/r/unixporn/comments/124rsis/oc_sup
 
 ### Added
 - Bushido theme
+- Wallpaper support
 
 ### Improved
 - Help command with better formatting
@@ -19,6 +20,20 @@ Thanks to [r/unixporn](https://www.reddit.com/r/unixporn/comments/124rsis/oc_sup
 - Prepared Sections for future changes
 
 ### Breaking Changes
+#### Wallpaper
+Now we can add wallpapers to the start page. You might want to add wallpaper object to your configuration.
+
+Sample Configuration:
+
+```js
+wallpaper: {
+   url: "https://source.unsplash.com/1280x720/?neon-city",
+   easing: "ease-in-out",
+   fadeIn: true,
+   blur: true
+}
+```
+
 #### Fetch
 Fetch data had a nice refactor to allow more customization features. You can now import images from URLs and reorder the data items.
 

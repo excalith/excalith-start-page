@@ -17,12 +17,10 @@ const defaultConfig = {
 		orange: "#ff8800"
 	},
 	wallpaper: {
-		url: "https://source.unsplash.com/1920x1080/?nature,water",
-		blur: "2x",
-		size: "cover",
-		repeat: "no-repeat",
-		transition: "2000",
-		blur: "0px"
+		url: "https://source.unsplash.com/1280x720/?neon-city",
+		easing: "ease-in-out",
+		fadeIn: true,
+		blur: true
 	},
 	terminal: {
 		fixedHeight: true,

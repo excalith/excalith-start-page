@@ -61,26 +61,27 @@ export default function Home() {
 		setIsReady(true)
 	}, [settings])
 
-	const handleOnWallpaperLoad = () => {
-		console.log("Wallpaper loaded")
-		setIsLoaded(true)
-	}
-
 	return (
 		<main className={"transition-all duration-200 ease-in-out"}>
 			{isReady && (
 				<>
 					<Meta />
-					<Image
-						alt=""
-						className={`transition-opacity ease-in-out duration-[${
-							settings.wallpaper.transition
-						}ms] w-screen h-screen -z-50 ${isLoaded ? "opacity-100" : "opacity-0"}`}
-						src={"https://source.unsplash.com/1920x1080/?nature,fox"}
-						fill
-						objectFit="cover"
-						onLoad={handleOnWallpaperLoad}
-					/>
+					{settings.wallpaper.url && (
+						<Image
+							alt=""
+							className={`transition-opacity w-screen h-screen -z-50 
+							${settings.wallpaper.easing}
+							${settings.wallpaper.fadeIn && "duration-1000"}
+							${settings.wallpaper.blur && "blur-wallpaper"}
+							${isLoaded ? "opacity-100" : "opacity-0"}`}
+							src={settings.wallpaper.url}
+							fill
+							objectFit="cover"
+							onLoadingComplete={() => {
+								setIsLoaded(true)
+							}}
+						/>
+					)}
 					<div className={`animate-fadeIn`}>
 						<Terminal />
 					</div>

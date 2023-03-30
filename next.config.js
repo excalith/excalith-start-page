@@ -7,6 +7,7 @@ const nextConfig = {
 		version
 	},
 	images: {
+		unoptimized: true,
 		remotePatterns: [
 			{
 				protocol: "https",

@@ -49,6 +49,9 @@ module.exports = {
 			animation: {
 				fadeIn: "fadeIn 0.15s ease-in-out"
 			},
+			blur: {
+				wallpaper: "8px"
+			},
 			keyframes: () => ({
 				fadeIn: {
 					"0%": { opacity: 0 },
