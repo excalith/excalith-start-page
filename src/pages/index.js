@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import Image from "next/image"
 import Meta from "@/components/Meta"
 import Terminal from "@/components/Terminal"
 import "@fontsource/fira-code/400.css"
@@ -8,6 +9,7 @@ import { useSettings } from "@/context/settings"
 export default function Home() {
 	const { settings } = useSettings()
 	const [isReady, setIsReady] = useState(false)
+	const [isLoaded, setIsLoaded] = useState(false)
 
 	useEffect(() => {
 		const info = `\u00A9 2022-${new Date().getFullYear()} Can Cellek\n\nStart Page designed by Can Cellek\nCheck out the source code at\nhttps://github.com/excalith/excalith-start-page`
@@ -64,6 +66,22 @@ export default function Home() {
 			{isReady && (
 				<>
 					<Meta />
+					{settings.wallpaper.url && (
+						<Image
+							alt=""
+							className={`transition-opacity w-screen h-screen -z-50 
+							${settings.wallpaper.easing}
+							${settings.wallpaper.fadeIn && "duration-1000"}
+							${settings.wallpaper.blur && "blur-wallpaper"}
+							${isLoaded ? "opacity-100" : "opacity-0"}`}
+							src={settings.wallpaper.url}
+							fill
+							objectFit="cover"
+							onLoadingComplete={() => {
+								setIsLoaded(true)
+							}}
+						/>
+					)}
 					<div className={`animate-fadeIn`}>
 						<Terminal />
 					</div>

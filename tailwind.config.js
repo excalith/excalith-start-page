@@ -23,6 +23,7 @@ module.exports = {
 			"background-color": "var(--background-color)",
 			"window-color": "var(--window-color)",
 			"glow-color": "var(--glow-color)",
+			transparent: "#00000000",
 			white: "var(--white)",
 			gray: "var(--gray)",
 			black: "var(--black)",
@@ -47,6 +48,9 @@ module.exports = {
 			},
 			animation: {
 				fadeIn: "fadeIn 0.15s ease-in-out"
+			},
+			blur: {
+				wallpaper: "8px"
 			},
 			keyframes: () => ({
 				fadeIn: {

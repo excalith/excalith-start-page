@@ -6,6 +6,15 @@ const nextConfig = {
 	publicRuntimeConfig: {
 		version
 	},
+	images: {
+		unoptimized: true,
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "**"
+			}
+		]
+	},
 	headers: () => [
 		{
 			source: "/:path*",

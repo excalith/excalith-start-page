@@ -21,7 +21,7 @@ export function RunCommand(command, settings) {
 
 function openFilteredLinks(command, settings) {
 	let filteredUrls = []
-	settings.sections.map((section) => {
+	settings.sections.list.map((section) => {
 		{
 			section.links.map((link) => {
 				{
