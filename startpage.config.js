@@ -17,7 +17,7 @@ const defaultConfig = {
 		orange: "#ff8800"
 	},
 	wallpaper: {
-		url: "https://source.unsplash.com/1280x720/?neon-city",
+		url: "",
 		easing: "ease-in-out",
 		fadeIn: true,
 		blur: true
