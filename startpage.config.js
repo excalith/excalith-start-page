@@ -16,6 +16,14 @@ const defaultConfig = {
 		violet: "#d1aff8",
 		orange: "#ff8800"
 	},
+	wallpaper: {
+		url: "https://source.unsplash.com/1920x1080/?nature,water",
+		blur: "2x",
+		size: "cover",
+		repeat: "no-repeat",
+		transition: "2000",
+		blur: "0px"
+	},
 	terminal: {
 		fixedHeight: true,
 		windowGlow: true,
