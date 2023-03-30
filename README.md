@@ -37,6 +37,7 @@ Please refer to [configuration](https://github.com/excalith/excalith-start-page/
 - Show usage with `help` command (shows basic usage and your configured search shortcuts)
 - Show info with `fetch` command (time, date, system and browser data)
 - Update your configuration with `config` command
+  - `config help` - Displays config command usage
   - `config import <url>` - Import configuration from a URL to your local storage
   - `config theme` - Lists all [available themes](./public/themes/)
   - `config theme <theme-name>` - Switches between themes and sets your local configuration
