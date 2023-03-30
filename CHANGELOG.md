@@ -7,7 +7,8 @@ All upcoming and notable changes to this project will be documented in this file
 
 ## Unreleased
 
-Nothing new on the preview version yet.
+### Added
+- Error handling for client-side issues by showing possible solutions.
 
 ## Previous Versions [![Latest Release](https://img.shields.io/github/v/release/excalith/excalith-start-page)](https://github.com/excalith/excalith-start-page/releases)
 
