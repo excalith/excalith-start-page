@@ -5,7 +5,7 @@
 This is an interactive start page for browsers, inspired from my terminal setup.
 
 [![Vercel Status](https://therealsujitk-vercel-badge.vercel.app/?app=excalith-start-page)](https://excalith-start-page.vercel.app)
-[![Web Version (latest semver)](https://img.shields.io/github/package-json/v/excalith/excalith-start-page?label=web)](https://github.com/excalith/excalith-start-page)
+[![Demo Version (latest semver)](https://img.shields.io/github/package-json/v/excalith/excalith-start-page?label=demo)](https://github.com/excalith/excalith-start-page)
 [![GHCR Version (latest semver)](https://img.shields.io/github/v/tag/excalith/excalith-start-page?sort=semver&label=ghcr)](https://github.com/excalith/excalith-start-page)
 [![Docker Version (latest semver)](https://img.shields.io/docker/v/excalith/start-page?sort=semver&label=docker)](https://hub.docker.com/r/excalith/start-page)
 
@@ -15,7 +15,7 @@ This is an interactive start page for browsers, inspired from my terminal setup.
 
 You can check the working version from [here](https://excalith-start-page.vercel.app)
 
-> **Warning**: This is a demo version of the start page. It is not recommended to use this version for your daily browsing. Please refer to [wiki page](https://github.com/excalith/excalith-start-page/wiki/Getting-Started) for more information.
+> **Warning** This is a demo version and will be updated regularly, which might break your configurations. It is not recommended to use this version for your daily browsing. Please refer to [wiki page](https://github.com/excalith/excalith-start-page/wiki/Getting-Started) for more information.
 
 
 ## Features
@@ -92,7 +92,7 @@ You can clone this repository and host it on your own server.
 
 ### Remote Config Import
 
-If you prefer to use the online version, I would recommend you to use the remote configuration import feature. This feature allows you to import your configuration from a URL. This way, you will always have a backup file of your configuration. Please refer to [getting started](https://github.com/excalith/excalith-start-page/wiki/Getting-Started) page for more information.
+If you still prefer to use the online version, I would recommend you to use the remote configuration import feature. This feature allows you to import your configuration from a URL. This way, you will always have a backup file of your configuration. Please refer to [getting started](https://github.com/excalith/excalith-start-page/wiki/Getting-Started) page for more information.
 
 ## Customization
 
