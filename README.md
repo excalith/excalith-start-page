@@ -5,7 +5,7 @@
 This is an interactive start page for browsers, inspired from my terminal setup.
 
 [![Vercel Status](https://therealsujitk-vercel-badge.vercel.app/?app=excalith-start-page)](https://excalith-start-page.vercel.app)
-[![Demo Version (latest semver)](https://img.shields.io/github/package-json/v/excalith/excalith-start-page?label=demo)](https://github.com/excalith/excalith-start-page)
+[![Demo Version (latest semver)](https://img.shields.io/github/package-json/v/excalith/excalith-start-page?label=preview)](https://github.com/excalith/excalith-start-page)
 [![GHCR Version (latest semver)](https://img.shields.io/github/v/tag/excalith/excalith-start-page?sort=semver&label=ghcr)](https://github.com/excalith/excalith-start-page)
 [![Docker Version (latest semver)](https://img.shields.io/docker/v/excalith/start-page?sort=semver&label=docker)](https://hub.docker.com/r/excalith/start-page)
 
@@ -20,12 +20,17 @@ You can check the working version from [here](https://excalith-start-page.vercel
 
 ## Features
 
-- Quickly filter links by typing in the prompt. Hitting <kbd>Enter</kbd> will open all filtered links at once
-- If nothing filtered, the text in prompt will use the default search engine for searching your input
+- Filter links by typing in the prompt
+  - Quickly filter links by typing in the prompt. Hitting <kbd>Enter</kbd> will open all filtered links at once
+  - If nothing filtered, the text in prompt will use the default search engine for searching your input
 - Launch websites directly from the prompt. Just type the URL (ie. `github.com`)
 - Search websites with custom commands. For example, type `s some weird bug` to search StackOverflow for `some weird bug`
-- Built-in configuration editor to easily edit and save your configuration
+- Wallpaper support through URL with blur and fade effects
+- Customizable Fetch UI for fetching browser and system data, including custom image support
 - Multiple theme support (check all [available themes](./public/themes/))
+- Built-in configuration editor to easily edit and save your configuration
+
+Please refer to [configuration](https://github.com/excalith/excalith-start-page/wiki/Configuration) page for more information.
 
 ### Built-In Commands
 
