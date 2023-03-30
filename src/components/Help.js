@@ -32,12 +32,19 @@ const Help = ({ closeCallback }) => {
 						<span className="text-blue">config</span> Configuration settings
 						<ul className="ml-5">
 							<li>
-								<span className="text-blue">config import [url]</span> Imports
-								remote config JSON
+								<span className="text-blue">config help</span> Display config help
 							</li>
 							<li>
-								<span className="text-blue">config theme [theme-name]</span>{" "}
+								<span className="text-blue">config theme</span> List available
+								themes
+							</li>
+							<li>
+								<span className="text-blue">config theme &#60;theme-name&#62;</span>{" "}
 								Switches theme
+							</li>
+							<li>
+								<span className="text-blue">config import &#60;url&#62;</span>{" "}
+								Imports remote config JSON
 							</li>
 							<li>
 								<span className="text-blue">config edit</span> Opens local config in
@@ -56,7 +63,7 @@ const Help = ({ closeCallback }) => {
 					{settings.search.shortcuts.map((cmd, index) => {
 						return (
 							<li key={index}>
-								<span className="text-blue">{cmd.alias}</span> {cmd.name}
+								<span className="text-blue">{cmd.alias} </span> {cmd.name}
 							</li>
 						)
 					})}
