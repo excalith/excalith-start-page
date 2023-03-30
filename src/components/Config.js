@@ -55,15 +55,18 @@ const Config = ({ commands, closeCallback }) => {
 				})
 			} else {
 				getThemes().then((themes) => {
-					appendToLog("Available themes:")
+					appendToLog("Available themes:", "title")
 					for (let i in themes) {
 						appendToLog(themes[i])
 					}
 					setDone(true)
 				})
 			}
+		} else if (cmd === "help") {
+			usageExample()
 		} else {
-			invalidCommand()
+			appendToLog("Invalid config command: " + commands.join(" "), "error")
+			usageExample()
 		}
 	}, [])
 
@@ -100,10 +103,11 @@ const Config = ({ commands, closeCallback }) => {
 		setIsEditMode(true)
 	}
 
-	const invalidCommand = () => {
-		appendToLog("Invalid config command: " + commands.join(" "), "error")
-		appendToLog("Usage:")
+	const usageExample = () => {
+		appendToLog("Usage:", "title")
+		appendToLog("config help: Show usage examples")
 		appendToLog("config import <url>: Import remote config")
+		appendToLog("config theme: List available themes")
 		appendToLog("config theme <theme-name>: Switch theme")
 		appendToLog("config edit: Edit local config")
 		appendToLog("config reset: Reset to default config")
@@ -112,7 +116,7 @@ const Config = ({ commands, closeCallback }) => {
 
 	const invalidTheme = (themeName) => {
 		appendToLog("Invalid theme: " + commands[2], "error")
-		appendToLog("Usage:")
+		appendToLog("Usage:", "title")
 		appendToLog("config theme: Show available themes")
 		appendToLog("config theme <theme>: Set theme")
 		setDone(true)
@@ -156,16 +160,19 @@ const Config = ({ commands, closeCallback }) => {
 							return (
 								<li key={index}>
 									{data.type === "error" && (
-										<p>
+										<p className="mb-line">
 											<span className="text-red">[✖] </span>
 											{data.text}
 										</p>
 									)}
 									{data.type === "success" && (
-										<p>
+										<p className="mb-line">
 											<span className="text-green">[✓] </span>
 											{data.text}
 										</p>
+									)}
+									{data.type === "title" && (
+										<p className="text-green">{data.text}</p>
 									)}
 									{data.type === undefined && <p>{data.text}</p>}
 								</li>

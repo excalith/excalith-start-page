@@ -4,8 +4,19 @@ All upcoming and notable changes to this project will be documented in this file
 
 ## Unreleased (Web Demo)
 
+Thanks to [r/unixporn](https://www.reddit.com/r/unixporn/comments/124rsis/oc_supplementary_browser_start_page/) community, I had a lot of feedback and suggestions to improve the project. This resulted in heavy refactoring to be able to implement new features, so created some breaking changes. Before updating, please read the [breaking changes](#breaking-changes) section. 
+
+I think this project has a solid base now, so I don't expect to make any breaking changes in the future.
+
 ### Added
-- Fetch now supports image URLs and reordable items fetch items.
+- Bushido theme
+
+### Improved
+- Help command with better formatting
+- Fetch now supports image URLs
+- Fetch now supports reorderable and customizable items
+- Sections now support column size
+- Section items now support text alignment
 
 ### Breaking Changes
 #### Fetch
@@ -51,6 +62,38 @@ fetch: {
     "{seperator}",
     "{colors}"
   ]
+}
+```
+
+#### Sections
+Sections had a nice refactor to allow more customization features requested from the community. 
+- You can align each section to the left, center or right.
+- You can set the column size of each row.
+- Now it centers sections if less then column size.
+
+In order to update your configuration, encapsulate your sections in `list` array.
+
+Sample Configuration:
+
+```js
+sections: {
+   settings: {
+      columns: 3
+   },
+   list: [
+      {
+         title: "Dev",
+         color: "green",
+         align: "left",
+         links: [
+            {
+               name: "GitHub",
+               url: "https://github.com",
+               icon: "mdi:github"
+            }
+         ]
+      }
+   ]
 }
 ```
  
