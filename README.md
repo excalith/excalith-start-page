@@ -27,6 +27,7 @@ You can check the working version from [here](https://excalith-start-page.vercel
 - Search websites with custom commands. For example, type `s some weird bug` to search StackOverflow for `some weird bug`
 - Wallpaper support through URL with blur and fade effects
 - Customizable Fetch UI for fetching browser and system data, including custom image support
+- Autosuggest and <kbd>TAB</kbd> Autocomplete just like `zsh` and `fish`
 - Multiple theme support (check all [available themes](./public/themes/))
 - Built-in configuration editor to easily edit and save your configuration
 
