@@ -5,10 +5,10 @@ import { useSettings } from "@/context/settings"
 
 const Search = ({ prompt, commandChange }) => {
 	const [focus, setFocus] = useState(false)
-	const { settings, filters } = useSettings()
 	const [suggestion, setSuggestion] = useState()
-	const input = useRef(null)
+	const { settings, filters } = useSettings()
 	const suggestionInput = useRef(null)
+	const input = useRef(null)
 
 	useEffect(() => {
 		setTimeout(() => input.current.focus(), 0)
@@ -42,7 +42,6 @@ const Search = ({ prompt, commandChange }) => {
 			return
 		}
 
-		const test = ["portfolio", "keybase", "gpt", "oci"]
 		const result = filters.find((item) => item.startsWith(str))
 		setSuggestion(result)
 	}

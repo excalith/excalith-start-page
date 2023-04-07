@@ -32,7 +32,15 @@ export const SettingsProvider = ({ children }) => {
 		if (settings && settings !== "undefined") {
 			localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings))
 
-			let filterArr = []
+			let filterArr = [
+				"help",
+				"fetch",
+				"config",
+				"config theme",
+				"config edit",
+				"config import",
+				"config reset"
+			]
 			settings.sections.list.map((section, index) => {
 				section.links.map((link, index) => {
 					{
