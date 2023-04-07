@@ -12,6 +12,7 @@ export const useSettings = () => useContext(SettingsContext)
 
 export const SettingsProvider = ({ children }) => {
 	const [settings, setSettings] = useState()
+	const [filters, setFilters] = useState([])
 
 	useEffect(() => {
 		const settings = localStorage.getItem(SETTINGS_KEY)
@@ -30,6 +31,16 @@ export const SettingsProvider = ({ children }) => {
 	useEffect(() => {
 		if (settings && settings !== "undefined") {
 			localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings))
+
+			let filterArr = []
+			settings.sections.list.map((section, index) => {
+				section.links.map((link, index) => {
+					{
+						filterArr.push(link.name.toLowerCase())
+					}
+				})
+			})
+			setFilters(filterArr)
 		}
 	}, [settings])
 
@@ -43,7 +54,7 @@ export const SettingsProvider = ({ children }) => {
 	}
 
 	return (
-		<SettingsContext.Provider value={{ settings, setSettings: updateSettings, resetSettings }}>
+		<SettingsContext.Provider value={{ settings, setSettings: updateSettings, resetSettings, filters }}>
 			{children}
 		</SettingsContext.Provider>
 	)

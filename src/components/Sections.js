@@ -26,8 +26,8 @@ const Sections = () => {
 	const [command, setCommand] = useState("")
 	const { settings } = useSettings()
 
-	const handleCommandChange = (e) => {
-		setCommand(e.target.value)
+	const handleCommandChange = (str) => {
+		setCommand(str)
 	}
 
 	return (
