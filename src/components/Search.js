@@ -21,6 +21,7 @@ const Search = ({ prompt, commandChange }) => {
 			} else if (settings.prompt.ctrlC) {
 				if ((event.metaKey || event.ctrlKey) && event.code === "KeyC") {
 					input.current.value = ""
+					setSuggestion("")
 					commandChange("")
 				}
 			}
