@@ -9,6 +9,7 @@ All upcoming and notable changes to this project will be documented in this file
 
 ### Added
 - Error handling for client-side issues by showing possible solutions.
+- Using <kbd>TAB</kbd> auto-completes the suggestion if any. (#25)
 
 ## Previous Versions [![Latest Release](https://img.shields.io/github/v/release/excalith/excalith-start-page)](https://github.com/excalith/excalith-start-page/releases)
 
