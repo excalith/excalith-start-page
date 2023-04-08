@@ -46,6 +46,9 @@ module.exports = {
 			margin: {
 				line: "1.4rem"
 			},
+			spacing: {
+				full: "100%"
+			},
 			animation: {
 				fadeIn: "fadeIn 0.15s ease-in-out"
 			},

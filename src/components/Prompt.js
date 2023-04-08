@@ -8,17 +8,17 @@ const Prompt = ({ command, showSymbol = true }) => {
 	const promptSettings = settings.prompt
 
 	return (
-		<span className="cursor-default">
+		<span className="flex cursor-default">
 			<span className={`text-${promptSettings.userColor}`}>{lower_username}</span>
 			<span className={`text-${promptSettings.atColor}`}>@</span>
 			<span className={`text-${promptSettings.hostColor}`}>{browserData.browserLower}</span>
 			{showSymbol && (
-				<span className={`text-${promptSettings.promptColor}`}>
+				<span className={`text-${promptSettings.promptColor} ml-2`}>
 					{" "}
 					{promptSettings.promptSymbol}{" "}
 				</span>
 			)}
-			{command && <span className="text-white">{command}</span>}
+			{command && <span className="ml-2.5 text-white">{command}</span>}
 		</span>
 	)
 }

@@ -60,9 +60,9 @@ const Search = ({ prompt, commandChange }) => {
 	return (
 		<div id="search" className="flex">
 			<Prompt />
-			<div id="search-container">
+			<div id="search-container" className="flex grow ml-2.5">
 				<input
-					className={`z-10 absolute grow inline-block bg-transparent text-white outline-none appearance-none shadow-none ml-2.5 caret-${prompt.caretColor}`}
+					className={`z-10 w-full bg-transparent text-white outline-none appearance-none shadow-none caret-${prompt.caretColor}`}
 					type="text"
 					onChange={handleInputChange}
 					placeholder={settings.prompt.placeholder}
@@ -77,7 +77,7 @@ const Search = ({ prompt, commandChange }) => {
 					ref={input}
 				/>
 				<input
-					className={`-z-10 opacity-50 absolute grow inline-block bg-transparent text-white outline-none appearance-none shadow-none ml-2.5 caret-${prompt.caretColor}`}
+					className={`-z-10 opacity-50 w-full -ml-full bg-transparent text-white outline-none appearance-none shadow-none caret-${prompt.caretColor}`}
 					type="text"
 					placeholder={suggestion}
 					disabled
