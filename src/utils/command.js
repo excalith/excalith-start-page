@@ -15,9 +15,9 @@ export function RunCommand(command, settings) {
 	} else if (tryParseSearchShortcut(command, settings)) {
 		return
 	}
-//  else {
-// 		openFilteredLinks(command, settings)
-// 	}
+	//  else {
+	// 		openFilteredLinks(command, settings)
+	// 	}
 }
 
 // function openFilteredLinks(command, settings) {
