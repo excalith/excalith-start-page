@@ -6,7 +6,7 @@ import { useSettings } from "@/context/settings"
 const Search = ({ prompt, commandChange }) => {
 	const [focus, setFocus] = useState(false)
 	const [suggestion, setSuggestion] = useState()
-	const { settings, filters } = useSettings()
+	const { settings, items } = useSettings()
 	const suggestionInput = useRef(null)
 	const input = useRef(null)
 
@@ -42,18 +42,22 @@ const Search = ({ prompt, commandChange }) => {
 			return
 		}
 
-		const result = filters.find((item) => item.startsWith(str))
+		const result = items.find((item) => item.startsWith(str))
 		setSuggestion(result)
 	}
 
 	const handleAutocomplete = (e) => {
-		if (e.key === "Tab") {
+		if (e.key === "ArrowRight") {
 			e.preventDefault()
 			if (suggestion.length !== 0) {
 				input.current.value = suggestion
 				setSuggestion("")
 				commandChange(input.current.value)
 			}
+		}
+
+		if (e.key === "Tab") {
+			e.preventDefault()
 		}
 	}
 

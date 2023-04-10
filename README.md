@@ -47,7 +47,7 @@ Please refer to [configuration](https://github.com/excalith/excalith-start-page/
 
 ### Key Bindings
 
-- Use <kbd>TAB</kbd> to auto-complete the suggestion
+- Use <kbd>→</kbd> to auto-complete the suggestion
 - Clear the prompt quickly with <kbd>CTRL</kbd> + <kbd>C</kbd>
 - Close window with <kbd>ESC</kbd>
 

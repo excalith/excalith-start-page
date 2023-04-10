@@ -17,7 +17,8 @@ module.exports = {
 			"4xl": ["36px", "40px"]
 		},
 		borderRadius: {
-			terminal: "0.625rem"
+			terminal: "0.625rem",
+			selection: "0.2rem"
 		},
 		colors: {
 			"background-color": "var(--background-color)",

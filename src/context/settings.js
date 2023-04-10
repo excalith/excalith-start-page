@@ -12,7 +12,7 @@ export const useSettings = () => useContext(SettingsContext)
 
 export const SettingsProvider = ({ children }) => {
 	const [settings, setSettings] = useState()
-	const [filters, setFilters] = useState([])
+	const [items, setItems] = useState([])
 
 	useEffect(() => {
 		const settings = localStorage.getItem(SETTINGS_KEY)
@@ -48,7 +48,8 @@ export const SettingsProvider = ({ children }) => {
 					}
 				})
 			})
-			setFilters(filterArr)
+			setItems(filterArr)
+			console.log(filterArr)
 		}
 	}, [settings])
 
@@ -63,7 +64,7 @@ export const SettingsProvider = ({ children }) => {
 
 	return (
 		<SettingsContext.Provider
-			value={{ settings, setSettings: updateSettings, resetSettings, filters }}>
+			value={{ settings, setSettings: updateSettings, resetSettings, items }}>
 			{children}
 		</SettingsContext.Provider>
 	)
