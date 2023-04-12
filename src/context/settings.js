@@ -49,7 +49,6 @@ export const SettingsProvider = ({ children }) => {
 				})
 			})
 			setItems(filterArr)
-			console.log(filterArr)
 		}
 	}, [settings])
 

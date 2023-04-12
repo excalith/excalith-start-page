@@ -16,8 +16,23 @@ const Help = ({ closeCallback }) => {
 					<li>- Filter links by typing in the prompt</li>
 					<li>- Unfiltered prompt will search using default search engine</li>
 					<li>- Launch URL's directly from prompt</li>
-					<li>- Use CTRL+C to clear prompt</li>
-					<li>- Use ESC to exit windows</li>
+				</ul>
+
+				<span className="block mt-line text-green">Key Bindings</span>
+				<ul>
+					<li>
+						- Use <span className="text-blue">→</span> key to complete suggestion
+					</li>
+					<li>
+						- Use <span className="text-blue">TAB</span> and{" "}
+						<span className="text-blue">SHIFT+TAB</span> to cycle through filtered links
+					</li>
+					<li>
+						- Use <span className="text-blue">CTRL+C</span> to clear prompt
+					</li>
+					<li>
+						- Use <span className="text-blue">ESC</span> to exit windows
+					</li>
 				</ul>
 
 				<span className="block mt-line text-green">Built-in Commands</span>
@@ -58,7 +73,7 @@ const Help = ({ closeCallback }) => {
 					</li>
 				</ul>
 
-				<span className="block mt-line text-green">Custom Commands</span>
+				<span className="block mt-line text-green">Search Aliases</span>
 				<ul>
 					{settings.search.shortcuts.map((cmd, index) => {
 						return (
@@ -69,7 +84,9 @@ const Help = ({ closeCallback }) => {
 					})}
 				</ul>
 				<ul>
-					<li className="my-line">Press ESC to continue...</li>
+					<li className="my-line">
+						Press <span className="text-blue">ESC</span> to continue...
+					</li>
 				</ul>
 			</div>
 		</div>

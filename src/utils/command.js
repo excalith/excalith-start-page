@@ -14,37 +14,36 @@ export function RunCommand(command, settings) {
 		openLink("https://" + command, settings.urlLaunch.target)
 	} else if (tryParseSearchShortcut(command, settings)) {
 		return
+	} else {
+		openFilteredLinks(command, settings)
 	}
-	//  else {
-	// 		openFilteredLinks(command, settings)
-	// 	}
 }
 
-// function openFilteredLinks(command, settings) {
-// 	let filteredUrls = []
-// 	settings.sections.list.map((section) => {
-// 		{
-// 			section.links.map((link) => {
-// 				{
-// 					if (link.name.toLowerCase().includes(command)) {
-// 						filteredUrls.push(link.url)
-// 					}
-// 				}
-// 			})
-// 		}
-// 	})
+function openFilteredLinks(command, settings) {
+	let filteredUrls = []
+	settings.sections.list.map((section) => {
+		{
+			section.links.map((link) => {
+				{
+					if (link.name.toLowerCase().startsWith(command)) {
+						filteredUrls.push(link.url)
+					}
+				}
+			})
+		}
+	})
 
-// 	let filterCount = filteredUrls.length
-// 	if (filterCount === 0) {
-// 		const defaultSerachEngine = settings.search.default
-// 		const target = settings.search.target
-// 		openLink(defaultSerachEngine + command, target)
-// 	} else {
-// 		filteredUrls.map((url, index) => {
-// 			openLink(url, index === filterCount - 1 ? "_self" : "_blank")
-// 		})
-// 	}
-// }
+	let filterCount = filteredUrls.length
+	if (filterCount === 0) {
+		const defaultSerachEngine = settings.search.default
+		const target = settings.search.target
+		openLink(defaultSerachEngine + command, target)
+	} else {
+		filteredUrls.map((url, index) => {
+			openLink(url, index === filterCount - 1 ? "_self" : "_blank")
+		})
+	}
+}
 
 function tryParseSearchShortcut(command, settings) {
 	// Split command and query seperated by shortcut regex

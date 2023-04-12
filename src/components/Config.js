@@ -146,8 +146,7 @@ const Config = ({ commands, closeCallback }) => {
 			<div className="row">
 				<ul className="list-none">
 					<li>
-						<Prompt />
-						{command}
+						<Prompt command={command} />
 					</li>
 				</ul>
 				{isEditMode ? (
@@ -178,7 +177,11 @@ const Config = ({ commands, closeCallback }) => {
 								</li>
 							)
 						})}
-						{isDone && <li className="mt-line">Press ESC to continue...</li>}
+						{isDone && (
+							<li className="mt-line">
+								Press <span className="text-blue">ESC</span> to continue...
+							</li>
+						)}
 					</ul>
 				)}
 			</div>

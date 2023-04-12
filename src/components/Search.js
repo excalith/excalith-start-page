@@ -3,25 +3,83 @@ import { RunCommand } from "@/utils/command"
 import Prompt from "@/components/Prompt"
 import { useSettings } from "@/context/settings"
 
-const Search = ({ prompt, commandChange }) => {
-	const [focus, setFocus] = useState(false)
-	const [suggestion, setSuggestion] = useState()
+const Search = ({ commandChange, selectionChange }) => {
+	const inputRef = useRef(null)
+	const suggestionRef = useRef(null)
+
 	const { settings, items } = useSettings()
-	const suggestionInput = useRef(null)
-	const input = useRef(null)
+	const [inputFocus, setInputFocus] = useState(false)
 
-	useEffect(() => {
-		setTimeout(() => input.current.focus(), 0)
-	}, [focus])
+	const [command, setCommand] = useState("")
+	const [filteredItems, setFilteredItems] = useState([])
+	const [selection, setSelection] = useState("")
+	const [suggestion, setSuggestion] = useState("")
 
+	// Focus on input
 	useEffect(() => {
-		const handleKeyDown = (event) => {
-			if (settings.prompt.ctrlC) {
-				if ((event.metaKey || event.ctrlKey) && event.code === "KeyC") {
-					input.current.value = ""
-					setSuggestion("")
+		setTimeout(() => inputRef.current.focus(), 0)
+	}, [inputFocus])
+
+	// Key Down
+	useEffect(() => {
+		const handleKeyDown = (e) => {
+			// Submit prompt
+			if (e.key === "Enter") {
+				RunCommand(command, settings)
+			}
+			// Clear prompt
+			else if ((e.metaKey || e.ctrlKey) && e.code === "KeyC") {
+				if (settings.prompt.ctrlC) {
+					inputRef.current.value = ""
+					selectionChange("")
 					commandChange("")
+					setSuggestion("")
 				}
+			}
+			// Auto Complete
+			else if (e.key === "ArrowRight") {
+				if (suggestion !== "") {
+					e.preventDefault()
+					inputRef.current.value = suggestion
+					setCommand(suggestion)
+					commandChange(suggestion)
+					selectionChange("")
+					setSuggestion("")
+				}
+			}
+			// Previous Selection
+			else if (e.shiftKey && e.key === "Tab") {
+				e.preventDefault()
+
+				if (command === "") return
+				if (filteredItems.length === 0) return
+
+				let idx = -1
+				if (selection && selection !== "")
+					idx = filteredItems.indexOf(selection.toLowerCase())
+
+				idx = (idx + filteredItems.length - 1) % filteredItems.length
+				const selectedItem = filteredItems[idx]
+				setSelection(selectedItem)
+				setSuggestion(selectedItem)
+				selectionChange(selectedItem)
+			}
+			// Next Selection
+			else if (e.key === "Tab") {
+				e.preventDefault()
+
+				if (command === "") return
+				if (filteredItems.length === 0) return
+
+				let idx = -1
+				if (selection && selection !== "")
+					idx = filteredItems.indexOf(selection.toLowerCase())
+
+				idx = (idx + 1) % filteredItems.length
+				const selectedItem = filteredItems[idx]
+				setSelection(selectedItem)
+				setSuggestion(selectedItem)
+				selectionChange(selectedItem)
 			}
 		}
 
@@ -29,61 +87,60 @@ const Search = ({ prompt, commandChange }) => {
 		return () => {
 			document.removeEventListener("keydown", handleKeyDown)
 		}
-	}, [])
+	}, [command, suggestion, selection, filteredItems, settings])
 
-	const handleInputChange = (e) => {
-		const str = e.target.value
-		commandChange(str)
+	// Filter possible items
+	useEffect(() => {
+		commandChange(command)
 
-		if (str === "") {
+		// Set possible filtered items
+		setFilteredItems([])
+		if (command === "") {
+			selectionChange("")
+		} else {
+			const filtered = items.filter((item) => item.startsWith(command))
+			setFilteredItems(filtered)
+		}
+	}, [command, items])
+
+	// Set suggestions
+	useEffect(() => {
+		if (filteredItems.length <= 1) selectionChange("")
+
+		// Set suggestion
+		if (filteredItems.length === 0) {
 			setSuggestion("")
-			return
+		} else {
+			setSuggestion(filteredItems[0])
 		}
-
-		const result = items.find((item) => item.startsWith(str))
-		setSuggestion(result)
-	}
-
-	const handleAutocomplete = (e) => {
-		if (e.key === "ArrowRight") {
-			e.preventDefault()
-			if (suggestion.length !== 0) {
-				input.current.value = suggestion
-				setSuggestion("")
-				commandChange(input.current.value)
-			}
-		}
-
-		if (e.key === "Tab") {
-			e.preventDefault()
-		}
-	}
+	}, [filteredItems])
 
 	return (
 		<div id="search" className="flex">
 			<Prompt />
 			<div id="search-container" className="flex grow ml-2.5">
 				<input
-					className={`z-10 w-full bg-transparent text-white outline-none appearance-none shadow-none caret-${prompt.caretColor}`}
+					className={`z-10 w-full bg-transparent text-white outline-none appearance-none shadow-none caret-${settings.prompt.caretColor}`}
 					type="text"
-					onChange={handleInputChange}
 					placeholder={settings.prompt.placeholder}
+					ref={inputRef}
 					autoFocus
+					onChange={(e) => {
+						setCommand(e.target.value.toLowerCase())
+					}}
 					onFocus={() => {
-						setFocus(true)
+						setInputFocus(true)
 					}}
 					onBlur={() => {
-						setFocus(false)
+						setInputFocus(false)
 					}}
-					onKeyDown={handleAutocomplete}
-					ref={input}
 				/>
 				<input
-					className={`-z-10 opacity-50 w-full -ml-full bg-transparent text-white outline-none appearance-none shadow-none caret-${prompt.caretColor}`}
+					className={`-z-10 opacity-50 w-full -ml-full bg-transparent text-white outline-none appearance-none shadow-none caret-${settings.prompt.caretColor}`}
 					type="text"
-					placeholder={suggestion}
 					disabled
-					ref={suggestionInput}
+					placeholder={suggestion}
+					ref={suggestionRef}
 				/>
 			</div>
 		</div>

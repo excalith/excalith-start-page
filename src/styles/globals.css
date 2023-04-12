@@ -82,8 +82,8 @@ a:hover {
 }
 
 .selected {
-	background-color: var(--yellow);
-	color: black !important;
+	background-color: var(--selection-bg);
+	color: var(--selection-fg) !important;
 }
 
 .align-left { text-align: left; }
