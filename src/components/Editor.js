@@ -52,7 +52,10 @@ const Editor = () => {
 					setOptions={{
 						showLineNumbers: true,
 						tabSize: 2,
-						useWorker: false
+						useWorker: false,
+						highlightActiveLine: false,
+						highlightSelectedWord: false,
+						highlightGutterLine: false
 					}}
 					ref={editor}
 				/>
