@@ -36,13 +36,14 @@ export const SettingsProvider = ({ children }) => {
 				"help",
 				"fetch",
 				"config",
+				"config help",
 				"config theme",
 				"config edit",
 				"config import",
 				"config reset"
 			]
-			settings.sections.list.map((section, index) => {
-				section.links.map((link, index) => {
+			settings.sections.list.map((section) => {
+				section.links.map((link) => {
 					{
 						filterArr.push(link.name.toLowerCase())
 					}
