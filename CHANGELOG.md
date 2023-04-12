@@ -13,8 +13,9 @@ All upcoming and notable changes to this project will be documented in this file
 - Using <kbd>TAB</kbd> and <kbd>SHIFT</kbd> + <kbd> TAB</kbd> cycles through filtered links. (#25)
 
 ### Improved
-- Prompt and input layouts
-- Help output with keybindings section
+- `Prompt` and `Search` component layouts
+- `help` output with keybindings
+- Colorized `config help` output
 
 ## Previous Versions [![Latest Release](https://img.shields.io/github/v/release/excalith/excalith-start-page)](https://github.com/excalith/excalith-start-page/releases)
 

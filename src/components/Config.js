@@ -105,20 +105,20 @@ const Config = ({ commands, closeCallback }) => {
 
 	const usageExample = () => {
 		appendToLog("Usage:", "title")
-		appendToLog("config help: Show usage examples")
-		appendToLog("config theme: List available themes")
-		appendToLog("config theme <theme-name>: Switch theme")
-		appendToLog("config import <url>: Import remote config")
-		appendToLog("config edit: Edit local config")
-		appendToLog("config reset: Reset to default config")
+		appendToLog(["config help", "Show usage examples"], "help")
+		appendToLog(["config theme", "List available themes"], "help")
+		appendToLog(["config theme <theme-name>", "Switch theme"], "help")
+		appendToLog(["config import <url>", "Import remote config"], "help")
+		appendToLog(["config edit", "Edit local config"], "help")
+		appendToLog(["config reset", "Reset to default config"], "help")
 		setDone(true)
 	}
 
 	const invalidTheme = (themeName) => {
 		appendToLog("Invalid theme: " + commands[2], "error")
 		appendToLog("Usage:", "title")
-		appendToLog("config theme: Show available themes")
-		appendToLog("config theme <theme>: Set theme")
+		appendToLog(["config theme", "Show available themes"], "help")
+		appendToLog(["config theme <theme>", "Set theme"], "help")
 		setDone(true)
 	}
 
@@ -172,6 +172,12 @@ const Config = ({ commands, closeCallback }) => {
 									)}
 									{data.type === "title" && (
 										<p className="text-green">{data.text}</p>
+									)}
+									{data.type === "help" && (
+										<p>
+											<span className="text-blue">{data.text[0]}</span>{" "}
+											{data.text[1]}
+										</p>
 									)}
 									{data.type === undefined && <p>{data.text}</p>}
 								</li>
