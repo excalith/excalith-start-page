@@ -3,22 +3,13 @@ import Prompt from "@/components/Prompt"
 import { isURL } from "@/utils/isURL"
 import { useSettings } from "@/context/settings"
 import dynamic from "next/dynamic"
+import { themes } from "@/utils/themes"
 
-async function getTheme(themeName) {
+async function fetchTheme(themeName) {
 	try {
 		const theme = await fetch("/themes/" + themeName + ".json").then((res) => res.json())
 		return theme
 	} catch {
-		return null
-	}
-}
-
-async function getThemes() {
-	try {
-		const themes = await fetch("/themes.json").then((res) => res.json())
-		return themes
-	} catch {
-		console.log("Error fetching themes")
 		return null
 	}
 }
@@ -46,7 +37,7 @@ const Config = ({ commands, closeCallback }) => {
 		} else if (cmd === "theme") {
 			if (commands.length === 3) {
 				const themeName = commands[2]
-				getTheme(themeName).then((theme) => {
+				fetchTheme(themeName).then((theme) => {
 					if (theme === null) {
 						invalidTheme(theme)
 					} else {
@@ -54,13 +45,10 @@ const Config = ({ commands, closeCallback }) => {
 					}
 				})
 			} else {
-				getThemes().then((themes) => {
-					appendToLog("Available themes:", "title")
-					for (let i in themes) {
-						appendToLog(themes[i])
-					}
-					setDone(true)
+				themes.map((theme) => {
+					appendToLog(theme)
 				})
+				setDone(true)
 			}
 		} else if (cmd === "help") {
 			usageExample()

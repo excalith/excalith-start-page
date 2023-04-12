@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import defaultConfig from "startpage.config"
+import { themes } from "@/utils/themes"
 
 const SETTINGS_KEY = "settings"
 
@@ -37,11 +38,16 @@ export const SettingsProvider = ({ children }) => {
 				"fetch",
 				"config",
 				"config help",
-				"config theme",
 				"config edit",
 				"config import",
-				"config reset"
+				"config reset",
+				"config theme"
 			]
+
+			themes.map((theme) => {
+				filterArr.push("config theme " + theme)
+			})
+
 			settings.sections.list.map((section) => {
 				section.links.map((link) => {
 					{
