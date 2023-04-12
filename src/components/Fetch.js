@@ -79,7 +79,9 @@ const Fetch = ({ closeCallback }) => {
 					<div className="mx-auto">
 						<div className="row">
 							<Prompt showSymbol={false} />
-							<span className="absolute float-right -mt-line right-3 text-gray">v{fetchData.version}</span>
+							<span className="absolute float-right -mt-line right-3 text-gray">
+								v{fetchData.version}
+							</span>
 							<hr className="border-dashed" />
 							<ul className="mt-2">
 								{settings.fetch.data.map((item, index) => {
