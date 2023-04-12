@@ -106,7 +106,7 @@ If you still prefer to use the online version, I would recommend you to use the 
 
 ## Customization
 
-There are multiple ways of customizing the start page to making it yours! Please refer to [configuration](https://github.com/excalith/excalith-start-page/wiki/Configuration) and [themes](https://github.com/excalith/excalith-start-page/wiki/Themes) pages for more information.
+You can pretty much customize everything! Please refer to [configuration](https://github.com/excalith/excalith-start-page/wiki/Configuration) and [themes](https://github.com/excalith/excalith-start-page/wiki/Themes) pages for more information regarding themes and configuration options.
 
 ## How To Contribute
 
@@ -114,4 +114,4 @@ Please feel free to contribute any way you can. Just keep in mind that you shoul
 
 ## License
 
-The code is available under the [MIT license](LICENSE).
+The code is available under the [MIT license](LICENSE). Feel free to copy, modify, and distribute the code as you wish, but please keep the original license in the files. Attribution is appreciated and will definetely help improving this project, but not required.
