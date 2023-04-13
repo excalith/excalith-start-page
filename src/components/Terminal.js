@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react"
-import Sections from "@/components/Sections"
+import List from "@/components/List"
 import Help from "@/components/Help"
 import Config from "@/components/Config"
 import Fetch from "@/components/Fetch"
@@ -49,7 +49,7 @@ const Terminal = () => {
 		} else if (cmd === "fetch") {
 			return <Fetch closeCallback={closeWindow} />
 		} else {
-			return <Sections />
+			return <List />
 		}
 	}
 

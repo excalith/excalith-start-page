@@ -27,6 +27,8 @@ You can check the working version from [here](https://excalith-start-page.vercel
 - Search websites with custom commands. For example, type `s some weird bug` to search StackOverflow for `some weird bug`
 - Wallpaper support through URL with blur and fade effects
 - Customizable Fetch UI for fetching browser and system data, including custom image support
+- Autosuggest and Autocomplete support just like `zsh` and `fish`
+- Cycle through filtered links back and forth
 - Multiple theme support (check all [available themes](./public/themes/))
 - Built-in configuration editor to easily edit and save your configuration
 
@@ -46,8 +48,10 @@ Please refer to [configuration](https://github.com/excalith/excalith-start-page/
 
 ### Key Bindings
 
+- Use <kbd>→</kbd> to auto-complete the suggestion
+- Cycle through filtered links using <kbd>TAB</kbd> and <kbd>SHIFT</kbd> + <kbd> TAB</kbd>
 - Clear the prompt quickly with <kbd>CTRL</kbd> + <kbd>C</kbd>
-- Close window with <kbd>ESC</kbd>
+- Close windows with <kbd>ESC</kbd>
 
 
 ## Using
@@ -102,7 +106,7 @@ If you still prefer to use the online version, I would recommend you to use the 
 
 ## Customization
 
-There are multiple ways of customizing the start page to making it yours! Please refer to [configuration](https://github.com/excalith/excalith-start-page/wiki/Configuration) and [themes](https://github.com/excalith/excalith-start-page/wiki/Themes) pages for more information.
+You can pretty much customize everything! Please refer to [configuration](https://github.com/excalith/excalith-start-page/wiki/Configuration) and [themes](https://github.com/excalith/excalith-start-page/wiki/Themes) pages for more information regarding themes and configuration options.
 
 ## How To Contribute
 
@@ -110,4 +114,4 @@ Please feel free to contribute any way you can. Just keep in mind that you shoul
 
 ## License
 
-The code is available under the [MIT license](LICENSE).
+The code is available under the [MIT license](LICENSE). Feel free to copy, modify, and distribute the code as you wish, but please keep the original license in the files. Attribution is appreciated and will definetely help improving this project.

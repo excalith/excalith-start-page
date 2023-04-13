@@ -17,7 +17,8 @@ module.exports = {
 			"4xl": ["36px", "40px"]
 		},
 		borderRadius: {
-			terminal: "0.625rem"
+			terminal: "0.625rem",
+			selection: "0.2rem"
 		},
 		colors: {
 			"background-color": "var(--background-color)",
@@ -45,6 +46,9 @@ module.exports = {
 			},
 			margin: {
 				line: "1.4rem"
+			},
+			spacing: {
+				full: "100%"
 			},
 			animation: {
 				fadeIn: "fadeIn 0.15s ease-in-out"

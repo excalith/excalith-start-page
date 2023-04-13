@@ -1,4 +1,4 @@
-[
+export const themes = [
 	"default",
 	"bushido",
 	"catppuccin",

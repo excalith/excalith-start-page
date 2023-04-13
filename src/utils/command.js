@@ -25,7 +25,7 @@ function openFilteredLinks(command, settings) {
 		{
 			section.links.map((link) => {
 				{
-					if (link.name.toLowerCase().includes(command)) {
+					if (link.name.toLowerCase().startsWith(command)) {
 						filteredUrls.push(link.url)
 					}
 				}

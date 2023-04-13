@@ -3,22 +3,13 @@ import Prompt from "@/components/Prompt"
 import { isURL } from "@/utils/isURL"
 import { useSettings } from "@/context/settings"
 import dynamic from "next/dynamic"
+import { themes } from "@/utils/themes"
 
-async function getTheme(themeName) {
+async function fetchTheme(themeName) {
 	try {
 		const theme = await fetch("/themes/" + themeName + ".json").then((res) => res.json())
 		return theme
 	} catch {
-		return null
-	}
-}
-
-async function getThemes() {
-	try {
-		const themes = await fetch("/themes.json").then((res) => res.json())
-		return themes
-	} catch {
-		console.log("Error fetching themes")
 		return null
 	}
 }
@@ -46,7 +37,7 @@ const Config = ({ commands, closeCallback }) => {
 		} else if (cmd === "theme") {
 			if (commands.length === 3) {
 				const themeName = commands[2]
-				getTheme(themeName).then((theme) => {
+				fetchTheme(themeName).then((theme) => {
 					if (theme === null) {
 						invalidTheme(theme)
 					} else {
@@ -54,13 +45,10 @@ const Config = ({ commands, closeCallback }) => {
 					}
 				})
 			} else {
-				getThemes().then((themes) => {
-					appendToLog("Available themes:", "title")
-					for (let i in themes) {
-						appendToLog(themes[i])
-					}
-					setDone(true)
+				themes.map((theme) => {
+					appendToLog(theme)
 				})
+				setDone(true)
 			}
 		} else if (cmd === "help") {
 			usageExample()
@@ -105,20 +93,20 @@ const Config = ({ commands, closeCallback }) => {
 
 	const usageExample = () => {
 		appendToLog("Usage:", "title")
-		appendToLog("config help: Show usage examples")
-		appendToLog("config theme: List available themes")
-		appendToLog("config theme <theme-name>: Switch theme")
-		appendToLog("config import <url>: Import remote config")
-		appendToLog("config edit: Edit local config")
-		appendToLog("config reset: Reset to default config")
+		appendToLog(["config help", "Show usage examples"], "help")
+		appendToLog(["config theme", "List available themes"], "help")
+		appendToLog(["config theme <theme-name>", "Switch theme"], "help")
+		appendToLog(["config import <url>", "Import remote config"], "help")
+		appendToLog(["config edit", "Edit local config"], "help")
+		appendToLog(["config reset", "Reset to default config"], "help")
 		setDone(true)
 	}
 
 	const invalidTheme = (themeName) => {
 		appendToLog("Invalid theme: " + commands[2], "error")
 		appendToLog("Usage:", "title")
-		appendToLog("config theme: Show available themes")
-		appendToLog("config theme <theme>: Set theme")
+		appendToLog(["config theme", "Show available themes"], "help")
+		appendToLog(["config theme <theme>", "Set theme"], "help")
 		setDone(true)
 	}
 
@@ -146,8 +134,7 @@ const Config = ({ commands, closeCallback }) => {
 			<div className="row">
 				<ul className="list-none">
 					<li>
-						<Prompt />
-						{command}
+						<Prompt command={command} />
 					</li>
 				</ul>
 				{isEditMode ? (
@@ -174,11 +161,21 @@ const Config = ({ commands, closeCallback }) => {
 									{data.type === "title" && (
 										<p className="text-green">{data.text}</p>
 									)}
+									{data.type === "help" && (
+										<p>
+											<span className="text-blue">{data.text[0]}</span>{" "}
+											{data.text[1]}
+										</p>
+									)}
 									{data.type === undefined && <p>{data.text}</p>}
 								</li>
 							)
 						})}
-						{isDone && <li className="mt-line">Press ESC to continue...</li>}
+						{isDone && (
+							<li className="mt-line">
+								Press <span className="text-blue">ESC</span> to continue...
+							</li>
+						)}
 					</ul>
 				)}
 			</div>

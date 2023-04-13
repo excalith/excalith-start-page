@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import defaultConfig from "startpage.config"
+import { themes } from "@/utils/themes"
 
 const SETTINGS_KEY = "settings"
 
@@ -12,6 +13,7 @@ export const useSettings = () => useContext(SettingsContext)
 
 export const SettingsProvider = ({ children }) => {
 	const [settings, setSettings] = useState()
+	const [items, setItems] = useState([])
 
 	useEffect(() => {
 		const settings = localStorage.getItem(SETTINGS_KEY)
@@ -30,6 +32,30 @@ export const SettingsProvider = ({ children }) => {
 	useEffect(() => {
 		if (settings && settings !== "undefined") {
 			localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings))
+
+			let filterArr = [
+				"help",
+				"fetch",
+				"config",
+				"config help",
+				"config edit",
+				"config import",
+				"config reset",
+				"config theme"
+			]
+
+			themes.map((theme) => {
+				filterArr.push("config theme " + theme)
+			})
+
+			settings.sections.list.map((section) => {
+				section.links.map((link) => {
+					{
+						filterArr.push(link.name.toLowerCase())
+					}
+				})
+			})
+			setItems(filterArr)
 		}
 	}, [settings])
 
@@ -43,7 +69,8 @@ export const SettingsProvider = ({ children }) => {
 	}
 
 	return (
-		<SettingsContext.Provider value={{ settings, setSettings: updateSettings, resetSettings }}>
+		<SettingsContext.Provider
+			value={{ settings, setSettings: updateSettings, resetSettings, items }}>
 			{children}
 		</SettingsContext.Provider>
 	)
