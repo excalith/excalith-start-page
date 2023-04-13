@@ -7,15 +7,9 @@ All upcoming and notable changes to this project will be documented in this file
 
 ## Unreleased
 
-### Added
-- Error handling for client-side issues by showing possible solutions.
-- Using <kbd>→</kbd> auto-completes the suggestion if any. (#25)
-- Using <kbd>TAB</kbd> and <kbd>SHIFT</kbd> + <kbd> TAB</kbd> cycles through filtered links. (#25)
+Nothing new here (yet)
 
-### Improved
-- `Prompt` and `Search` component layouts
-- `help` output with keybindings
-- Colorized `config help` output
+![Move Along](https://media.giphy.com/media/10RgsuetO4uDkY/giphy.gif)
 
 ## Previous Versions [![Latest Release](https://img.shields.io/github/v/release/excalith/excalith-start-page)](https://github.com/excalith/excalith-start-page/releases)
 
