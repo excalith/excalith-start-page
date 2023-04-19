@@ -57,9 +57,20 @@ Please refer to [configuration](https://github.com/excalith/excalith-start-page/
 ## Using
 
 There are multiple ways of using this app. Here is a quick preview of them. For more information please refer to [getting started](https://github.com/excalith/excalith-start-page/wiki/Getting-Started) page
+
+### Fork
+
+You can fork this repository and have direct control over the source code. This is the best way to customize the start page to your liking.
+
+1. Fork this repository
+2. Modify the `startpage.config.js` for the default configuration
+3. If you want, you can change the source code to your like as well (optional)
+4. Run `yarn dev` command to test it
+5. Host locally, create docker image, or deploy to a server
+
 ### Docker
 
-Docker is the most convenient way to host the start page. You can either use the image from Docker Hub or Github Registry.
+Docker is another convenient way to host the start page. You can either use the image from Docker Hub or Github Registry.
 
 <details>
 <summary>Using Docker Registry</summary>
@@ -90,15 +101,6 @@ Run the image (change the port mapping of 8080 into something you want)
 docker run --name start-page --restart=always -p 8080:3000 -d ghcr.io/excalith/excalith-start-page
 ```
 </details>
-
-### Clone
-
-You can clone this repository and host it on your own server.
-
-1. Clone this repository
-2. Run `yarn dev` command to test it
-3. Modify the `startpage.config.js` to your liking
-4. Host somewhere (Vercel, Netlify, etc.) or run locally
 
 ### Remote Config Import
 
