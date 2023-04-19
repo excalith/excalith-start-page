@@ -4,15 +4,20 @@ about: Suggest an idea for this project
 title: "[FEATURE] "
 labels: enhancement
 assignees: excalith
-
 ---
-<!-- Please read contributing guideline first -->
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+<!-- 
+	DO NOT OPEN FEATURE REQUESTS DIRECTLY
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+	Please read contributing guideline for more information
+	Contributing: https://github.com/excalith/excalith-start-page/blob/main/.github/CONTRIBUTING.md
 
-**Additional context**
+	TLDR: New feature requests should be discussed in discussions first to keep backlog clean
+	Discussions: https://github.com/excalith/excalith-start-page/discussions/categories/ideas 
+-->
+
+### Please Describe The Feature You Would Like To See
+A clear and concise description of what the problem is. What this feature will do, what it will solve, etc.
+
+### Additional Context
 Add any other context or screenshots about the feature request here.

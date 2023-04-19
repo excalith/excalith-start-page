@@ -39,8 +39,7 @@ To report a new issue, please follow these steps:
 > If you find a **Closed** issue that seems like it is the same thing that you're experiencing, open a new issue and include a link to the original issue in the body of your new one.
 
 ### Feature Requests
-
-Before suggesting an enhancement or feature request, please perform a [cursory search on discussions](https://github.com/excalith/excalith-start-page/discussions/categories/ideas) to see if the suggestion has already been submitted.
+All feature requests must be discussed in [discussions](https://github.com/excalith/excalith-start-page/discussions/categories/ideas) first before being converted to an issue. Before suggesting an enhancement or feature request, please perform a [cursory search on discussions](https://github.com/excalith/excalith-start-page/discussions/categories/ideas) to see if the suggestion has already been submitted.
 
 - **User a clear descriptive title** for the suggestion
 - **Describe the current behavior** and **explain which behavior you expected to see instead** and why
