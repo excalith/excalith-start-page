@@ -8,5 +8,6 @@ export const themes = [
 	"nord",
 	"onedark",
 	"synthwave",
-	"tokyonight"
+	"tokyonight",
+	"verdant"
 ]
