@@ -1,5 +1,5 @@
 const defaultConfig = {
-	username: "Excalith",
+	username: "Avichal",
 	theme: {
 		backgroundColor: "#121317",
 		windowColor: "#1e212b",
@@ -24,8 +24,8 @@ const defaultConfig = {
 	},
 	terminal: {
 		fixedHeight: true,
-		windowGlow: true,
-		textGlow: false
+		windowGlow: false,
+		textGlow: true
 	},
 	prompt: {
 		ctrlC: true,
@@ -59,10 +59,10 @@ const defaultConfig = {
 	urlLaunch: {
 		target: "_self",
 		defaultColor: "white",
-		hoverColor: "violet"
+		hoverColor: "blue"
 	},
 	search: {
-		default: "https://google.com/search?q=",
+		default: "https://www.ecosia.org/search?q=",
 		target: "_self",
 		shortcutRegex: "([A-Za-z0-9]+) (.*)",
 		shortcuts: [
@@ -111,13 +111,13 @@ const defaultConfig = {
 				align: "left",
 				links: [
 					{
-						name: "Portfolio",
-						url: "https://cancellek.com",
+						name: "Whatsapp",
+						url: "https://web.whatsapp.com/",
 						icon: "mdi:web"
 					},
 					{
-						name: "Keybase",
-						url: "https://keybase.io/",
+						name: "GDrive",
+						url: "http://drive.google.com/",
 						icon: "fa-brands:keybase"
 					},
 					{
@@ -126,8 +126,8 @@ const defaultConfig = {
 						icon: "simple-icons:openai"
 					},
 					{
-						name: "OCI",
-						url: "https://www.oracle.com/cloud/",
+						name: "GMail",
+						url: "http://gmail.com/",
 						icon: "simple-icons:oracle"
 					}
 				]
@@ -143,18 +143,18 @@ const defaultConfig = {
 						icon: "mdi:github"
 					},
 					{
-						name: "GitLab",
-						url: "https://gitlab.com",
+						name: "FirefoxCSS",
+						url: "https://trickypr.github.io/FirefoxCSS-Store.github.io/#",
 						icon: "ph:gitlab-logo-simple-fill"
 					},
 					{
-						name: "Dev.to",
-						url: "https://dev.to",
+						name: "Mozilla Addons",
+						url: "https://addons.mozilla.org/en-US/firefox/",
 						icon: "material-symbols:logo-dev"
 					},
 					{
-						name: "Stack Overflow",
-						url: "https://stackoverflow.com/",
+						name: "Garuda Uptimes",
+						url: "https://status.garudalinux.org/",
 						icon: "mdi:stack-overflow"
 					}
 				]
@@ -165,13 +165,13 @@ const defaultConfig = {
 				align: "left",
 				links: [
 					{
-						name: "Twitter",
-						url: "https://twitter.com",
+						name: "Discord",
+						url: "https://discord.com/channels/@me",
 						icon: "mdi:twitter"
 					},
 					{
-						name: "Mastodon",
-						url: "https://mastodon.social/",
+						name: "Telegram",
+						url: "https://web.telegram.org/k/",
 						icon: "ri:mastodon-fill"
 					},
 					{
@@ -180,79 +180,79 @@ const defaultConfig = {
 						icon: "mdi:reddit"
 					},
 					{
-						name: "Polywork",
-						url: "https://polywork.com",
+						name: "ig:dm",
+						url: "https://www.instagram.com/?theme=dark",
 						icon: "simple-icons:polywork"
 					}
 				]
 			},
 			{
-				title: "Gaming",
+				title: "Studies/Productivity",
 				color: "cyan",
 				align: "left",
 				links: [
 					{
-						name: "Polygon",
-						url: "https://polygon.com",
+						name: "Notion.so",
+						url: "https://www.notion.so/",
 						icon: "uil:polygon"
 					},
 					{
-						name: "IGN",
-						url: "https://ign.com",
+						name: "BT Forum",
+						url: "https://btforum.bakliwaltutorialsiit.com/",
 						icon: "mdi:currency-sign"
 					},
 					{
-						name: "RPS",
-						url: "https://rockpapershotgun.com/",
+						name: "Google Keep",
+						url: "https://keep.google.com/",
 						icon: "ph:toilet-paper-bold"
 					},
 					{
-						name: "80lv",
-						url: "https://80.lv/",
+						name: "Garuda Start",
+						url: "https://start.garudalinux.org/",
 						icon: "tabler:hand-rock"
 					}
 				]
 			},
 			{
-				title: "Science",
+				title: "Streaming",
 				color: "blue",
 				align: "left",
 				links: [
 					{
-						name: "PopSci",
-						url: "https://popsci.com/",
+						name: "YouTube",
+						url: "https://www.youtube.com/",
 						icon: "material-symbols:science"
 					},
 					{
-						name: "Space",
-						url: "fa6-solid:user-astronaut",
+						name: "Netflix",
+						url: "https://netflixery.com/",
 						icon: "mdi:reddit"
 					},
 					{
-						name: "NASA",
-						url: "https://blogs.nasa.gov/",
+						name: "Plaza.one",
+						url: "https://plaza.one/",
 						icon: "simple-icons:nasa"
 					},
 					{
-						name: "ESA",
-						url: "https://blogs.esa.int/",
+						name: "Prime Video",
+						url: "https://www.primevideo.com/storefront/home/ref=atv_dl_rdr",
 						icon: "mdi:black-mesa"
 					}
 				]
 			},
 			{
-				title: "Tech",
+				title: "Updates",
 				color: "yellow",
 				align: "left",
 				links: [
 					{
-						name: "TechCrunch",
-						url: "https://techcrunch.com/",
+						name: "NASA",
+						url: "https://blog.nasa.gov/",
 						icon: "game-icons:techno-heart"
 					},
 					{
-						name: "Verge",
-						url: "https://www.theverge.com/",
+						name: "News",
+						url: "https://news.google.com/",
 						icon: "arcticons:verge"
 					},
 					{
@@ -261,8 +261,8 @@ const defaultConfig = {
 						icon: "ri:mastodon-fill"
 					},
 					{
-						name: "9To5 Linux",
-						url: "https://9to5linux.com/",
+						name: "Sports news",
+						url: "https://www.msn.com/en-in/sports?ocid=StripeOCID",
 						icon: "uil:linux"
 					}
 				]
