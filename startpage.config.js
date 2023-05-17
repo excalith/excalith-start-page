@@ -23,9 +23,9 @@ const defaultConfig = {
 		blur: true
 	},
 	terminal: {
-		fixedHeight: true,
+		fixedHeight: false,
 		windowGlow: false,
-		textGlow: true
+		textGlow: false
 	},
 	prompt: {
 		ctrlC: true,
