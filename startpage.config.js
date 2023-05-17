@@ -23,7 +23,7 @@ const defaultConfig = {
 		blur: true
 	},
 	terminal: {
-		fixedHeight: false,
+		fixedHeight: true,
 		windowGlow: false,
 		textGlow: false
 	},
