@@ -145,7 +145,7 @@ const defaultConfig = {
 					{
 						name: "FirefoxCSS",
 						url: "https://trickypr.github.io/FirefoxCSS-Store.github.io/#",
-						icon: "ph:gitlab-logo-simple-fill"
+						icon: "mdi:firefox"
 					},
 					{
 						name: "Mozilla Addons",
