@@ -248,7 +248,7 @@ const defaultConfig = {
 					{
 						name: "NASA",
 						url: "https://blog.nasa.gov/",
-						icon: "game-icons:techno-heart"
+						icon: "simple-icons:nasa"
 					},
 					{
 						name: "News",
@@ -258,7 +258,7 @@ const defaultConfig = {
 					{
 						name: "It's Foss",
 						url: "https://itsfoss.com/",
-						icon: "ri:mastodon-fill"
+						icon: "uil:linux"
 					},
 					{
 						name: "Sports news",
