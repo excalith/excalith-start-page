@@ -3,6 +3,7 @@ export const themes = [
 	"bushido",
 	"catppuccin",
 	"dracula",
+	"everforest-dark",
 	"hacker",
 	"monokai",
 	"nord",
