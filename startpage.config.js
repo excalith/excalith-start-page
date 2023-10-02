@@ -1,5 +1,5 @@
 const defaultConfig = {
-	username: "Excalith",
+	username: "Onyx",
 	theme: {
 		backgroundColor: "#121317",
 		windowColor: "#1e212b",
@@ -48,7 +48,7 @@ const defaultConfig = {
 		data: [
 			"Time: {time}",
 			"Date: {date}",
-			"{seperator}",
+			"{seperator}", 
 			"OS: {osName} {osVersion}",
 			"Browser: {browser} {browserVersion}",
 			"Engine: {engineName}",
@@ -106,7 +106,7 @@ const defaultConfig = {
 	sections: {
 		list: [
 			{
-				title: "General",
+				title: "Maain",
 				color: "green",
 				align: "left",
 				links: [
