@@ -11,7 +11,10 @@ export function RunCommand(command, settings) {
 	if (registeredCommands.includes(cmd_split[0])) {
 		publish("command", cmd_split)
 	} else if (isURL(command)) {
-		openLink("https://" + command, settings.urlLaunch.target)
+		openLink(
+			(/^https?:\/\//.test(command) ? "" : "https://") + command,
+			settings.urlLaunch.target
+		)
 	} else if (tryParseSearchShortcut(command, settings)) {
 		return
 	} else {
