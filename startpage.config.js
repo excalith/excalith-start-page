@@ -41,7 +41,7 @@ const defaultConfig = {
 		selectionFg: "black"
 	},
 	fetch: {
-		timeFormat: "H:mm xm",
+		timeFormat: "hh:mm",
 		dateFormat: "DD/MM/YYYY",
 		titleColor: "yellow",
 		image: "icon.svg",
@@ -172,17 +172,17 @@ const defaultConfig = {
 					{
 						name: "P Drive",
 						url: "https://drive.proton.me",
-						icon: "simple-icons:proton-drive"
+						icon: "simple-icons:protondrive"
 					},
 					{
 						name: "G Drive",
 						url: "https://drive.google.com",
-						icon: "mdi:folder-google-drive"
+						icon: "mdi:google-drive"
 					},
 					{
 						name: "Photos",
 						url: "https://photos.google.com",
-						icon: "simple-icons:google-photos"
+						icon: "simple-icons:googlephotos"
 					}
 				]
 			},
