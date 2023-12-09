@@ -1,20 +1,20 @@
 const defaultConfig = {
 	username: "apetl",
 	theme: {
-		backgroundColor: "#121317",
-		windowColor: "#1e212b",
-		glowColor: "#6b5cb157",
-		white: "#e2e2e2",
-		gray: "#97989d",
-		black: "#16161e",
-		red: "#ec6183",
-		green: "#2ed8a2",
-		yellow: "#e8b195",
-		blue: "#2bc3de",
-		cyan: "#62e0e2",
-		magenta: "#e069aa",
-		violet: "#d1aff8",
-		orange: "#ff8800"
+		"backgroundColor": "#121317",
+		"windowColor": "#181825",
+		"glowColor": "#464c79",
+		"white": "#bac2de",
+		"gray": "#97989d",
+		"black": "#45475A",
+		"red": "#f38ba8",
+		"green": "#a6e3a1",
+		"blue": "#89b4fa",
+		"yellow": "#f9e2af",
+		"cyan": "#94e2d5",
+		"magenta": "#f5c2e7",
+		"violet": "#caa4f7",
+		"orange": "#fbb185"
 	},
 	wallpaper: {
 		url: "",
@@ -35,13 +35,13 @@ const defaultConfig = {
 		atColor: "gray",
 		hostColor: "magenta",
 		promptColor: "magenta",
-		promptSymbol: "❯",
+		promptSymbol: "$",
 		caretColor: "green",
 		selectionBg: "yellow",
 		selectionFg: "black"
 	},
 	fetch: {
-		timeFormat: "HH:mm",
+		timeFormat: "H:mm XM",
 		dateFormat: "DD/MM/YYYY",
 		titleColor: "yellow",
 		image: "icon.svg",
@@ -62,7 +62,7 @@ const defaultConfig = {
 		hoverColor: "violet"
 	},
 	search: {
-		default: "https://www.startpage.com/sp/search?query={}",
+		default: "https://www.startpage.com/sp/search?query=",
 		target: "_self",
 		shortcutRegex: "([A-Za-z0-9]+) (.*)",
 		shortcuts: [
