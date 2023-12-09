@@ -1,5 +1,5 @@
 const defaultConfig = {
-	username: "Excalith",
+	username: "apetl",
 	theme: {
 		backgroundColor: "#121317",
 		windowColor: "#1e212b",
@@ -62,7 +62,7 @@ const defaultConfig = {
 		hoverColor: "violet"
 	},
 	search: {
-		default: "https://google.com/search?q=",
+		default: "https://www.startpage.com/sp/search?query={}",
 		target: "_self",
 		shortcutRegex: "([A-Za-z0-9]+) (.*)",
 		shortcuts: [
