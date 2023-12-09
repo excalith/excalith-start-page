@@ -72,7 +72,7 @@ function fallbackRender({ error, resetErrorBoundary }) {
 	)
 }
 
-export default function App({ Component, pageProps }) {
+function App({ Component, pageProps }) {
 	return (
 		<ErrorBoundary fallbackRender={fallbackRender}>
 			<SettingsProvider>
@@ -82,3 +82,5 @@ export default function App({ Component, pageProps }) {
 		</ErrorBoundary>
 	)
 }
+
+export default App;
