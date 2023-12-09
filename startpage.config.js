@@ -41,7 +41,7 @@ const defaultConfig = {
 		selectionFg: "black"
 	},
 	fetch: {
-		timeFormat: "H:mm XM",
+		timeFormat: "H:mm xm",
 		dateFormat: "DD/MM/YYYY",
 		titleColor: "yellow",
 		image: "icon.svg",
@@ -160,29 +160,29 @@ const defaultConfig = {
 				]
 			},
 			{
-				title: "Social",
+				title: "Storage",
 				color: "violet",
 				align: "left",
 				links: [
 					{
-						name: "Twitter",
-						url: "https://twitter.com",
-						icon: "mdi:twitter"
+						name: "Filen",
+						url: "https://drive.filen.io",
+						icon: "mdi:folder-key"
 					},
 					{
-						name: "Mastodon",
-						url: "https://mastodon.social/",
-						icon: "ri:mastodon-fill"
+						name: "P Drive",
+						url: "https://drive.proton.me",
+						icon: "simple-icons:proton-drive"
 					},
 					{
-						name: "Reddit",
-						url: "https://reddit.com",
-						icon: "mdi:reddit"
+						name: "G Drive",
+						url: "https://drive.google.com",
+						icon: "mdi:folder-google-drive"
 					},
 					{
-						name: "Polywork",
-						url: "https://polywork.com",
-						icon: "simple-icons:polywork"
+						name: "Photos",
+						url: "https://photos.google.com",
+						icon: "simple-icons:google-photos"
 					}
 				]
 			},
