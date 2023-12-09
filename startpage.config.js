@@ -108,61 +108,61 @@ const defaultConfig = {
 			{
 				title: "General",
 				color: "green",
-				align: "center",
+				align: "left",
 				links: [
 					{
-						name: "Portfolio",
-						url: "https://cancellek.com",
-						icon: "mdi:web"
+						name: "Mail",
+						url: "https://mail.proton.me",
+						icon: "simple-icons:protonmail"
 					},
 					{
-						name: "Keybase",
-						url: "https://keybase.io/",
-						icon: "fa-brands:keybase"
+						name: "Habitica",
+						url: "https://habitica.com",
+						icon: "mdi:todo-add"
+					},
+					{
+						name: "Calendar",
+						url: "https://calendar.proton.me",
+						icon: "simple-icons:protoncalendar"
 					},
 					{
 						name: "GPT",
-						url: "https://chat.openai.com/",
+						url: "https://chat.openai.com",
 						icon: "simple-icons:openai"
-					},
-					{
-						name: "OCI",
-						url: "https://www.oracle.com/cloud/",
-						icon: "simple-icons:oracle"
 					}
 				]
 			},
 			{
-				title: "Dev",
+				title: "Media",
 				color: "magenta",
-				align: "center",
+				align: "left",
 				links: [
 					{
-						name: "GitHub",
-						url: "https://github.com",
-						icon: "mdi:github"
+						name: "Youtube",
+						url: "https://youtube.com",
+						icon: "mdi:youtube"
 					},
 					{
-						name: "GitLab",
-						url: "https://gitlab.com",
-						icon: "ph:gitlab-logo-simple-fill"
+						name: "Spotify",
+						url: "https://open.spotify.com",
+						icon: "mdi:spotify"
 					},
 					{
-						name: "Dev.to",
-						url: "https://dev.to",
-						icon: "material-symbols:logo-dev"
+						name: "Anime",
+						url: "https://aniwave.to/home/",
+						icon: "tabler:brand-funimation"
 					},
 					{
-						name: "Stack Overflow",
-						url: "https://stackoverflow.com/",
-						icon: "mdi:stack-overflow"
-					}
+						name: "Manga",
+						url: "https://mangareader.to/home/",
+						icon: "mdi:book"
+					},
 				]
 			},
 			{
 				title: "Storage",
 				color: "violet",
-				align: "center",
+				align: "left",
 				links: [
 					{
 						name: "Filen",
@@ -189,7 +189,7 @@ const defaultConfig = {
 			{
 				title: "Gaming",
 				color: "cyan",
-				align: "center",
+				align: "left",
 				links: [
 					{
 						name: "Polygon",
@@ -216,7 +216,7 @@ const defaultConfig = {
 			{
 				title: "Science",
 				color: "blue",
-				align: "center",
+				align: "left",
 				links: [
 					{
 						name: "PopSci",
@@ -242,8 +242,8 @@ const defaultConfig = {
 			},
 			{
 				title: "Tech",
-				color: "orange",
-				align: "center",
+				color: "red",
+				align: "left",
 				links: [
 					{
 						name: "TechCrunch",
