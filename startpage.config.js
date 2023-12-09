@@ -108,7 +108,7 @@ const defaultConfig = {
 			{
 				title: "General",
 				color: "green",
-				align: "left",
+				align: "center",
 				links: [
 					{
 						name: "Portfolio",
@@ -135,7 +135,7 @@ const defaultConfig = {
 			{
 				title: "Dev",
 				color: "magenta",
-				align: "left",
+				align: "center",
 				links: [
 					{
 						name: "GitHub",
@@ -162,7 +162,7 @@ const defaultConfig = {
 			{
 				title: "Storage",
 				color: "violet",
-				align: "left",
+				align: "center",
 				links: [
 					{
 						name: "Filen",
@@ -189,7 +189,7 @@ const defaultConfig = {
 			{
 				title: "Gaming",
 				color: "cyan",
-				align: "left",
+				align: "center",
 				links: [
 					{
 						name: "Polygon",
@@ -216,7 +216,7 @@ const defaultConfig = {
 			{
 				title: "Science",
 				color: "blue",
-				align: "left",
+				align: "center",
 				links: [
 					{
 						name: "PopSci",
@@ -242,8 +242,8 @@ const defaultConfig = {
 			},
 			{
 				title: "Tech",
-				color: "yellow",
-				align: "left",
+				color: "orange",
+				align: "center",
 				links: [
 					{
 						name: "TechCrunch",
