@@ -24,7 +24,7 @@ const defaultConfig = {
 	},
 	terminal: {
 		fixedHeight: true,
-		windowGlow: true,
+		windowGlow: false,
 		textGlow: false
 	},
 	prompt: {
