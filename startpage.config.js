@@ -29,7 +29,7 @@ const defaultConfig = {
 	},
 	prompt: {
 		ctrlC: true,
-		placeholder: "command...",
+		placeholder: "",
 		placeholderColor: "gray",
 		userColor: "green",
 		atColor: "gray",
@@ -126,9 +126,9 @@ const defaultConfig = {
 						icon: "simple-icons:protoncalendar"
 					},
 					{
-						name: "GPT",
-						url: "https://chat.openai.com",
-						icon: "simple-icons:openai"
+						name: "Search",
+						url: "https://www.startpage.com",
+						icon: "fluent:search-16-filled"
 					}
 				]
 			},
@@ -214,59 +214,59 @@ const defaultConfig = {
 				]
 			},
 			{
-				title: "Science",
-				color: "blue",
-				align: "left",
-				links: [
-					{
-						name: "PopSci",
-						url: "https://popsci.com/",
-						icon: "material-symbols:science"
-					},
-					{
-						name: "Space",
-						url: "fa6-solid:user-astronaut",
-						icon: "mdi:reddit"
-					},
-					{
-						name: "NASA",
-						url: "https://blogs.nasa.gov/",
-						icon: "simple-icons:nasa"
-					},
-					{
-						name: "ESA",
-						url: "https://blogs.esa.int/",
-						icon: "mdi:black-mesa"
-					}
-				]
-			},
-			{
-				title: "Tech",
+				title: "Dev",
 				color: "red",
 				align: "left",
 				links: [
 					{
-						name: "TechCrunch",
-						url: "https://techcrunch.com/",
-						icon: "game-icons:techno-heart"
+						name: "Github",
+						url: "https://github.com/",
+						icon: "mingcute:github-fill"
 					},
 					{
-						name: "Verge",
-						url: "https://www.theverge.com/",
-						icon: "arcticons:verge"
+						name: "GPT",
+						url: "https://chat.openai.com/",
+						icon: "simple-icons:openai"
 					},
 					{
-						name: "It's Foss",
-						url: "https://itsfoss.com/",
-						icon: "ri:mastodon-fill"
+						name: "Oracle",
+						url: "https://cloud.oracle.com/",
+						icon: "simple-icons:oracle"
 					},
 					{
-						name: "9To5 Linux",
-						url: "https://9to5linux.com/",
-						icon: "uil:linux"
+						name: "Daily Dev",
+						url: "https://app.daily.dev",
+						icon: "logos:dailydev-icon"
 					}
 				]
-			}
+			},
+			{
+				title: "Other",
+				color: "blue",
+				align: "left",
+				links: [
+					{
+						name: "Catppuccin",
+						url: "https://github.com/catppuccin/catppuccin",
+						icon: "solar:cat-bold"
+					},
+					{
+						name: "Reddit",
+						url: "https://www.reddit.com",
+						icon: "mdi:reddit"
+					},
+					{
+						name: "Netflix",
+						url: "https://www.netflix.com/browse",
+						icon: "mdi:netflix"
+					},
+					{
+						name: "Cloudflare",
+						url: "https://dash.cloudflare.com",
+						icon: "fa-brands:cloudflare"
+					}
+				]
+			},
 		]
 	}
 }
