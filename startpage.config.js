@@ -17,7 +17,7 @@ const defaultConfig = {
 		"orange": "#fbb185"
 	},
 	wallpaper: {
-		url: "https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Ftender-memories-1920x1080-v0-u65hcz4wwi2c1.jpg%3Fs%3D91462a583b9cafb7747c42cc3aede57484820e26",
+		url: "https://c.wallhere.com/photos/9f/14/artwork_city_night_sky_shooting_stars-2042259.jpg!d",
 		easing: "ease-in-out",
 		fadeIn: true,
 		blur: true
