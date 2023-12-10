@@ -236,7 +236,7 @@ const defaultConfig = {
 					{
 						name: "Daily Dev",
 						url: "https://app.daily.dev",
-						icon: "logos:dailydev-icon"
+						icon: "tabler:terminal"
 					}
 				]
 			},
