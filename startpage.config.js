@@ -187,29 +187,29 @@ const defaultConfig = {
 				]
 			},
 			{
-				title: "Gaming",
+				title: "Study",
 				color: "cyan",
 				align: "left",
 				links: [
 					{
-						name: "Polygon",
-						url: "https://polygon.com",
-						icon: "uil:polygon"
+						name: "Brightspace",
+						url: "https://brightspace.brocku.ca/",
+						icon: "uil:university"
 					},
 					{
-						name: "IGN",
-						url: "https://ign.com",
-						icon: "mdi:currency-sign"
+						name: "Lofi",
+						url: "https://www.youtube.com/@LofiGirl",
+						icon: "ri:music-fill"
 					},
 					{
-						name: "RPS",
-						url: "https://rockpapershotgun.com/",
-						icon: "ph:toilet-paper-bold"
+						name: "Flocus",
+						url: "https://app.flocus.com/",
+						icon: "mdi:tilde"
 					},
 					{
-						name: "80lv",
-						url: "https://80.lv/",
-						icon: "tabler:hand-rock"
+						name: "Office",
+						url: "https://www.office.com/",
+						icon: "mdi:microsoft-office"
 					}
 				]
 			},
