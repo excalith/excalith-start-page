@@ -20,7 +20,7 @@ const defaultConfig = {
 		url: "https://c.wallhere.com/photos/9f/14/artwork_city_night_sky_shooting_stars-2042259.jpg!d",
 		easing: "ease-in-out",
 		fadeIn: true,
-		blur: true
+		blur: false
 	},
 	terminal: {
 		fixedHeight: true,
