@@ -1,8 +1,8 @@
 const defaultConfig = {
 	username: "apetl",
 	theme: {
-		"backgroundColor": "#121317",
-		"windowColor": "#181825",
+		"backgroundColor": "#1e1e2e",
+		"windowColor": "#1e1e2e",
 		"glowColor": "#464c79",
 		"white": "#bac2de",
 		"gray": "#97989d",
