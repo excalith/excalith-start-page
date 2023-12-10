@@ -4,6 +4,8 @@ import Meta from "@/components/Meta"
 import Terminal from "@/components/Terminal"
 import "@fontsource/fira-code/400.css"
 import "@fontsource/fira-code/600.css"
+import "@fontsource/jetbrains-mono/400.css"
+import "@fontsource/jetbrains-mono/600.css"
 import { useSettings } from "@/context/settings"
 
 export default function Home() {

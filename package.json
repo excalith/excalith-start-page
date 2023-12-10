@@ -22,6 +22,7 @@
 	},
 	"dependencies": {
 		"@fontsource/fira-code": "^4.5.13",
+		"@fontsource/jetbrains-mono": "^5.0.18",
 		"@iconify/react": "^4.1.0",
 		"@vercel/speed-insights": "^1.0.1",
 		"ace-builds": "^1.15.3",
