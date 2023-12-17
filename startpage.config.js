@@ -17,7 +17,7 @@ const defaultConfig = {
 		"orange": "#fbb185"
 	},
 	wallpaper: {
-		url: "https://c.wallhere.com/photos/9f/14/artwork_city_night_sky_shooting_stars-2042259.jpg!d",
+		url: "https://drive.google.com/file/d/1O4nMr8pnvxvRWtOacbnA7errT32bz6bH/view?usp=sharing",
 		easing: "ease-in-out",
 		fadeIn: true,
 		blur: false
