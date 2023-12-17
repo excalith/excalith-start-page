@@ -17,7 +17,7 @@ const defaultConfig = {
 		"orange": "#fbb185"
 	},
 	wallpaper: {
-		url: "https://drive.google.com/file/d/1O4nMr8pnvxvRWtOacbnA7errT32bz6bH/view?usp=sharing",
+		url: "https://pixeldrain.com/api/file/mggJJrq7",
 		easing: "ease-in-out",
 		fadeIn: true,
 		blur: false
