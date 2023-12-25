@@ -4,9 +4,11 @@
 
 :root {
 	--background-color: #121317;
-	--window-color: #1e212b;
 	--glow-color: transparent;
-
+	--window-opacity: 1;
+	--window-color: #1e212b;
+	--window-blur: 0px;
+	
 	--white: #e2e2e2;
 	--gray: #97989d;
 	--black: #16161e;
@@ -79,6 +81,11 @@ a:hover {
 
 .text-glow {
 	text-shadow: 0px 0px 10px;
+}
+
+.bg-window-color {
+	opacity: var(--window-opacity);
+	backdrop-filter: blur(var(--window-blur));
 }
 
 .selected {
