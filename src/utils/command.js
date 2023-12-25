@@ -38,14 +38,18 @@ function openFilteredLinks(command, settings) {
 
 	let filterCount = filteredUrls.length
 	if (filterCount === 0) {
-		const defaultSerachEngine = settings.search.default
-		const target = settings.search.target
-		openLink(defaultSerachEngine + command, target)
+		DefaultSearch(command, settings)
 	} else {
 		filteredUrls.map((url, index) => {
 			openLink(url, index === filterCount - 1 ? "_self" : "_blank")
 		})
 	}
+}
+
+export function DefaultSearch(buffer, settings) {
+	const defaultSerachEngine = settings.search.default
+	const target = settings.search.target
+	openLink(defaultSerachEngine + buffer, target)
 }
 
 function tryParseSearchShortcut(command, settings) {

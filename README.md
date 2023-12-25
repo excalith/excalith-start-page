@@ -49,7 +49,8 @@ Please refer to [configuration](https://github.com/excalith/excalith-start-page/
 ### Key Bindings
 
 - Use <kbd>→</kbd> to auto-complete the suggestion
-- Cycle through filtered links using <kbd>TAB</kbd> and <kbd>SHIFT</kbd> + <kbd> TAB</kbd>
+- Search without auto-complete with <kbd>CTRL</kbd> + <kbd>ENTER</kbd>
+- Cycle through filtered links using <kbd>TAB</kbd> and <kbd>SHIFT</kbd> + <kbd>TAB</kbd>
 - Clear the prompt quickly with <kbd>CTRL</kbd> + <kbd>C</kbd>
 - Close windows with <kbd>ESC</kbd>
 
