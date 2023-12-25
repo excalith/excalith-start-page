@@ -24,11 +24,17 @@ const Help = ({ closeCallback }) => {
 						- Use <span className="text-blue">→</span> key to complete suggestion
 					</li>
 					<li>
-						- Use <span className="text-blue">TAB</span> and{" "}
-						<span className="text-blue">SHIFT+TAB</span> to cycle through filtered links
+						- Search without auto-complete with <span className="text-blue">CTRL</span>+
+						<span className="text-blue">ENTER</span>
 					</li>
 					<li>
-						- Use <span className="text-blue">CTRL+C</span> to clear prompt
+						- Use <span className="text-blue">TAB</span> and{" "}
+						<span className="text-blue">SHIFT</span>+
+						<span className="text-blue">TAB</span> to cycle through filtered links
+					</li>
+					<li>
+						- Use <span className="text-blue">CTRL</span>+
+						<span className="text-blue">C</span> to clear prompt
 					</li>
 					<li>
 						- Use <span className="text-blue">ESC</span> to exit windows
