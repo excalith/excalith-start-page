@@ -13,9 +13,11 @@ This is an interactive start page for browsers, inspired from my terminal setup.
 
 ## Demo
 
-You can check the working version from [here](https://excalith-start-page.vercel.app)
+You can explore the working version [here](https://excalith-start-page.vercel.app). To get inspired by community members' configurations, visit the [Showcase](https://github.com/excalith/excalith-start-page/discussions/categories/showcase) in discussions!
 
-> **Warning** This is a demo version and will be updated regularly, which might break your configurations. It is not recommended to use this version for your daily browsing. Please refer to [wiki page](https://github.com/excalith/excalith-start-page/wiki/Getting-Started) for more information.
+> **Warning:** This is a demo version and will be updated regularly, which might break your configurations. It is not recommended for daily browsing. Please refer to the [wiki page](https://github.com/excalith/excalith-start-page/wiki/Getting-Started) for more information.
+
+
 
 
 ## Features
