@@ -3,7 +3,7 @@ const defaultConfig = {
 	theme: {
 		backgroundColor: "#121317",
 		windowColor: "#1e212b",
-		glowColor: "#6b5cb157",
+		glowColor: "#291f3325",
 		white: "#e2e2e2",
 		gray: "#97989d",
 		black: "#16161e",
@@ -17,17 +17,17 @@ const defaultConfig = {
 		orange: "#ff8800"
 	},
 	wallpaper: {
-		url: "",
+		url: "https://raw.githubusercontent.com/excalith/.dotfiles/72154278fed732e84dd8f2dfe3f5c797bb8d91a2/assets/wallpaper/gnome-blobs.svg",
 		easing: "ease-in-out",
 		fadeIn: true,
-		blur: true
+		blur: false
 	},
 	terminal: {
 		fixedHeight: true,
 		windowGlow: true,
 		textGlow: false,
 		opacity: 1,
-		blur: 0
+		blur: 16
 	},
 	prompt: {
 		ctrlC: true,

@@ -1,36 +1,39 @@
 {
-	"name": "start-page",
-	"version": "2.3.4",
-	"private": true,
-	"scripts": {
-		"dev": "next dev",
-		"start": "next start",
-		"build": "next build",
-		"export": "next export",
-		"lint": "next lint",
-		"format": "prettier . --write"
-	},
-	"devDependencies": {
-		"autoprefixer": "^10.4.16",
-		"eslint": "8.56.0",
-		"eslint-config-next": "14.0.4",
-		"eslint-config-prettier": "^9.1.0",
-		"eslint-plugin-prettier": "^5.1.2",
-		"postcss": "^8.4.32",
-		"prettier": "^3.1.1",
-		"tailwindcss": "^3.4.0"
-	},
-	"dependencies": {
-		"@fontsource/fira-code": "^5.0.16",
-		"@iconify/react": "^4.1.1",
-		"ace-builds": "^1.32.3",
-		"moment": "^2.30.1",
-		"next": "14.0.4",
-		"one-theme-ace": "^0.5.0",
-		"react": "18.2.0",
-		"react-ace": "^10.1.0",
-		"react-device-detect": "^2.2.3",
-		"react-dom": "18.2.0",
-		"react-error-boundary": "^4.0.12"
-	}
+    "name": "start-page",
+    "version": "3.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "start": "next start",
+        "lint": "next lint",
+        "format": "prettier . --write",
+        "export": "next export",
+        "build": "next build",
+		"docker:build:amd64": "docker buildx build --load --platform linux/amd64 -t excalith/start-page:latest .",
+		"docker:build:arm64": "docker buildx build --load --platform linux/arm64 -t excalith/start-page:latest .",
+		"docker:run": "docker run --name start-page --restart=always -p 8080:3000 -d excalith/start-page"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.16",
+        "eslint": "8.56.0",
+        "eslint-config-next": "14.0.4",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-prettier": "^5.1.2",
+        "postcss": "^8.4.32",
+        "prettier": "^3.1.1",
+        "tailwindcss": "^3.4.0"
+    },
+    "dependencies": {
+        "@fontsource/fira-code": "^5.0.16",
+        "@iconify/react": "^4.1.1",
+        "ace-builds": "^1.32.3",
+        "moment": "^2.30.1",
+        "next": "14.0.4",
+        "one-theme-ace": "^0.5.0",
+        "react": "18.2.0",
+        "react-ace": "^10.1.0",
+        "react-device-detect": "^2.2.3",
+        "react-dom": "18.2.0",
+        "react-error-boundary": "^4.0.12"
+    }
 }

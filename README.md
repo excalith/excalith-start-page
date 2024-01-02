@@ -59,63 +59,36 @@ Please refer to [configuration](https://github.com/excalith/excalith-start-page/
 
 ## Using
 
-There are multiple ways of using this app. Here is a quick preview of them. For more information please refer to [getting started](https://github.com/excalith/excalith-start-page/wiki/Getting-Started) page
+There are multiple ways of using this app explained in details on [getting started](https://github.com/excalith/excalith-start-page/wiki/Getting-Started) wiki page. Here is a TLDR:
 
 ### Fork
 
-You can fork this repository and have direct control over the source code. This is the best way to customize the start page to your liking.
+You can fork this repository and have direct control over the source code. This is the best way to customize the start page to your liking. Then you can create *Docker images*, *deploy on your server* or *serve it locally*. Check out the [Fork Wiki Page](https://github.com/excalith/excalith-start-page/wiki/Fork) for more information.
 
-1. Fork this repository
-2. Modify the `startpage.config.js` for the default configuration
-3. If you want, you can change the source code to your like as well (optional)
-4. Run `yarn dev` command to test it
-5. Host locally, create docker image, or deploy to a server
+### Docker Image
 
-### Docker
+Using a Docker image is another convenient way to use the start page. You can either use the image from Docker Hub or Github Registry. Currently supports both **amd64** and **arm64** images. Check out the [Docker Wiki Page](https://github.com/excalith/excalith-start-page/wiki/Docker) for more information.
 
-Docker is another convenient way to host the start page. You can either use the image from Docker Hub or Github Registry.
+### Online Version
+You can use the Online Version (aka. preview version) as well. However, since this is the preview of the project with constant updates, it might break your configurations. I would recommend building your own fork instead. Check out the [Online Version Wiki Page](https://github.com/excalith/excalith-start-page/wiki/Online) for more information.
 
-<details>
-<summary>Using Docker Registry</summary>
-<br>
-
-Pull the latest image
-```bash
-docker pull excalith/start-page:latest
-```
-
-Run the image (change the port mapping of 8080 into something you want)
-```bash
-docker run --name start-page --restart=always -p 8080:3000 -d excalith/start-page
-```
-</details>
-
-<details>
-<summary>Using Github Registry</summary>
-<br>
-
-Pull the latest image
-```bash
-docker pull ghcr.io/excalith/excalith-start-page:latest
-```
-
-Run the image (change the port mapping of 8080 into something you want)
-```bash
-docker run --name start-page --restart=always -p 8080:3000 -d ghcr.io/excalith/excalith-start-page
-```
-</details>
-
-### Remote Config Import
-
-If you still prefer to use the online version, I would recommend you to use the remote configuration import feature. This feature allows you to import your configuration from a URL. This way, you will always have a backup file of your configuration. Please refer to [getting started](https://github.com/excalith/excalith-start-page/wiki/Getting-Started) page for more information.
 
 ## Customization
 
-You can pretty much customize everything! Please refer to [configuration](https://github.com/excalith/excalith-start-page/wiki/Configuration) and [themes](https://github.com/excalith/excalith-start-page/wiki/Themes) pages for more information regarding themes and configuration options.
+This project, at its heart, supports customization to better suit your desktop environment. There are three methods to personalize the project according to your preferences:
+
+You can either
+- **Method 1:** Configure your **fork** by editing [startpage.config.js](https://github.com/excalith/excalith-start-page/blob/multiplatform/startpage.config.js) file
+- **Method 2:** Use `config edit` command to edit on the fly, by built-in json editor
+- **Method 3:** Use `config import <url>` command to import your remote config file from your dotfiles repository
+  
+Check out the [Configuration](https://github.com/excalith/excalith-start-page/wiki/Configuration) and [Themes](https://github.com/excalith/excalith-start-page/wiki/Themes) wiki pages for more information regarding themes and configuration options.
+
 
 ## How To Contribute
 
 Please feel free to contribute any way you can. Just keep in mind that you should pay attention to [contributing guideline](.github/CONTRIBUTING.md) before contributing.
+
 
 ## License
 
