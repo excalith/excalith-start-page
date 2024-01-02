@@ -78,7 +78,7 @@ You can use the Online Version (aka. preview version) as well. However, since th
 This project, at its heart, supports customization to better suit your desktop environment. There are three methods to personalize the project according to your preferences:
 
 You can either
-- **Method 1:** Configure your **fork** by editing [startpage.config.js](https://github.com/excalith/excalith-start-page/blob/multiplatform/startpage.config.js) file
+- **Method 1:** Configure your **fork** by editing [startpage.config.js](https://github.com/excalith/excalith-start-page/blob/main/startpage.config.js) file
 - **Method 2:** Use `config edit` command to edit on the fly, by built-in json editor
 - **Method 3:** Use `config import <url>` command to import your remote config file from your dotfiles repository
   
