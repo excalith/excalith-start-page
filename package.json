@@ -1,14 +1,14 @@
 {
     "name": "start-page",
-    "version": "2.3.4",
+    "version": "3.0.0",
     "private": true,
     "scripts": {
         "dev": "next dev",
         "start": "next start",
-        "build": "next build",
-        "export": "next export",
         "lint": "next lint",
         "format": "prettier . --write",
+        "export": "next export",
+        "build": "next build",
 		"docker:build:amd64": "docker buildx build --load --platform linux/amd64 -t excalith/start-page:latest .",
 		"docker:build:arm64": "docker buildx build --load --platform linux/arm64 -t excalith/start-page:latest .",
 		"docker:run": "docker run --name start-page --restart=always -p 8080:3000 -d excalith/start-page"
