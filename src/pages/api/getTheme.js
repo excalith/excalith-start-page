@@ -3,7 +3,7 @@ import path from "path"
 
 export default function handler(req, res) {
 	const themeName = req.query.name
-	const themesDirectory = path.join(process.cwd(), "public", "data", "themes")
+	const themesDirectory = path.join(process.cwd(), "public", "themes")
 	const filePath = path.join(themesDirectory, `${themeName}.json`)
 
 	if (!fs.existsSync(filePath)) {
