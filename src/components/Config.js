@@ -36,15 +36,30 @@ const Config = ({ commands, closeCallback }) => {
 		} else if (cmd === "theme") {
 			if (commands.length === 3) {
 				const themeName = commands[2]
-				fetchTheme(themeName).then((theme) => {
-					if (theme === null) {
-						invalidTheme(theme)
-					} else {
-						setTheme(theme, themeName)
-					}
-				})
+				fetch(`/api/getTheme?name=${themeName}`)
+					.then((response) => response.json())
+					.then((theme) => {
+						if (!theme) {
+							invalidTheme(theme)
+						} else {
+							setTheme(theme, themeName)
+						}
+					})
+					.catch((error) => {
+						appendToLog(`Error fetching theme: ${error.message}`, "error")
+					})
 			} else {
-				usageExample()
+				fetch("/api/getThemeList")
+					.then((response) => response.json())
+					.then((themeNames) => {
+						themeNames.forEach((theme) => {
+							appendToLog(theme)
+						})
+						setDone(true)
+					})
+					.catch((error) => {
+						appendToLog(`Error fetching themes: ${error.message}`, "error")
+					})
 			}
 		} else if (cmd === "help") {
 			usageExample()
@@ -90,6 +105,7 @@ const Config = ({ commands, closeCallback }) => {
 	const usageExample = () => {
 		appendToLog("Usage:", "title")
 		appendToLog(["config help", "Show usage examples"], "help")
+		appendToLog(["config theme", "List available themes"], "help")
 		appendToLog(["config theme <theme-name>", "Switch theme"], "help")
 		appendToLog(["config import <url>", "Import remote config"], "help")
 		appendToLog(["config edit", "Edit local config"], "help")
@@ -100,6 +116,7 @@ const Config = ({ commands, closeCallback }) => {
 	const invalidTheme = (themeName) => {
 		appendToLog("Invalid theme: " + commands[2], "error")
 		appendToLog("Usage:", "title")
+		appendToLog(["config theme", "Show available themes"], "help")
 		appendToLog(["config theme <theme>", "Set theme"], "help")
 		setDone(true)
 	}

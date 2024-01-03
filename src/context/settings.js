@@ -53,8 +53,20 @@ export const SettingsProvider = ({ children }) => {
 				"config help",
 				"config edit",
 				"config import",
+				"config theme",
 				"config reset"
 			]
+
+			fetch("/api/getThemeList")
+				.then((response) => response.json())
+				.then((themeNames) => {
+					themeNames.forEach((theme) => {
+						filterArr.push("config theme " + theme)
+					})
+				})
+				.catch((error) => {
+					appendToLog(`Error fetching themes: ${error.message}`, "error")
+				})
 
 			settings.sections.list.map((section) => {
 				section.links.map((link) => {
