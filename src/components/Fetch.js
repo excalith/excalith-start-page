@@ -12,6 +12,7 @@ const Fetch = ({ closeCallback }) => {
 	const titleColor = settings.fetch.titleColor
 	let mapping = {
 		version: fetchData.version,
+		theme: settings.theme.name,
 		time: fetchData.time,
 		date: fetchData.date,
 		osName: fetchData.osName,
@@ -73,11 +74,7 @@ const Fetch = ({ closeCallback }) => {
 			</span>
 			<div className="grid grid-cols-2 gap-4">
 				<div className="mt-4">
-					<img
-						className="w-full h-full mx-auto"
-						src={`data/assets/${settings.fetch.image}`}
-						alt=""
-					/>
+					<img className="w-full h-full mx-auto" src={`${settings.fetch.image}`} alt="" />
 				</div>
 				<div className="mt-4 text-white">
 					<div className="mx-auto">

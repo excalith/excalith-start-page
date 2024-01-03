@@ -1,6 +1,7 @@
 {
 	"username": "Excalith",
 	"theme": {
+		"name": "Default",
 		"backgroundColor": "#121317",
 		"windowColor": "#1e212b",
 		"glowColor": "#291f3325",
@@ -46,12 +47,14 @@
 		"timeFormat": "HH:mm",
 		"dateFormat": "DD/MM/YYYY",
 		"titleColor": "yellow",
-		"image": "icon.svg",
+		"image": "data/assets/icon.svg",
 		"data": [
 			"Time: {time}",
 			"Date: {date}",
 			"{seperator}",
 			"OS: {osName} {osVersion}",
+			"Theme: {theme}",
+			"{seperator}",
 			"Browser: {browser} {browserVersion}",
 			"Engine: {engineName}",
 			"{seperator}",
