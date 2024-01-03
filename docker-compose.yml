@@ -8,7 +8,8 @@ services:
     ports:
       - 8080:3000
     volumes:
-      - data:/app/public/data:rw
+      - data:/app/public/data
 
 volumes:
   data:
+    name: excalith-start-page
