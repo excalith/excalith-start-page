@@ -3,6 +3,24 @@ import { ErrorBoundary } from "react-error-boundary"
 import "@/styles/globals.css"
 import { SettingsProvider } from "@/context/settings"
 
+import fs from "fs"
+import path from "path"
+
+export async function getStaticProps() {
+	const themesDirectory = path.join(process.cwd(), "public/data/themes")
+	const filenames = fs.readdirSync(themesDirectory)
+
+	const themes = filenames.map((filename) => {
+		return filename.replace(".json", "")
+	})
+
+	return {
+		props: {
+			themes
+		}
+	}
+}
+
 function fallbackRender({ error, resetErrorBoundary }) {
 	const isDataError = error.message.includes("undefined")
 
@@ -71,7 +89,9 @@ function fallbackRender({ error, resetErrorBoundary }) {
 	)
 }
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps, themes }) {
+	console.log("Available themes:", themes)
+
 	return (
 		<ErrorBoundary fallbackRender={fallbackRender}>
 			<SettingsProvider>

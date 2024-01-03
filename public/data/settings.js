@@ -1,5 +1,5 @@
 const defaultConfig = {
-	username: "Excalith",
+	username: "test",
 	theme: {
 		backgroundColor: "#121317",
 		windowColor: "#1e212b",
@@ -46,7 +46,7 @@ const defaultConfig = {
 		timeFormat: "HH:mm",
 		dateFormat: "DD/MM/YYYY",
 		titleColor: "yellow",
-		image: "icon.svg",
+		image: "fetch.svg",
 		data: [
 			"Time: {time}",
 			"Date: {date}",

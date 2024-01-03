@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react"
-import defaultConfig from "startpage.config"
+import defaultConfig from "public/data/settings"
 import { themes } from "@/utils/themes"
 
 const SETTINGS_KEY = "settings"

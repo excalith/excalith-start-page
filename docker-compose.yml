@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  start-page:
+    container_name: start-page
+    image: excalith/start-page
+    restart: unless-stopped
+    ports:
+      - 8080:3000
+    volumes:
+      - data:/app/public/data:rw
+
+volumes:
+  data:

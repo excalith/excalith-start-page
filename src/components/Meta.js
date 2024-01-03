@@ -15,7 +15,7 @@ const Meta = () => {
 			<title>{title}</title>
 			<meta name="description" content={`Browser start page for ${title}`} />
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
-			<link rel="icon" href="/favicon.ico" />
+			<link rel="icon" href="public/data/assets/favicon.ico" />
 			<meta name="robots" content="noindex, nofollow"></meta>
 		</Head>
 	)
