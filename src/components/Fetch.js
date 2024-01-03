@@ -42,16 +42,14 @@ const Fetch = ({ closeCallback }) => {
 		if (params[0] === "colors") {
 			return (
 				<li key={index}>
-					<span className="inline-block w-1/5 h-5 -mb-2 bg-black"></span>
-					<span className="inline-block w-1/5 h-5 -mb-2 bg-red"></span>
-					<span className="inline-block w-1/5 h-5 -mb-2 bg-green"></span>
-					<span className="inline-block w-1/5 h-5 -mb-2 bg-yellow"></span>
-					<span className="inline-block w-1/5 h-5 -mb-2 bg-violet"></span>
-					<span className="inline-block w-1/5 h-5 bg-gray"></span>
-					<span className="inline-block w-1/5 h-5 bg-blue"></span>
-					<span className="inline-block w-1/5 h-5 bg-cyan"></span>
-					<span className="inline-block w-1/5 h-5 bg-magenta"></span>
-					<span className="inline-block w-1/5 h-5 bg-white"></span>
+					<span className="inline-block w-1/4 h-5 -mb-2 bg-black"></span>
+					<span className="inline-block w-1/4 h-5 -mb-2 bg-red"></span>
+					<span className="inline-block w-1/4 h-5 -mb-2 bg-green"></span>
+					<span className="inline-block w-1/4 h-5 -mb-2 bg-yellow"></span>
+					<span className="inline-block w-1/4 h-5 bg-blue"></span>
+					<span className="inline-block w-1/4 h-5 bg-cyan"></span>
+					<span className="inline-block w-1/4 h-5 bg-magenta"></span>
+					<span className="inline-block w-1/4 h-5 bg-white"></span>
 				</li>
 			)
 		}
@@ -76,7 +74,7 @@ const Fetch = ({ closeCallback }) => {
 				<div className="mt-4">
 					<img className="w-full h-full mx-auto" src={`${settings.fetch.image}`} alt="" />
 				</div>
-				<div className="mt-4 text-white">
+				<div className="mt-4 text-textColor">
 					<div className="mx-auto">
 						<div className="row">
 							<Prompt showSymbol={false} />

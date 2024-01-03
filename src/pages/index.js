@@ -23,7 +23,7 @@ export default function Home() {
 		const documentStyle = document.documentElement.style
 
 		// Set Terminal
-		documentStyle.setProperty("--glow-color", settings.theme.glowColor)
+		documentStyle.setProperty("--glow-color", settings.terminal.windowGlowColor)
 		documentStyle.setProperty("--background-color", settings.theme.backgroundColor)
 
 		if (settings.terminal.blur > 0) {
@@ -45,10 +45,10 @@ export default function Home() {
 		)
 
 		// Set URL Color
-		documentStyle.setProperty("--url-default", "var(--" + settings.urlLaunch.defaultColor + ")")
 		documentStyle.setProperty("--url-hover", "var(--" + settings.urlLaunch.hoverColor + ")")
 
 		// Set Text Colors
+		documentStyle.setProperty("--text-color", settings.theme.textColor)
 		documentStyle.setProperty("--white", settings.theme.white)
 		documentStyle.setProperty("--gray", settings.theme.gray)
 		documentStyle.setProperty("--black", settings.theme.black)
@@ -56,9 +56,8 @@ export default function Home() {
 		documentStyle.setProperty("--green", settings.theme.green)
 		documentStyle.setProperty("--yellow", settings.theme.yellow)
 		documentStyle.setProperty("--blue", settings.theme.blue)
-		documentStyle.setProperty("--cyan", settings.theme.cyan)
 		documentStyle.setProperty("--magenta", settings.theme.magenta)
-		documentStyle.setProperty("--violet", settings.theme.violet)
+		documentStyle.setProperty("--cyan", settings.theme.cyan)
 
 		// Check text glow
 		if (settings.terminal.textGlow) {

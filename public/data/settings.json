@@ -4,18 +4,16 @@
 		"name": "Default",
 		"backgroundColor": "#121317",
 		"windowColor": "#1e212b",
-		"glowColor": "#291f3325",
-		"white": "#e2e2e2",
-		"gray": "#97989d",
+		"textColor": "#e2e2e2",
 		"black": "#16161e",
 		"red": "#ec6183",
 		"green": "#2ed8a2",
 		"yellow": "#e8b195",
 		"blue": "#2bc3de",
+		"magenta": "#d1aff8",
 		"cyan": "#62e0e2",
-		"magenta": "#e069aa",
-		"violet": "#d1aff8",
-		"orange": "#ff8800"
+		"white": "#e2e2e2",
+		"gray": "#97989d"
 	},
 	"wallpaper": {
 		"url": "https://raw.githubusercontent.com/excalith/.dotfiles/72154278fed732e84dd8f2dfe3f5c797bb8d91a2/assets/wallpaper/gnome-blobs.svg",
@@ -26,6 +24,7 @@
 	"terminal": {
 		"fixedHeight": true,
 		"windowGlow": true,
+		"windowGlowColor": "#291f3325",
 		"textGlow": false,
 		"opacity": 1,
 		"blur": 16
@@ -63,8 +62,7 @@
 	},
 	"urlLaunch": {
 		"target": "_self",
-		"defaultColor": "white",
-		"hoverColor": "violet"
+		"hoverColor": "magenta"
 	},
 	"search": {
 		"default": "https://google.com/search?q=",
@@ -166,7 +164,7 @@
 			},
 			{
 				"title": "Social",
-				"color": "violet",
+				"color": "cyan",
 				"align": "left",
 				"links": [
 					{
@@ -193,7 +191,7 @@
 			},
 			{
 				"title": "Gaming",
-				"color": "cyan",
+				"color": "red",
 				"align": "left",
 				"links": [
 					{

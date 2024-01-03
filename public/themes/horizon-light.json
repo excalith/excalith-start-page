@@ -1,0 +1,15 @@
+{
+	"name": "Horizon Light",
+	"backgroundColor": "#fce9e4",
+	"windowColor": "#FDF0ED",
+	"textColor": "#FDF0ED",
+	"black": "#1A1C23",
+	"red": "#DA103F",
+	"green": "#1EB980",
+	"yellow": "#F77D26",
+	"blue": "#1EAEAE",
+	"magenta": "#8931B9",
+	"cyan": "#49A3A5",
+	"white": "#FDF0ED",
+	"gray": "#97989d"
+}

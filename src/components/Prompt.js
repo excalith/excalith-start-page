@@ -18,7 +18,7 @@ const Prompt = ({ command, showSymbol = true }) => {
 					{promptSettings.promptSymbol}{" "}
 				</span>
 			)}
-			{command && <span className="ml-2.5 text-white">{command}</span>}
+			{command && <span className="ml-2.5 text-textColor">{command}</span>}
 		</span>
 	)
 }

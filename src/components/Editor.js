@@ -66,7 +66,7 @@ const Editor = () => {
 						<p className="py-2 mr-1 text-red">Invalid JSON</p>
 					) : (
 						<button
-							className="p-2 border text-blue border-blue hover:text-white"
+							className="p-2 border text-blue border-blue hover:text-textColor"
 							onClick={handleSave}>
 							Save
 						</button>

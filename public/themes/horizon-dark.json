@@ -1,0 +1,15 @@
+{
+	"name": "Horizon Dark",
+	"backgroundColor": "#16161C",
+	"windowColor": "#1C1E26",
+	"textColor": "#FDF0ED",
+	"black": "#16161e",
+	"red": "#E95678",
+	"green": "#27D796",
+	"yellow": "#FAB795",
+	"blue": "#25B2BC",
+	"magenta": "#B877DB",
+	"cyan": "#62e0e2",
+	"white": "#FDF0ED",
+	"gray": "#97989d"
+}

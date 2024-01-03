@@ -2,16 +2,14 @@
 	"name": "Everforest Dark",
 	"backgroundColor": "#232a2e",
 	"windowColor": "#2d353b",
-	"glowColor": "#425047",
-	"white": "#d3c6aa",
-	"gray": "#7a8478",
+	"textColor": "#d3c6aa",
 	"black": "#000000",
 	"red": "#e67e80",
 	"green": "#a7c080",
 	"yellow": "#dbbc7f",
 	"blue": "#7fbbb3",
-	"cyan": "#83c092",
 	"magenta": "#d699b6",
-	"violet": "#d699b6",
-	"orange": "#e69875"
+	"cyan": "#83c092",
+	"white": "#d3c6aa",
+	"gray": "#7a8478"
 }

@@ -141,7 +141,7 @@ const Config = ({ commands, closeCallback }) => {
 	}
 
 	return (
-		<div className="h-full overflow-y-auto text-white" onClick={closeConfigWindow}>
+		<div className="h-full overflow-y-auto text-textColor" onClick={closeConfigWindow}>
 			<div className="row">
 				<ul className="list-none">
 					<li>
