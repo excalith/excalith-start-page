@@ -13,14 +13,17 @@ export const useSettings = () => useContext(SettingsContext)
 export const SettingsProvider = ({ children }) => {
 	const [settings, setSettings] = useState()
 	const [items, setItems] = useState([])
-	const isDocker = true
+	const isDocker = false
 
 	// Load settings
 	useEffect(() => {
 		let data
 
 		if (isDocker) {
-			data = defaultConfig
+			fetch("/api/loadSettings")
+				.then((response) => response.json())
+				.then((data) => setSettings(data))
+				.catch(() => setSettings(defaultConfig))
 		} else {
 			data = localStorage.getItem(SETTINGS_KEY)
 		}
@@ -41,10 +44,14 @@ export const SettingsProvider = ({ children }) => {
 	// Save settings
 	useEffect(() => {
 		if (settings && settings !== "undefined") {
-
 			if (isDocker) {
-				// data = defaultConfig
-				console.log("Docker mode, not saving settings")
+				fetch("/api/saveSettings", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify(settings)
+				})
 			} else {
 				localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings))
 			}
