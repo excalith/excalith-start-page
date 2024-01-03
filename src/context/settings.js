@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react"
 import defaultConfig from "public/data/settings"
 
 const SETTINGS_KEY = "settings"
-const isDocker = process.env.NEXT_PUBLIC_MODE === "docker"
+const IS_DOCKER = process.env.BUILD_MODE === "docker"
 
 export const SettingsContext = createContext({
 	settings: undefined,
@@ -15,12 +15,12 @@ export const SettingsProvider = ({ children }) => {
 	const [settings, setSettings] = useState()
 	const [items, setItems] = useState([])
 
-	console.log("Is Docker: " + isDocker)
+	console.log("Is Docker: " + IS_DOCKER)
 	// Load settings
 	useEffect(() => {
 		let data
 
-		if (isDocker) {
+		if (IS_DOCKER) {
 			fetch("/api/loadSettings")
 				.then((response) => response.json())
 				.then((data) => setSettings(data))
@@ -34,7 +34,7 @@ export const SettingsProvider = ({ children }) => {
 	// Save settings
 	useEffect(() => {
 		if (settings && settings !== "undefined") {
-			if (isDocker) {
+			if (IS_DOCKER) {
 				fetch("/api/saveSettings", {
 					method: "POST",
 					headers: {

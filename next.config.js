@@ -38,7 +38,7 @@ const nextConfig = {
 		return config
 	},
 	env: {
-		NEXT_PUBLIC_MODE: process.env.NEXT_PUBLIC_MODE
+		BUILD_MODE: process.env.BUILD_MODE
 	}
 }
 
