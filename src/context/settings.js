@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react"
 import defaultConfig from "public/data/settings"
 
 const SETTINGS_KEY = "settings"
+const isDocker = process.env.NEXT_PUBLIC_MODE === "docker"
 
 export const SettingsContext = createContext({
 	settings: undefined,
@@ -13,8 +14,8 @@ export const useSettings = () => useContext(SettingsContext)
 export const SettingsProvider = ({ children }) => {
 	const [settings, setSettings] = useState()
 	const [items, setItems] = useState([])
-	const isDocker = false
 
+	console.log("Is Docker: " + isDocker)
 	// Load settings
 	useEffect(() => {
 		let data
@@ -26,18 +27,7 @@ export const SettingsProvider = ({ children }) => {
 				.catch(() => setSettings(defaultConfig))
 		} else {
 			data = localStorage.getItem(SETTINGS_KEY)
-		}
-
-		// const settings = localStorage.getItem(SETTINGS_KEY)
-		if (settings && settings !== "undefined") {
-			try {
-				setSettings(JSON.parse(data))
-			} catch (e) {
-				setSettings(defaultConfig)
-				console.log("Error parsing settings, resetting to default")
-			}
-		} else {
-			setSettings(defaultConfig)
+			setSettings(data ? JSON.parse(data) : defaultConfig)
 		}
 	}, [])
 

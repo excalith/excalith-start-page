@@ -33,7 +33,12 @@ RUN yarn build
 FROM base AS runner
 WORKDIR /app
 
+# Set NODE_ENV to production
 ENV NODE_ENV production
+
+# Set mode to Docker (for data fetching switches between docker and web)
+ENV NEXT_PUBLIC_MODE=docker
+
 # Uncomment the following line in case you want to disable telemetry during runtime.
 ENV NEXT_TELEMETRY_DISABLED 1
 
