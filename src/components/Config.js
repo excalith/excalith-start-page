@@ -13,7 +13,7 @@ async function fetchTheme(themeName) {
 	}
 }
 
-const Config = ({ commands, closeCallback, themes }) => {
+const Config = ({ commands, closeCallback }) => {
 	const [command] = useState(commands.join(" "))
 	const [consoleLog, setConsoleLog] = useState([])
 	const [isDone, setDone] = useState(false)
@@ -22,8 +22,6 @@ const Config = ({ commands, closeCallback, themes }) => {
 	const CodeEditor = dynamic(() => import("@/components/Editor"), {
 		ssr: false
 	})
-
-	console.log(themes)
 
 	useEffect(() => {
 		setConsoleLog([])
@@ -46,10 +44,7 @@ const Config = ({ commands, closeCallback, themes }) => {
 					}
 				})
 			} else {
-				themes.map((theme) => {
-					appendToLog(theme)
-				})
-				setDone(true)
+				usageExample()
 			}
 		} else if (cmd === "help") {
 			usageExample()
@@ -95,7 +90,6 @@ const Config = ({ commands, closeCallback, themes }) => {
 	const usageExample = () => {
 		appendToLog("Usage:", "title")
 		appendToLog(["config help", "Show usage examples"], "help")
-		appendToLog(["config theme", "List available themes"], "help")
 		appendToLog(["config theme <theme-name>", "Switch theme"], "help")
 		appendToLog(["config import <url>", "Import remote config"], "help")
 		appendToLog(["config edit", "Edit local config"], "help")
@@ -106,7 +100,6 @@ const Config = ({ commands, closeCallback, themes }) => {
 	const invalidTheme = (themeName) => {
 		appendToLog("Invalid theme: " + commands[2], "error")
 		appendToLog("Usage:", "title")
-		appendToLog(["config theme", "Show available themes"], "help")
 		appendToLog(["config theme <theme>", "Set theme"], "help")
 		setDone(true)
 	}
