@@ -16,7 +16,7 @@
 		"gray": "#97989d"
 	},
 	"wallpaper": {
-		"url": "default-wallpaper.svg",
+		"url": "assets/default-wallpaper.svg",
 		"easing": "ease-in-out",
 		"fadeIn": true,
 		"blur": false
@@ -46,7 +46,7 @@
 		"timeFormat": "HH:mm",
 		"dateFormat": "DD/MM/YYYY",
 		"titleColor": "yellow",
-		"image": "default-icon.svg",
+		"image": "assets/default-icon.svg",
 		"data": [
 			"Time: {time}",
 			"Date: {date}",
