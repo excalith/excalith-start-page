@@ -12,23 +12,25 @@ const Meta = () => {
 
 		const iconExtension = settings.fetch.image.split(".").pop()
 		switch (iconExtension) {
-			case ".svg":
+			case "svg":
 				setIconType("image/svg+xml")
 				break
-			case ".png":
+			case "png":
 				setIconType("image/png")
 				break
 			default:
-				setIconType("image/x-icon")
+				setIconType("na")
 		}
 	}, [settings.fetch.image, settings.username])
 
 	return (
 		<Head>
 			<title>{title}</title>
-			<meta name="description" content={`Browser start page for ${title}`} />
+			<meta name="description" content={`Start page of ${settings.username}`} />
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
-			<link rel="icon" type={iconType} href={`${settings.fetch.image}`} />
+			{iconType !== "na" && (
+				<link rel="icon" type={iconType} href={`${settings.fetch.image}`} />
+			)}
 			<meta name="robots" content="noindex, nofollow"></meta>
 		</Head>
 	)
