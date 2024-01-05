@@ -26,14 +26,15 @@ export default function Home() {
 		documentStyle.setProperty("--glow-color", settings.terminal.windowGlowColor)
 		documentStyle.setProperty("--background-color", settings.theme.backgroundColor)
 
-		if (settings.terminal.blur > 0) {
-			documentStyle.setProperty("--window-color", "transparent")
-			documentStyle.setProperty("--window-opacity", 1)
-			documentStyle.setProperty("--window-blur", settings.terminal.blur + "px")
-		} else {
+		// Set Terminal Opacity / Blur (if opacity is 0, blur is used instead)
+		if (settings.terminal.opacity > 0) {
 			documentStyle.setProperty("--window-color", settings.theme.windowColor)
 			documentStyle.setProperty("--window-opacity", settings.terminal.opacity)
 			documentStyle.setProperty("--window-blur", 0 + "px")
+		} else {
+			documentStyle.setProperty("--window-color", "transparent")
+			documentStyle.setProperty("--window-opacity", 1)
+			documentStyle.setProperty("--window-blur", settings.terminal.blur + "px")
 		}
 
 		// Set Prompt Selection Color
