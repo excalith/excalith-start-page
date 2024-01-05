@@ -1,6 +1,6 @@
 {
     "name": "start-page",
-    "version": "3.0.0",
+    "version": "3.1.0",
     "private": true,
     "scripts": {
         "dev": "next dev",
@@ -11,7 +11,7 @@
         "build": "next build",
         "docker:build:amd64": "docker buildx build --load --platform linux/amd64 -t excalith/start-page:latest .",
         "docker:build:arm64": "docker buildx build --load --platform linux/arm64 -t excalith/start-page:latest .",
-        "docker:run": "docker run --name start-page --restart=always -p 8080:3000 -d excalith/start-page"
+        "docker:run": "docker run -d --name excalith-start-page -p 8080:3000 -v excalith-start-page:/app/public/data --restart unless-stopped excalith/start-page:latest"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.16",
