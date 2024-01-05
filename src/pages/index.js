@@ -5,9 +5,11 @@ import Terminal from "@/components/Terminal"
 import "@fontsource/fira-code/400.css"
 import "@fontsource/fira-code/600.css"
 import { useSettings } from "@/context/settings"
+import { fetchAsset } from "@/utils/fetchAsset"
 
 export default function Home() {
 	const { settings } = useSettings()
+	const [wallpaper, setWallpaper] = useState(null)
 	const [isReady, setIsReady] = useState(false)
 	const [isLoaded, setIsLoaded] = useState(false)
 
@@ -67,6 +69,17 @@ export default function Home() {
 			document.body.classList.remove("text-glow")
 		}
 
+		// Set Wallpaper
+		fetchAsset(settings.wallpaper.url)
+			.then((data) => {
+				if (data) {
+					setWallpaper(data)
+				}
+			})
+			.catch((error) => {
+				console.error("Failed to fetch wallpaper:", error)
+			})
+
 		setIsReady(true)
 	}, [settings])
 
@@ -75,18 +88,17 @@ export default function Home() {
 			{isReady && (
 				<>
 					<Meta />
-					{settings.wallpaper.url && (
+					{wallpaper && (
 						<Image
 							alt=""
-							className={`transition-opacity w-screen h-screen -z-50 
+							className={`transition-opacity w-screen h-screen -z-50 object-cover
 							${settings.wallpaper.easing}
 							${settings.wallpaper.fadeIn && "duration-1000"}
 							${settings.wallpaper.blur && "blur-wallpaper"}
 							${isLoaded ? "opacity-100" : "opacity-0"}`}
-							src={settings.wallpaper.url}
+							src={wallpaper}
 							fill
-							objectFit="cover"
-							onLoadingComplete={() => {
+							onLoad={() => {
 								setIsLoaded(true)
 							}}
 						/>

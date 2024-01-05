@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react"
-import defaultConfig from "public/data/settings"
+import defaultConfig from "data/settings"
 
 const SETTINGS_KEY = "settings"
 const IS_DOCKER = process.env.BUILD_MODE === "docker"
@@ -15,7 +15,6 @@ export const SettingsProvider = ({ children }) => {
 	const [settings, setSettings] = useState()
 	const [items, setItems] = useState([])
 
-	console.log("Is Docker: " + IS_DOCKER)
 	// Load settings
 	useEffect(() => {
 		let data
@@ -27,6 +26,9 @@ export const SettingsProvider = ({ children }) => {
 				.catch(() => setSettings(defaultConfig))
 		} else {
 			data = localStorage.getItem(SETTINGS_KEY)
+			if (data === "undefined") {
+				console.log("LocalStorage configuration reset to defaults.")
+			}
 			setSettings(data ? JSON.parse(data) : defaultConfig)
 		}
 	}, [])
@@ -57,16 +59,16 @@ export const SettingsProvider = ({ children }) => {
 				"config reset"
 			]
 
-			fetch("/api/getThemeList")
+			fetch("/api/getTheme")
 				.then((response) => response.json())
-				.then((themeNames) => {
-					themeNames.forEach((theme) => {
-						filterArr.push("config theme " + theme)
-					})
+				.then((data) => {
+					if (!data.message) {
+						data.forEach((theme) => {
+							filterArr.push("config theme " + theme)
+						})
+					}
 				})
-				.catch((error) => {
-					appendToLog(`Error fetching themes: ${error.message}`, "error")
-				})
+				.catch((error) => console.log(`Error fetching themes: ${error.message}`))
 
 			settings.sections.list.map((section) => {
 				section.links.map((link) => {

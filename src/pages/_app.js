@@ -1,7 +1,7 @@
 import React from "react"
 import { ErrorBoundary } from "react-error-boundary"
-import "@/styles/globals.css"
 import { SettingsProvider } from "@/context/settings"
+import "@/styles/globals.css"
 
 function fallbackRender({ error, resetErrorBoundary }) {
 	const isDataError = error.message.includes("undefined")

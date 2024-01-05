@@ -4,15 +4,6 @@ import { isURL } from "@/utils/isURL"
 import { useSettings } from "@/context/settings"
 import dynamic from "next/dynamic"
 
-async function fetchTheme(themeName) {
-	try {
-		const theme = await fetch("/data/themes/" + themeName + ".json").then((res) => res.json())
-		return theme
-	} catch {
-		return null
-	}
-}
-
 const Config = ({ commands, closeCallback }) => {
 	const [command] = useState(commands.join(" "))
 	const [consoleLog, setConsoleLog] = useState([])
@@ -37,10 +28,18 @@ const Config = ({ commands, closeCallback }) => {
 			if (commands.length === 3) {
 				const themeName = commands[2]
 				fetch(`/api/getTheme?name=${themeName}`)
-					.then((response) => response.json())
+					.then((response) => {
+						if (!response.ok) {
+							appendToLog(response.statusText, "error")
+							return
+						}
+						return response.json()
+					})
 					.then((theme) => {
-						if (!theme) {
-							invalidTheme(theme)
+						if (theme.message) {
+							appendToLog(theme.message, "error")
+						} else if (!theme || Object.keys(theme).length === 0) {
+							appendToLog(`Theme "${themeName}" not found`, "error")
 						} else {
 							setTheme(theme, themeName)
 						}
@@ -49,12 +48,24 @@ const Config = ({ commands, closeCallback }) => {
 						appendToLog(`Error fetching theme: ${error.message}`, "error")
 					})
 			} else {
-				fetch("/api/getThemeList")
-					.then((response) => response.json())
-					.then((themeNames) => {
-						themeNames.forEach((theme) => {
-							appendToLog(theme)
-						})
+				fetch("/api/getTheme")
+					.then((response) => {
+						if (!response.ok) {
+							appendToLog(response.statusText, "error")
+							return
+						}
+						return response.json()
+					})
+					.then((data) => {
+						if (data.message) {
+							appendToLog(data.message, "error")
+						} else if (!data || data.length === 0) {
+							appendToLog("No themes found in theme folder", "error")
+						} else {
+							data.forEach((theme) => {
+								appendToLog(theme)
+							})
+						}
 						setDone(true)
 					})
 					.catch((error) => {

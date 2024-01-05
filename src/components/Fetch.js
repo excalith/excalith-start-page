@@ -1,6 +1,8 @@
 import Prompt from "@/components/Prompt"
+import { useState, useEffect } from "react"
 import { useSettings } from "@/context/settings"
 import useFetchData from "@/hooks/useFetchData"
+import { fetchAsset } from "@/utils/fetchAsset"
 
 const paramsPattern = /[^{}]+(?=})/g
 const titlePattern = /[\w]+(:)/g
@@ -8,6 +10,7 @@ const titlePattern = /[\w]+(:)/g
 const Fetch = ({ closeCallback }) => {
 	const { settings } = useSettings()
 	const [fetchData] = useFetchData()
+	const [icon, setIcon] = useState(null)
 
 	const titleColor = settings.fetch.titleColor
 	let mapping = {
@@ -22,6 +25,19 @@ const Fetch = ({ closeCallback }) => {
 		engineName: fetchData.engineName,
 		engineVersion: fetchData.engineVersion
 	}
+
+	useEffect(() => {
+		// Fetch fetch image
+		fetchAsset(settings.fetch.image)
+			.then((data) => {
+				if (data) {
+					setIcon(data) // Set the image only if there is no warning message
+				}
+			})
+			.catch((error) => {
+				console.error("Failed to fetch image:", error)
+			})
+	}, [settings.fetch.image, setIcon])
 
 	function getFetchData(index, item) {
 		const params = item.match(paramsPattern)
@@ -72,7 +88,7 @@ const Fetch = ({ closeCallback }) => {
 			</span>
 			<div className="grid grid-cols-2 gap-4">
 				<div className="mt-4">
-					<img className="w-full h-full mx-auto" src={`${settings.fetch.image}`} alt="" />
+					{icon && <img className="w-full h-full mx-auto" src={icon} alt="" />}
 				</div>
 				<div className="mt-4 text-textColor">
 					<div className="mx-auto">
