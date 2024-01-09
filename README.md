@@ -31,7 +31,7 @@ You can explore the working version [here](https://excalith-start-page.vercel.ap
 - Customizable Fetch UI for fetching browser and system data, including custom image support
 - Autosuggest and Autocomplete support just like `zsh` and `fish`
 - Cycle through filtered links back and forth
-- Multiple theme support (check all [available themes](./public/themes/))
+- Multiple theme support (check all [available themes](./data/themes/))
 - Built-in configuration editor to easily edit and save your configuration
 
 Please refer to [configuration](https://github.com/excalith/excalith-start-page/wiki/Configuration) page for more information.
@@ -43,7 +43,7 @@ Please refer to [configuration](https://github.com/excalith/excalith-start-page/
 - Update your configuration with `config` command
   - `config help` - Displays config command usage
   - `config import <url>` - Import configuration from a URL to your local storage
-  - `config theme` - Lists all [available themes](./public/themes/)
+  - `config theme` - Lists all [available themes](./data/themes/)
   - `config theme <theme-name>` - Switches between themes and sets your local configuration
   - `config edit` - Edit local configuration within editor
   - `config reset` - Reset your configuration to default
@@ -78,7 +78,7 @@ You can use the Online Version (aka. preview version) as well. However, since th
 This project, at its heart, supports customization to better suit your desktop environment. There are three methods to personalize the project according to your preferences:
 
 You can either
-- **Method 1:** Configure your **fork** by editing [startpage.config.js](https://github.com/excalith/excalith-start-page/blob/main/startpage.config.js) file
+- **Method 1:** Configure your **fork** by editing [settings.json](./data/settings.json) file
 - **Method 2:** Use `config edit` command to edit on the fly, by built-in json editor
 - **Method 3:** Use `config import <url>` command to import your remote config file from your dotfiles repository
   
