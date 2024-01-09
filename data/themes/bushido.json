@@ -1,16 +1,15 @@
 {
+	"name": "Bushido",
 	"backgroundColor": "#1c222d",
 	"windowColor": "#252a33",
-	"glowColor": "#EC4C574B",
-	"white": "#f6f0e9",
-	"gray": "#596172;",
+	"textColor": "#f6f0e9",
 	"black": "#16161e",
 	"red": "#ec4c56",
 	"green": "#ec4c56",
 	"yellow": "#ec4c56",
 	"blue": "#ec4c56",
-	"cyan": "#ec4c56",
 	"magenta": "#ec4c56",
-	"violet": "#ec4c56",
-	"orange": "#ec4c56"
+	"cyan": "#ec4c56",
+	"white": "#f6f0e9",
+	"gray": "#596172;"
 }

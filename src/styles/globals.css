@@ -9,6 +9,7 @@
 	--window-color: #1e212b;
 	--window-blur: 0px;
 	
+	--text-color: #e2e2e2;
 	--white: #e2e2e2;
 	--gray: #97989d;
 	--black: #16161e;
@@ -18,11 +19,9 @@
 	--blue: #2bc3de;
 	--cyan: #62e0e2;
 	--magenta: #e069aa;
-	--violet: #d1aff8;
-	--orange: #ff8800;
 
-	--url-default: var(--white);
-	--url-hover: var(--violet);
+	--url-default: var(--text-color);
+	--url-hover: var(--magenta);
 
 	--selection-fg: var(--black);
 	--selection-bg: var(--yellow);

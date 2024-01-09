@@ -3,16 +3,6 @@ import Prompt from "@/components/Prompt"
 import { isURL } from "@/utils/isURL"
 import { useSettings } from "@/context/settings"
 import dynamic from "next/dynamic"
-import { themes } from "@/utils/themes"
-
-async function fetchTheme(themeName) {
-	try {
-		const theme = await fetch("/themes/" + themeName + ".json").then((res) => res.json())
-		return theme
-	} catch {
-		return null
-	}
-}
 
 const Config = ({ commands, closeCallback }) => {
 	const [command] = useState(commands.join(" "))
@@ -37,18 +27,50 @@ const Config = ({ commands, closeCallback }) => {
 		} else if (cmd === "theme") {
 			if (commands.length === 3) {
 				const themeName = commands[2]
-				fetchTheme(themeName).then((theme) => {
-					if (theme === null) {
-						invalidTheme(theme)
-					} else {
-						setTheme(theme, themeName)
-					}
-				})
+				fetch(`/api/getTheme?name=${themeName}`)
+					.then((response) => {
+						if (!response.ok) {
+							appendToLog(response.statusText, "error")
+							return
+						}
+						return response.json()
+					})
+					.then((theme) => {
+						if (theme.message) {
+							appendToLog(theme.message, "error")
+						} else if (!theme || Object.keys(theme).length === 0) {
+							appendToLog(`Theme "${themeName}" not found`, "error")
+						} else {
+							setTheme(theme, themeName)
+						}
+					})
+					.catch((error) => {
+						appendToLog(`Error fetching theme: ${error.message}`, "error")
+					})
 			} else {
-				themes.map((theme) => {
-					appendToLog(theme)
-				})
-				setDone(true)
+				fetch("/api/getTheme")
+					.then((response) => {
+						if (!response.ok) {
+							appendToLog(response.statusText, "error")
+							return
+						}
+						return response.json()
+					})
+					.then((data) => {
+						if (data.message) {
+							appendToLog(data.message, "error")
+						} else if (!data || data.length === 0) {
+							appendToLog("No themes found in theme folder", "error")
+						} else {
+							data.forEach((theme) => {
+								appendToLog(theme)
+							})
+						}
+						setDone(true)
+					})
+					.catch((error) => {
+						appendToLog(`Error fetching themes: ${error.message}`, "error")
+					})
 			}
 		} else if (cmd === "help") {
 			usageExample()
@@ -130,7 +152,7 @@ const Config = ({ commands, closeCallback }) => {
 	}
 
 	return (
-		<div className="h-full overflow-y-auto text-white" onClick={closeConfigWindow}>
+		<div className="h-full overflow-y-auto text-textColor" onClick={closeConfigWindow}>
 			<div className="row">
 				<ul className="list-none">
 					<li>

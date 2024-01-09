@@ -13,6 +13,7 @@ import { useSettings } from "@/context/settings"
 
 let data = {
 	version: "Unknown",
+	theme: "Unknown",
 	time: "Unknown",
 	date: "Unknown",
 	osName: "Unknown",
@@ -32,6 +33,7 @@ const useFetchData = () => {
 	useEffect(() => {
 		data = {
 			version: version,
+			theme: settings.theme.name,
 			time: moment().format(settings.fetch.timeFormat),
 			date: moment().format(settings.fetch.dateFormat),
 			osName: osName,

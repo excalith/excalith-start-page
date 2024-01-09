@@ -1,16 +1,15 @@
 {
+	"name": "Hacker",
 	"backgroundColor": "#000000",
 	"windowColor": "#000000",
-	"glowColor": "#0f9e004d",
-	"white": "#0f9e00",
-	"gray": "#0f9e00",
+	"textColor": "#0f9e00",
 	"black": "#000000",
 	"red": "#0f9e00",
 	"green": "#0f9e00",
 	"yellow": "#0f9e00",
 	"blue": "#0f9e00",
-	"cyan": "#0f9e00",
 	"magenta": "#0f9e00",
-	"violet": "#0f9e00",
-	"orange": "#0f9e00"
+	"cyan": "#0f9e00",
+	"white": "#0f9e00",
+	"gray": "#0f9e00"
 }

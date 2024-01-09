@@ -5,7 +5,7 @@ const Help = ({ closeCallback }) => {
 	const { settings } = useSettings()
 
 	return (
-		<div className="h-full overflow-y-auto text-white" onClick={closeCallback}>
+		<div className="h-full overflow-y-auto text-textColor" onClick={closeCallback}>
 			<div>
 				<span>
 					<Prompt command="help" />

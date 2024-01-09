@@ -1,16 +1,15 @@
 {
+	"name": "Verdant",
 	"backgroundColor": "#DCF0E0",
 	"windowColor": "#CAEBCE",
-	"glowColor": "#94ab93",
-	"white": "#000",
-	"gray": "#66676b",
+	"textColor": "#000000",
 	"black": "#16161e",
 	"red": "#8a384c",
 	"green": "#1d8262",
 	"yellow": "#c7c41a",
 	"blue": "#1d8699",
-	"cyan": "#4eb8ba",
 	"magenta": "#b35287",
-	"violet": "#8872a1",
-	"orange": "#a65902"
+	"cyan": "#4eb8ba",
+	"white": "#ffffff",
+	"gray": "#66676b"
 }

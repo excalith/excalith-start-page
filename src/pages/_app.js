@@ -1,7 +1,7 @@
 import React from "react"
 import { ErrorBoundary } from "react-error-boundary"
-import "@/styles/globals.css"
 import { SettingsProvider } from "@/context/settings"
+import "@/styles/globals.css"
 
 function fallbackRender({ error, resetErrorBoundary }) {
 	const isDataError = error.message.includes("undefined")
@@ -19,7 +19,7 @@ function fallbackRender({ error, resetErrorBoundary }) {
 	}
 
 	return (
-		<div className="absolute w-full h-auto py-4 text-white transform -translate-x-1/2 -translate-y-1/2 shadow-lg rounded-terminal bg-window-color max-w-terminal p-terminal top-1/2 left-1/2">
+		<div className="absolute w-full h-auto py-4 transform -translate-x-1/2 -translate-y-1/2 shadow-lg text-textColor rounded-terminal bg-window-color max-w-terminal p-terminal top-1/2 left-1/2">
 			<div role="alert">
 				<p>Something went wrong on your side:</p>
 				<p className="text-red mb-line">{error.message}</p>

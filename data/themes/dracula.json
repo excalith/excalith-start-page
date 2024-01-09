@@ -1,0 +1,15 @@
+{
+	"name": "Dracula",
+	"backgroundColor": "#191a21",
+	"windowColor": "#282a36",
+	"textColor": "#bfbfbf",
+	"black": "#000000",
+	"red": "#ff5555",
+	"green": "#50fa7b",
+	"yellow": "#f1fa8c",
+	"magenta": "#ff79c6",
+	"blue": "#bd93f9",
+	"cyan": "#8be9fd",
+	"white": "#bfbfbf",
+	"gray": "#97989d"
+}

@@ -35,7 +35,7 @@ To report a new issue, please follow these steps:
 - Provide your **OS** and **Browser** information.
 - Add any **additional Context** about the problem here such as console logs and screenshots. If you do not know how to get the console logs, please check your browser's documentation on how to get the console logs. If you cannot find the console logs, please mention that in the issue so that maintainers can help you get the logs.
 
-> **Note**
+> [!NOTE]
 > If you find a **Closed** issue that seems like it is the same thing that you're experiencing, open a new issue and include a link to the original issue in the body of your new one.
 
 ### Feature Requests
@@ -52,29 +52,30 @@ If maintainers approve your suggestion, the discussion will be converted to an i
 In order to contribute to the source of the project
 
 1. Fork the repository and create a new branch for your feature or enhancement `kebab-case` for the branch name.
-   - For new documents, please use the `theme-theme-name` as the branch name.
+   - For new theme, please use the `theme-theme-name` as the branch name.
    - For features or enhancements, please use the `feat-feat-name` as the branch name.
    - For fixes, please use the `fix-issue-name` as the branch name.
 2. Use [commit messages](#commit-messages) guideline for your commits.
 3. Send a pull request to the `main` branch using the [pull request](#pull-requests) guideline.
 
-> **Warning**
+> [!IMPORTANT]
 > Please **do not** change design into a complicated and / or overwhelming experience. It should launch fast, be easy to use and not distract from the functionality.
 
 ### New Themes
 
 I really appreciate contributions in the form of new themes to the project. If you'd like to add a new theme, please follow these steps:
 
-1. Create a new `json` file in the `public/themes` folder using the theme name as the file name. Please use `kebab-case` for the file name. You can use the default theme file as a starting point.
-2. Add the theme name to the array in the `src/utils/themes.js` file. Please use the same name as the file and use alphabetical order.
-3. Test your theme by running the project locally by running `yarn dev` command
+1. Have a look at [Themes](https://github.com/excalith/excalith-start-page/wiki/Themes#theme-scheme) wiki page for the scheme you should use.
+2. Head to `data/themes` folder
+3. Create `themename-variant.json` file using lowercase (variant should have hypens before ie. `catppuccin-latte`)
+4. Fill the theme structure with your own colors
+5. Test in on local server using `yarn dev` command
    1. Use `set theme` command to see your theme on the list
    2. Use `set theme <theme-name>` to see your theme in action
+6. Send a PR!
 
-> **Warning**
-> Since themes are stored in the local storage, you should run the `set theme <theme-name>` command to see your changes.
-
-More information about themes can be found in the [Wiki Page](https://github.com/excalith/excalith-start-page/wiki/Themes).
+> [!IMPORTANT]
+> Since themes are stored in the local storage while running as a web app, you should run the `set theme <theme-name>` command to see your changes.
 
 ### New Features / Enhancements
 

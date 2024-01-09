@@ -1,16 +1,15 @@
 {
+	"name": "Default",
 	"backgroundColor": "#121317",
 	"windowColor": "#1e212b",
-	"glowColor": "#6b5cb157",
-	"white": "#e2e2e2",
-	"gray": "#97989d",
+	"textColor": "#e2e2e2",
 	"black": "#16161e",
 	"red": "#ec6183",
 	"green": "#2ed8a2",
 	"yellow": "#e8b195",
 	"blue": "#2bc3de",
-	"cyan": "#62e0e2",
 	"magenta": "#e069aa",
-	"violet": "#d1aff8",
-	"orange": "#ff8800"
+	"cyan": "#62e0e2",
+	"white": "#e2e2e2",
+	"gray": "#97989d"
 }
