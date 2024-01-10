@@ -15,7 +15,8 @@ This is an interactive start page for browsers, inspired from my terminal setup.
 
 You can explore the working version [here](https://excalith-start-page.vercel.app). To get inspired by community members' configurations, visit the [Showcase](https://github.com/excalith/excalith-start-page/discussions/categories/showcase) in discussions!
 
-> **Warning:** This is a demo version and will be updated regularly, which might break your configurations. It is not recommended for daily browsing. Please refer to the [wiki page](https://github.com/excalith/excalith-start-page/wiki/Getting-Started) for more information.
+> [!IMPORTANT]
+> This is a demo version and will be updated regularly, which might break your configurations. It is not recommended for daily browsing. Please refer to the [wiki page](https://github.com/excalith/excalith-start-page/wiki/Getting-Started) for more information.
 
 
 
@@ -28,6 +29,7 @@ You can explore the working version [here](https://excalith-start-page.vercel.ap
 - Launch websites directly from the prompt. Just type the URL (ie. `github.com`)
 - Search websites with custom commands. For example, type `s some weird bug` to search StackOverflow for `some weird bug`
 - Wallpaper support through URL with blur and fade effects
+- Terminal window opacity and translucency effects
 - Customizable Fetch UI for fetching browser and system data, including custom image support
 - Autosuggest and Autocomplete support just like `zsh` and `fish`
 - Cycle through filtered links back and forth
