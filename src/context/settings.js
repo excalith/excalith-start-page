@@ -89,7 +89,6 @@ export const SettingsProvider = ({ children }) => {
 	// Reset settings
 	const resetSettings = () => {
 		setSettings(defaultConfig)
-		localStorage.setItem(SETTINGS_KEY, JSON.stringify(defaultConfig))
 	}
 
 	return (
