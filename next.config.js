@@ -1,5 +1,8 @@
 const { version } = require("./package.json")
 
+const rulesToProcess = [/\.m?js/, /\.(js|cjs|mjs)$/].map(String)
+const dirToIgnore = /tools/
+
 const nextConfig = {
 	reactStrictMode: true,
 	output: "standalone",
@@ -34,6 +37,13 @@ const nextConfig = {
 
 			fs: false // the solution
 		}
+
+		config.module.rules = config.module.rules.map((rule) => {
+			if (rule !== "..." && rulesToProcess.indexOf(String(rule.test)) > -1) {
+				rule.exclude = [dirToIgnore]
+			}
+			return rule
+		})
 
 		return config
 	},
