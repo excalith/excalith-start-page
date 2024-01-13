@@ -8,5 +8,6 @@
 			"@hooks/*": ["src/hooks/*"],
 			"@utils/*": ["src/utils/*"]
 		}
-	}
+	},
+    "exclude": ["tools"]
 }
