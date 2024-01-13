@@ -9,6 +9,8 @@
 #
 # https://raw.githubusercontent.com/excalith/excalith-start-page/main/tools/download_assets.ps1
 # Invoke-Expression "$((Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/excalith/excalith-start-page/main/tools/download_assets.ps1').Content) -assets `"true`" -themes bushido,catppuccin-mocha,onedark"
+# Invoke-Expression "$((Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/excalith/excalith-start-page/asset-download-ps/tools/download_assets.ps1').Content) -assets `"true`" -themes bushido,catppuccin-mocha,onedark"
+#Invoke-Expression "$((Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/excalith/excalith-start-page/asset-download-ps/tools/download_assets.ps1').Content) -assets `"true`" -themes bushido,samurai"
 
 #=========================================
 # Variables
@@ -56,7 +58,7 @@ function main {
     }
     else {
         Write-Host "Invalid value for --assets: $assets. Expected 'true' or 'false'."
-        exit
+        return
     }
 
     # Check if we have themes to download
