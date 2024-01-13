@@ -1,17 +1,3 @@
-# Example usage:
-# 
-# Set your directory to the root of your mounted dir
-#
-# If you want to download the default assets (icon and wallpaper) set -assets to true
-#
-# If you want to download themes, set -themes followed by theme names. For example:
-# -themes bushido,catppuccin-mocha,onedark
-#
-# https://raw.githubusercontent.com/excalith/excalith-start-page/main/tools/download_assets.ps1
-# Invoke-Expression "$((Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/excalith/excalith-start-page/main/tools/download_assets.ps1').Content) -assets `"true`" -themes bushido,catppuccin-mocha,onedark"
-# Invoke-Expression "$((Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/excalith/excalith-start-page/asset-download-ps/tools/download_assets.ps1').Content) -assets `"true`" -themes bushido,catppuccin-mocha,onedark"
-#Invoke-Expression "$((Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/excalith/excalith-start-page/asset-download-ps/tools/download_assets.ps1').Content) -assets `"true`" -themes bushido,samurai"
-
 #=========================================
 # Variables
 #=========================================
