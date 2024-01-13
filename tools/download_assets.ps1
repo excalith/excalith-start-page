@@ -57,7 +57,7 @@ function main {
         $downloadAssets = $false
     }
     else {
-        Write-Host "Invalid value for --assets: $assets. Expected 'true' or 'false'."
+        Write-Host "Invalid value for -assets: $assets. Expected true or false."
         return
     }
 
