@@ -93,7 +93,7 @@ const Config = ({ commands, closeCallback }) => {
 			})
 			.then((data) => {
 				setSettings(data)
-				appendToLog("Successfully saved to local storage", "success")
+				appendToLog("Successfully imported configuration file", "success")
 			})
 			.catch((err) => {
 				appendToLog(err, true)

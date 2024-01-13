@@ -18,9 +18,6 @@ You can explore the working version [here](https://excalith-start-page.vercel.ap
 > [!IMPORTANT]
 > This is a demo version and will be updated regularly, which might break your configurations. It is not recommended for daily browsing. Please refer to the [wiki page](https://github.com/excalith/excalith-start-page/wiki/Getting-Started) for more information.
 
-
-
-
 ## Features
 
 - Filter links by typing in the prompt
@@ -44,7 +41,7 @@ Please refer to [configuration](https://github.com/excalith/excalith-start-page/
 - Show info with `fetch` command (time, date, system and browser data)
 - Update your configuration with `config` command
   - `config help` - Displays config command usage
-  - `config import <url>` - Import configuration from a URL to your local storage
+  - `config import <url>` - Imports a configuration from URL
   - `config theme` - Lists all [available themes](./data/themes/)
   - `config theme <theme-name>` - Switches between themes and sets your local configuration
   - `config edit` - Edit local configuration within editor
