@@ -1,21 +1,15 @@
 #!/bin/bash
 
-# Example usage:
-# 
-# Set your directory to the root of your mounted dir
+#=============================================================================
+# Caution!
+# This is for lazy users such as me, who creates scripts to do their 
+# tedious stuff. Use at your own risk. If you modify unrelated lines 
+# or do some custom stuff, you might cause problems.
 #
-# If you want to download the default assets (icon
-# and wallpaper) set --assets to true
-#
-# If you want to download themes, set --themes
-# followed by theme names. For example:
-# --themes bushido catppuccin-mocha onedark
-#
-# Depending on what your system has installed,
-# either run curl or wget using bash
-#
-# bash <(curl -s https://raw.githubusercontent.com/excalith/excalith-start-page/main/tools/download_assets.sh) --assets true --themes bushido catppuccin-mocha onedark 
-# bash <(wget -qO- https://raw.githubusercontent.com/excalith/excalith-start-page/main/tools/download_assets.sh) --assets true --themes bushido catppuccin-mocha onedark
+# For more information:
+# Discussions: https://github.com/excalith/excalith-start-page/discussions/61
+# Sources: https://github.com/excalith/excalith-start-page/tree/main/tools
+#=============================================================================
 
 #=========================================
 # Variables

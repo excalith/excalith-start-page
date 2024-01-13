@@ -1,6 +1,6 @@
 # Asset Downloader For Docker Mounts
 
-Those scripts will aim to help you download and populate your mounted data folder with default files. Those are completely optional and should only be needed for Docker mounted volumes.
+Those scripts aims to help you download and populate your mounted data folder with the default files. Those are **completely optional** and should only be needed for Docker **mounted volumes**.
 
 > [!CAUTION]
 > This is for lazy users such as me, who creates scripts to do their tedious stuff. Use at your own risk. If you modify unrelated lines or do some custom stuff, you might cause problems. I suggest you to read the [powershell source](https://github.com/excalith/excalith-start-page/blob/main/tools/download_assets.ps1) and [bash source](https://github.com/excalith/excalith-start-page/blob/main/tools/download_assets.sh) scripts beforehand.

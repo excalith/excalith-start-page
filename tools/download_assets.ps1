@@ -1,3 +1,14 @@
+#=============================================================================
+# Caution!
+# This is for lazy users such as me, who creates scripts to do their 
+# tedious stuff. Use at your own risk. If you modify unrelated lines 
+# or do some custom stuff, you might cause problems.
+#
+# For more information:
+# Discussions: https://github.com/excalith/excalith-start-page/discussions/61
+# Sources: https://github.com/excalith/excalith-start-page/tree/main/tools
+#=============================================================================
+
 #=========================================
 # Variables
 #=========================================
