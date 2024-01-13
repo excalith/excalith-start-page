@@ -4,15 +4,15 @@
 # 
 # Set your directory to the root of your mounted dir
 #
-# If you want to download the default assets
-# set --assets to true
+# If you want to download the default assets (icon
+# and wallpaper) set --assets to true
 #
 # If you want to download themes, set --themes
-# folloed by theme names. For example:
+# followed by theme names. For example:
 # --themes bushido catppuccin-mocha onedark
 #
-# Depending on what your system has
-# installed, either run curl or wget
+# Depending on what your system has installed,
+# either run curl or wget using bash
 #
 # bash <(curl -s https://raw.githubusercontent.com/excalith/excalith-start-page/main/tools/download_assets.sh) --assets true --themes bushido catppuccin-mocha onedark 
 # bash <(wget -qO- https://raw.githubusercontent.com/excalith/excalith-start-page/main/tools/download_assets.sh) --assets true --themes bushido catppuccin-mocha onedark
