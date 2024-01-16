@@ -6,14 +6,15 @@ const BACKUP_DIR = path.join(DATA_DIR, "backups")
 
 export default async function handler(req, res) {
 	const settings = req.body
-	const isBackup = req.query.isBackup
+	const save = req.query.save !== undefined
+	const backup = req.query.backup !== undefined
 
 	let fileName
 	let filePath
 	let message
 
 	try {
-		if (isBackup) {
+		if (backup) {
 			const version = !settings.version ? "premigrate" : settings.version
 			fileName = `settings-${version}-backup.json`
 			filePath = path.join(BACKUP_DIR, fileName)
@@ -21,13 +22,18 @@ export default async function handler(req, res) {
 
 			// Ensure the backups directory exists
 			await fs.mkdir(BACKUP_DIR, { recursive: true })
-		} else {
+
+			await fs.writeFile(filePath, JSON.stringify(settings, null, 2))
+		}
+
+		if (save) {
 			fileName = "settings.json"
 			filePath = path.join(DATA_DIR, fileName)
 			message = "Settings saved"
+
+			await fs.writeFile(filePath, JSON.stringify(settings, null, 2))
 		}
 
-		await fs.writeFile(filePath, JSON.stringify(settings, null, 2))
 		res.status(200).json({ message: message })
 	} catch (error) {
 		console.error(error)

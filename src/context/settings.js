@@ -49,18 +49,27 @@ export const SettingsProvider = ({ children }) => {
 			const settingsVersion = settings?.version
 
 			if (packageVersion !== settingsVersion) {
-				console.warn(
-					`The current version v${packageVersion} and user settings v${settingsVersion} do not match.`
-				)
+				if (!settingsVersion) {
+					console.warn(
+						`Using a pre-migration version of the settings file, loading latest user settings instead. However, settings file may require manual resolving.`
+					)
+
+					setSettings(settings)
+					return
+				} else {
+					console.warn(
+						`The current version ${packageVersion} and user settings ${settingsVersion} do not match.`
+					)
+				}
 
 				console.log(
-					`Trying to migrate user settings from v${settingsVersion} to v${packageVersion}...`
+					`Trying to migrate user settings from ${settingsVersion} to ${packageVersion}...`
 				)
 
 				// Backup current settings
 				console.log(`Backing up ${settingsVersion} settings`)
 				if (process.env.BUILD_MODE === "docker") {
-					fetch("/api/saveSettings?isBackup=true", {
+					fetch("/api/saveSettings?backup", {
 						method: "POST",
 						headers: {
 							"Content-Type": "application/json"
@@ -99,7 +108,7 @@ export const SettingsProvider = ({ children }) => {
 	useEffect(() => {
 		if (settings && settings !== "undefined") {
 			if (IS_DOCKER) {
-				fetch("/api/saveSettings", {
+				fetch("/api/saveSettings?save", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"
