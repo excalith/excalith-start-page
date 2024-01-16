@@ -5,6 +5,5 @@ Dockerfile
 .github
 node_modules
 /tools
-/migration
 npm-debug.log
 README.md

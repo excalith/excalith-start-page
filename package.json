@@ -1,6 +1,6 @@
 {
     "name": "start-page",
-    "version": "3.1.1",
+    "version": "3.2.0",
     "private": true,
     "scripts": {
         "dev": "next dev",
@@ -36,6 +36,7 @@
         "react-ace": "^10.1.0",
         "react-device-detect": "^2.2.3",
         "react-dom": "18.2.0",
-        "react-error-boundary": "^4.0.12"
+        "react-error-boundary": "^4.0.12",
+        "semver": "^7.5.4"
     }
 }

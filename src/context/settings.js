@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react"
-import getConfig from "next/config"
 import defaultConfig from "data/settings"
+import getConfig from "next/config"
 
 const SETTINGS_KEY = "settings"
 const IS_DOCKER = process.env.BUILD_MODE === "docker"
@@ -20,14 +20,26 @@ export const SettingsProvider = ({ children }) => {
 	useEffect(() => {
 		const loadSettings = async () => {
 			let settings
-			if (process.env.BUILD_MODE === "docker") {
-				const res = await fetch("/api/settings")
-				settings = await res.json()
-			} else {
-				settings = JSON.parse(localStorage.getItem("settings"))
+			try {
+				if (process.env.BUILD_MODE === "docker") {
+					const res = await fetch("/api/settings")
+					settings = await res.json()
+				} else {
+					const storedSettings = localStorage.getItem("settings")
+					settings = storedSettings ? JSON.parse(storedSettings) : defaultConfig
+				}
+			} catch (error) {
+				settings = defaultConfig
+				console.log(`Error loading settings: ${error.message}`)
 			}
 
-			setSettings(settings)
+			return settings
+		}
+
+		loadSettings().then((settings) => {
+			// setSettings(settings)
+			console.log("Settings loaded.")
+			console.log(settings)
 
 			// Perform the version check
 			const { publicRuntimeConfig } = getConfig()
@@ -39,11 +51,25 @@ export const SettingsProvider = ({ children }) => {
 					`The current version ${packageVersion} and settings version ${settingsVersion} do not match`
 				)
 
-				// TODO: Start migration here
+				// Start migration
+				fetch("/api/migrate", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify(settings)
+				})
+					.then((response) => response.json())
+					.then((data) => {
+						console.log("Migration successful.")
+						console.log(data)
+						setSettings(data)
+					})
+					.catch((err) => console.error("Migration failed:", err))
+			} else {
+				setSettings(settings)
 			}
-		}
-
-		loadSettings()
+		})
 	}, [])
 
 	// Save settings

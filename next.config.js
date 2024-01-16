@@ -1,7 +1,7 @@
 const { version } = require("./package.json")
 
 const rulesToProcess = [/\.m?js/, /\.(js|cjs|mjs)$/].map(String)
-const dirsToIgnore = /(tools|migration)/
+const dirsToIgnore = /(tools)/
 
 const nextConfig = {
 	reactStrictMode: true,
