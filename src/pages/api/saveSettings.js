@@ -14,9 +14,10 @@ export default async function handler(req, res) {
 
 	try {
 		if (isBackup) {
-			fileName = `settings-${settings.version}-backup.json`
+			const version = !settings.version ? "premigrate" : settings.version
+			fileName = `settings-${version}-backup.json`
 			filePath = path.join(BACKUP_DIR, fileName)
-			message = `Settings backup v${settings.version} saved`
+			message = `Settings backup v${version} saved`
 
 			// Ensure the backups directory exists
 			await fs.mkdir(BACKUP_DIR, { recursive: true })

@@ -11,6 +11,13 @@ export default async (req, res) => {
 	const userConfig = req.body
 	const userVersion = userConfig.version
 
+	// If the user has an older version before migration was implemented,
+	// return the default config and let the clientside handle the error
+	if (!userVersion) {
+		res.status(200).json(userConfig)
+		return
+	}
+
 	// Load migrations
 	const migrationsData = await readFile(path.join(process.cwd(), "migration", "migrations.json"))
 	const migrations = JSON.parse(migrationsData)

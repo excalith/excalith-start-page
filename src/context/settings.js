@@ -68,8 +68,9 @@ export const SettingsProvider = ({ children }) => {
 						body: JSON.stringify(settings)
 					})
 				} else {
+					const versionName = !settingsVersion ? "premigrate" : settings.version
 					localStorage.setItem(
-						SETTINGS_KEY + `-${settingsVersion}` + "-backup",
+						SETTINGS_KEY + `-${versionName}` + "-backup",
 						JSON.stringify(settings)
 					)
 				}
