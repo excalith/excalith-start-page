@@ -1,47 +1,39 @@
-import React from "react"
+import React, { useContext } from "react"
 import { ErrorBoundary } from "react-error-boundary"
-import { SettingsProvider } from "@/context/settings"
+import { SettingsProvider, SettingsContext } from "@/context/settings"
 import "@/styles/globals.css"
 
-function fallbackRender({ error, resetErrorBoundary }) {
+function fallbackRender({ error, settings }) {
 	const isDataError = error.message.includes("undefined")
-
-	const handleEraseClick = () => {
-		if (
-			confirm(
-				"Are you sure you want to reset your configuration to defaults? If you made any customizations, you will lose them."
-			) == true
-		) {
-			localStorage.clear()
-			resetErrorBoundary()
-			console.log("LocalStorage configuration reset to defaults.")
-		}
-	}
+	const isVersionError = !settings.version
 
 	return (
 		<div className="absolute w-full h-auto py-4 transform -translate-x-1/2 -translate-y-1/2 shadow-lg text-textColor rounded-terminal bg-window-color max-w-terminal p-terminal top-1/2 left-1/2">
 			<div role="alert">
+				{isVersionError && (
+					<>
+						<p className="p-4 border rounded-lg border-yellow">
+							You are probably using an older version where settings migration between
+							versions were not implemented yet. Please update to the latest version
+							and migrate your settings file manually.
+						</p>
+						<br />
+					</>
+				)}
 				<p>Something went wrong on your side:</p>
 				<p className="text-red mb-line">{error.message}</p>
 				{isDataError ? (
 					<>
 						<p>
-							This is probably caused by faulty or obsolete local configuration,
-							stored in localStorage. Please refer to{" "}
+							This is probably caused by faulty or obsolete settings file. Please
+							refer to{" "}
 							<a
 								className="underline"
 								href="https://github.com/excalith/excalith-start-page/wiki/Troubleshooting">
 								troubleshooting
 							</a>{" "}
-							page for more information about how to fix this, or click the button
-							below to reset to defaults.
+							page to learn more about manually migrating or fixing such issues.
 						</p>
-
-						<button
-							className="px-4 py-2 rounded-terminal mt-line bg-red"
-							onClick={handleEraseClick}>
-							Erase And Reset All Data
-						</button>
 					</>
 				) : (
 					<>
@@ -72,11 +64,18 @@ function fallbackRender({ error, resetErrorBoundary }) {
 }
 
 export default function App({ Component, pageProps }) {
+	const settings = useContext(SettingsContext)
+
 	return (
-		<ErrorBoundary fallbackRender={fallbackRender}>
-			<SettingsProvider>
-				<Component {...pageProps} />
-			</SettingsProvider>
-		</ErrorBoundary>
+		<SettingsProvider>
+			<SettingsContext.Consumer>
+				{(settings) => (
+					<ErrorBoundary
+						fallbackRender={(props) => fallbackRender({ ...props, settings })}>
+						<Component {...pageProps} />
+					</ErrorBoundary>
+				)}
+			</SettingsContext.Consumer>
+		</SettingsProvider>
 	)
 }
