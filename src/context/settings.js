@@ -22,7 +22,13 @@ export const SettingsProvider = ({ children }) => {
 			let settings
 			try {
 				if (process.env.BUILD_MODE === "docker") {
-					const res = await fetch("/api/settings")
+					const res = await fetch("/api/loadSettings", {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json"
+						},
+						body: JSON.stringify(defaultConfig)
+					})
 					settings = await res.json()
 				} else {
 					const storedSettings = localStorage.getItem("settings")
@@ -92,7 +98,7 @@ export const SettingsProvider = ({ children }) => {
 	useEffect(() => {
 		if (settings && settings !== "undefined") {
 			if (IS_DOCKER) {
-				fetch("/api/saveSettings?isBackup=false", {
+				fetch("/api/saveSettings", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"
