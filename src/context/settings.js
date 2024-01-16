@@ -37,10 +37,6 @@ export const SettingsProvider = ({ children }) => {
 		}
 
 		loadSettings().then((settings) => {
-			// setSettings(settings)
-			console.log("Settings loaded.")
-			console.log(settings)
-
 			// Perform the version check
 			const { publicRuntimeConfig } = getConfig()
 			const packageVersion = publicRuntimeConfig?.version
@@ -48,8 +44,29 @@ export const SettingsProvider = ({ children }) => {
 
 			if (packageVersion !== settingsVersion) {
 				console.warn(
-					`The current version ${packageVersion} and settings version ${settingsVersion} do not match`
+					`The current version v${packageVersion} and user settings v${settingsVersion} do not match.`
 				)
+
+				console.log(
+					`Trying to migrate user settings from v${settingsVersion} to v${packageVersion}...`
+				)
+
+				// Backup current settings
+				console.log(`Backing up ${settingsVersion} settings`)
+				if (process.env.BUILD_MODE === "docker") {
+					fetch("/api/saveSettings?isBackup=true", {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json"
+						},
+						body: JSON.stringify(settings)
+					})
+				} else {
+					localStorage.setItem(
+						SETTINGS_KEY + `-${settingsVersion}` + "-backup",
+						JSON.stringify(settings)
+					)
+				}
 
 				// Start migration
 				fetch("/api/migrate", {
@@ -62,7 +79,6 @@ export const SettingsProvider = ({ children }) => {
 					.then((response) => response.json())
 					.then((data) => {
 						console.log("Migration successful.")
-						console.log(data)
 						setSettings(data)
 					})
 					.catch((err) => console.error("Migration failed:", err))
@@ -76,7 +92,7 @@ export const SettingsProvider = ({ children }) => {
 	useEffect(() => {
 		if (settings && settings !== "undefined") {
 			if (IS_DOCKER) {
-				fetch("/api/saveSettings", {
+				fetch("/api/saveSettings?isBackup=false", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"
