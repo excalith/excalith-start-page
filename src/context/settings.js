@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react"
+import getConfig from "next/config"
 import defaultConfig from "data/settings"
 
 const SETTINGS_KEY = "settings"
@@ -17,20 +18,32 @@ export const SettingsProvider = ({ children }) => {
 
 	// Load settings
 	useEffect(() => {
-		let data
-
-		if (IS_DOCKER) {
-			fetch("/api/loadSettings")
-				.then((response) => response.json())
-				.then((data) => setSettings(data))
-				.catch(() => setSettings(defaultConfig))
-		} else {
-			data = localStorage.getItem(SETTINGS_KEY)
-			if (data === "undefined") {
-				console.log("LocalStorage configuration reset to defaults.")
+		const loadSettings = async () => {
+			let settings
+			if (process.env.BUILD_MODE === "docker") {
+				const res = await fetch("/api/settings")
+				settings = await res.json()
+			} else {
+				settings = JSON.parse(localStorage.getItem("settings"))
 			}
-			setSettings(data ? JSON.parse(data) : defaultConfig)
+
+			setSettings(settings)
+
+			// Perform the version check
+			const { publicRuntimeConfig } = getConfig()
+			const packageVersion = publicRuntimeConfig?.version
+			const settingsVersion = settings?.version
+
+			if (packageVersion !== settingsVersion) {
+				console.warn(
+					`The current version ${packageVersion} and settings version ${settingsVersion} do not match`
+				)
+
+				// TODO: Start migration here
+			}
 		}
+
+		loadSettings()
 	}, [])
 
 	// Save settings
