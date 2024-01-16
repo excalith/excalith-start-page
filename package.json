@@ -8,6 +8,7 @@
         "lint": "next lint",
         "format": "prettier . --write",
         "export": "next export",
+        "generate-migrate-data": "node ./migration/generate-migrate-data.js",
         "build": "next build",
         "docker:build:amd64": "docker buildx build --load --platform linux/amd64 -t excalith/start-page:latest .",
         "docker:build:arm64": "docker buildx build --load --platform linux/arm64 -t excalith/start-page:latest .",
@@ -15,6 +16,7 @@
     },
     "devDependencies": {
         "autoprefixer": "^10.4.16",
+        "deep-diff": "^1.0.2",
         "eslint": "8.56.0",
         "eslint-config-next": "14.0.4",
         "eslint-config-prettier": "^9.1.0",
