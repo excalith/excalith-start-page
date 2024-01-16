@@ -3,9 +3,44 @@ import { ErrorBoundary } from "react-error-boundary"
 import { SettingsProvider, SettingsContext } from "@/context/settings"
 import "@/styles/globals.css"
 
-function fallbackRender({ error, settings }) {
+function fallbackRender({ error, resetErrorBoundary, data }) {
 	const isDataError = error.message.includes("undefined")
-	const isVersionError = !settings.version
+	const isVersionError = !data.settings.version
+
+	const handleForceMigrate = () => {
+		const confirmation =
+			"Are you sure you want to force migrate your configuration? Your settings will be backed up."
+
+		if (confirm(confirmation) == true) {
+			const IS_DOCKER = process.env.BUILD_MODE === "docker"
+			let settings = data.settings
+			settings.version = "v1.0.0"
+
+			console.log(settings)
+			if (IS_DOCKER) {
+				fetch("/api/saveSettings?save&backup", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify(settings)
+				})
+			} else {
+				const SETTINGS_KEY = "settings"
+				const versionName = !settings.version ? "premigrate" : settings.version
+				localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings))
+				localStorage.setItem(
+					SETTINGS_KEY + `-${versionName}` + "-backup",
+					JSON.stringify(settings)
+				)
+			}
+
+			resetErrorBoundary()
+
+			// Reload the page
+			location.reload()
+		}
+	}
 
 	return (
 		<div className="absolute w-full h-auto py-4 transform -translate-x-1/2 -translate-y-1/2 shadow-lg text-textColor rounded-terminal bg-window-color max-w-terminal p-terminal top-1/2 left-1/2">
@@ -34,6 +69,17 @@ function fallbackRender({ error, settings }) {
 							</a>{" "}
 							page to learn more about manually migrating or fixing such issues.
 						</p>
+						<br />
+						<p>
+							Alternatively, you can try force migrating your settings file. Your
+							current file will be backed up just in case you want to check for any
+							data loss.
+						</p>
+						<button
+							className="px-4 py-2 text-white rounded-terminal mt-line bg-red hover:bg-yellow hover:text-black"
+							onClick={handleForceMigrate}>
+							Force Migrate
+						</button>
 					</>
 				) : (
 					<>
@@ -64,14 +110,13 @@ function fallbackRender({ error, settings }) {
 }
 
 export default function App({ Component, pageProps }) {
-	const settings = useContext(SettingsContext)
+	const data = useContext(SettingsContext)
 
 	return (
 		<SettingsProvider>
 			<SettingsContext.Consumer>
-				{(settings) => (
-					<ErrorBoundary
-						fallbackRender={(props) => fallbackRender({ ...props, settings })}>
+				{(data) => (
+					<ErrorBoundary fallbackRender={(props) => fallbackRender({ ...props, data })}>
 						<Component {...pageProps} />
 					</ErrorBoundary>
 				)}
