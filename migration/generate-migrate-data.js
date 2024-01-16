@@ -12,50 +12,57 @@ const generateMigrationData = () => {
 		"https://raw.githubusercontent.com/excalith/excalith-start-page/main/data/settings.json"
 
 	// Request the latest settings.json from the repository
-	https.get(url, (res) => {
-		printItem("Reading latest settings.json")
-		let previousSettings = ""
+	https
+		.get(url, (res) => {
+			printItem("Reading latest settings.json")
+			let previousSettings = ""
 
-		res.on("data", (chunk) => {
-			previousSettings += chunk
-		})
+			res.on("data", (chunk) => {
+				previousSettings += chunk
+			})
 
-		res.on("end", () => {
-			previousSettings = JSON.parse(previousSettings)
+			res.on("end", () => {
+				previousSettings = JSON.parse(previousSettings)
 
-			printItem("Comparing with settings.json")
-			const differences = diff(previousSettings, currentSettings)
+				printItem("Comparing with settings.json")
+				const differences = diff(previousSettings, currentSettings)
 
-			if (!differences || differences.length === 0) {
-				printWarning("\nNo differences found in settings.json\n")
-			} else {
-				let migrations
-				const migrationsPath = "./migration/migrations.json"
-				if (
-					fs.existsSync(migrationsPath) &&
-					fs.readFileSync(migrationsPath, "utf8").trim() !== ""
-				) {
-					migrations = JSON.parse(fs.readFileSync(migrationsPath, "utf8"))
+				if (!differences || differences.length === 0) {
+					printWarning("\nNo differences found in settings.json\n")
 				} else {
-					migrations = {}
+					let migrations
+					const migrationsPath = "./migration/migrations.json"
+					if (
+						fs.existsSync(migrationsPath) &&
+						fs.readFileSync(migrationsPath, "utf8").trim() !== ""
+					) {
+						migrations = JSON.parse(fs.readFileSync(migrationsPath, "utf8"))
+					} else {
+						migrations = {}
+					}
+
+					migrations[currentSettings.version] = differences
+
+					printItem("Writing changes into migrations.json\n")
+					printItem("Differences: ")
+					console.log(migrations)
+					fs.writeFileSync(
+						"./migration/migrations.json",
+						JSON.stringify(migrations, null, 2)
+					)
 				}
+			})
 
-				migrations[currentSettings.version] = differences
-
-				printItem("Writing changes into migrations.json\n")
-				printItem("Differences: ")
-				console.log(migrations)
-				fs.writeFileSync("./migration/migrations.json", JSON.stringify(migrations, null, 2))
-			}
+			res.on("error", (err) => {
+				printError(`An error occurred: \n${err.message}\n`)
+			})
 		})
-	})
+		.on("error", (err) => {
+			printError(`An error occurred: \n${err.message}\n`)
+		})
 }
 
 generateMigrationData()
-
-function printLog(message) {
-	console.log("%s", message)
-}
 
 function printItem(message) {
 	console.log("\x1b[36m-\x1b[0m %s", message) // Cyan
