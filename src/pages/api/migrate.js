@@ -27,10 +27,20 @@ export default async (req, res) => {
 		semver.gt(version, userVersion)
 	)
 
+	// If there are no migrations to apply, return the user config
+	if (migrationVersions.length === 0) {
+		const latestVersion = semver.maxSatisfying(Object.keys(migrations), "*")
+		console.warn(
+			` \x1b[33m[WARNING]\x1b[0m Nothing to migrate! User Version: \x1b[32m${userVersion}\x1b[0m - Latest Version: \x1b[32m${latestVersion}\x1b[0m.`
+		)
+		res.status(200).json(userConfig)
+		return
+	}
+
 	// Sort versions in ascending order
 	migrationVersions.sort(semver.compare)
 
-	console.log("\n\nMIGRATION START\n")
+	console.log("\n Migration Starting...")
 
 	// Apply migrations sequentially
 	for (const version of migrationVersions) {
@@ -53,9 +63,13 @@ export default async (req, res) => {
 		})
 
 		// Set the version to the current version from migrations.json
+		console.log(
+			` \x1b[32m-\x1b[0m Migrating from \x1b[32m${userConfig.version}\x1b[0m -> \x1b[32m${version}\x1b[0m`
+		)
 		userConfig.version = version
 	}
 
+	console.log(" Migration Complete\n")
 	res.json(userConfig)
 }
 
@@ -67,23 +81,26 @@ function applyChange(userConf, change) {
 	switch (change.kind) {
 		case "N": // New
 			const value = findKey(originalUserConfig, lastKey)
-			console.log(`New key: ${lastKey}, found value: ${value}, rhs value: ${change.rhs}`)
 			userConf[lastKey] = value !== undefined ? value : change.rhs
+
+			// console.log(`New key: ${lastKey}, found value: ${value}, rhs value: ${change.rhs}`)
 			break
 		case "D": // Deleted
-			console.log(`Deleted key: ${lastKey}`)
 			delete userConf[lastKey]
+
+			// console.log(`Deleted key: ${lastKey}`)
 			break
 		case "E": // Edited
 			const editedValue = findKey(originalUserConfig, lastKey)
-			console.log(
-				`Edited key: ${lastKey}, found value: ${editedValue}, rhs value: ${change.rhs}`
-			)
 			userConf[lastKey] = editedValue !== undefined ? editedValue : change.rhs
+
+			// console.log(
+			// 	`Edited key: ${lastKey}, found value: ${editedValue}, rhs value: ${change.rhs}`
+			// )
 			break
 		case "A": // Array
-			console.log(`\nArray key: ${lastKey}`)
-			console.log(change)
+			// console.log("\nArray Change:")
+			// console.log(change)
 
 			if (userConf[lastKey] === undefined) {
 				userConf[lastKey] = []
