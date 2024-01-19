@@ -119,13 +119,17 @@ function applyChange(userConf, change) {
 }
 
 // Tries to find old values in the original user config
-function findOldValue(path) {
-	let config = originalUserConfig
-	for (let key of path) {
-		if (config[key] === undefined) {
-			return undefined
-		}
-		config = config[key]
+function findOldValue(key, config = originalUserConfig) {
+	if (config.hasOwnProperty(key)) {
+		return config[key]
 	}
-	return config
+	for (let i in config) {
+		if (typeof config[i] === "object") {
+			let result = findOldValue(key, config[i])
+			if (result !== undefined) {
+				return result
+			}
+		}
+	}
+	return undefined
 }

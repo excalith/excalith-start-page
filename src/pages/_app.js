@@ -14,7 +14,9 @@ function fallbackRender({ error, resetErrorBoundary, data }) {
 		if (confirm(confirmation) == true) {
 			const IS_DOCKER = process.env.BUILD_MODE === "docker"
 			let settings = data.settings
-			settings.version = "1.0.0"
+			if (!settings.version) {
+				settings.version = "1.0.0"
+			}
 
 			console.log(settings)
 			if (IS_DOCKER) {
