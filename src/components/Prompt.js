@@ -4,8 +4,8 @@ import useFetchData from "@/hooks/useFetchData"
 const Prompt = ({ command, showSymbol = true }) => {
 	const { settings } = useSettings()
 	const [browserData] = useFetchData()
-	const lower_username = settings.username.toLowerCase()
 	const promptSettings = settings.prompt
+	const lower_username = promptSettings.username.toLowerCase()
 
 	return (
 		<span className="flex cursor-default">

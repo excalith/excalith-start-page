@@ -7,5 +7,38 @@
       ],
       "rhs": "3.2.0"
     }
+  ],
+  "3.2.1": [
+    {
+      "kind": "E",
+      "path": [
+        "version"
+      ],
+      "lhs": "3.2.0",
+      "rhs": "3.2.1"
+    },
+    {
+      "kind": "D",
+      "path": [
+        "username"
+      ],
+      "lhs": "Excalith"
+    },
+    {
+      "kind": "N",
+      "path": [
+        "terminal",
+        "title"
+      ],
+      "rhs": "Excalith Start Page"
+    },
+    {
+      "kind": "N",
+      "path": [
+        "prompt",
+        "username"
+      ],
+      "rhs": "Excalith"
+    }
   ]
 }

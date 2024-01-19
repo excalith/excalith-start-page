@@ -1,6 +1,5 @@
 {
-	"version": "3.2.0",
-	"username": "Excalith",
+	"version": "3.2.1",
 	"theme": {
 		"name": "Default",
 		"backgroundColor": "#121317",
@@ -28,7 +27,8 @@
 		"windowGlowColor": "#291f3325",
 		"textGlow": false,
 		"opacity": 0,
-		"blur": 16
+		"blur": 16,
+		"title": "Excalith Start Page"
 	},
 	"prompt": {
 		"ctrlC": true,
@@ -41,7 +41,8 @@
 		"promptSymbol": "❯",
 		"caretColor": "green",
 		"selectionBg": "yellow",
-		"selectionFg": "black"
+		"selectionFg": "black",
+		"username": "Excalith"
 	},
 	"fetch": {
 		"timeFormat": "HH:mm",
