@@ -31,7 +31,7 @@ export default async (req, res) => {
 	if (migrationVersions.length === 0) {
 		const latestVersion = semver.maxSatisfying(Object.keys(migrations), "*")
 		console.warn(
-			` \x1b[33m[WARNING]\x1b[0m Nothing to migrate! User Version: \x1b[32m${userVersion}\x1b[0m - Latest Version: \x1b[32m${latestVersion}\x1b[0m.`
+			` \x1b[33m[WARNING]\x1b[0m Nothing to migrate\n User Version  : \x1b[32m${userVersion}\x1b[0m\n Latest Version: \x1b[32m${latestVersion}\x1b[0m`
 		)
 		res.status(200).json(userConfig)
 		return
@@ -80,7 +80,7 @@ function applyChange(userConf, change) {
 
 	switch (change.kind) {
 		case "N": // New
-			const value = findKey(originalUserConfig, lastKey)
+			const value = findOldValue(lastKey)
 			userConf[lastKey] = value !== undefined ? value : change.rhs
 
 			// console.log(`New key: ${lastKey}, found value: ${value}, rhs value: ${change.rhs}`)
@@ -91,7 +91,7 @@ function applyChange(userConf, change) {
 			// console.log(`Deleted key: ${lastKey}`)
 			break
 		case "E": // Edited
-			const editedValue = findKey(originalUserConfig, lastKey)
+			const editedValue = findOldValue(lastKey)
 			userConf[lastKey] = editedValue !== undefined ? editedValue : change.rhs
 
 			// console.log(
@@ -99,9 +99,6 @@ function applyChange(userConf, change) {
 			// )
 			break
 		case "A": // Array
-			// console.log("\nArray Change:")
-			// console.log(change)
-
 			if (userConf[lastKey] === undefined) {
 				userConf[lastKey] = []
 			}
@@ -114,24 +111,21 @@ function applyChange(userConf, change) {
 			} else if (change.item.kind === "E") {
 				userConf[lastKey][change.index] = change.item.rhs
 			}
+
+			// console.log("\nArray Change:")
+			// console.log(change)
 			break
 	}
 }
 
-// Function to find a key in an object
-function findKey(obj, key) {
-	// If the key exists at the current level, return its value
-	if (obj.hasOwnProperty(key)) {
-		return obj[key]
-	}
-	// If the key does not exist at the current level, search in the next level
-	for (let i in obj) {
-		if (typeof obj[i] === "object") {
-			const found = findKey(obj[i], key)
-			// If the key is found at the next level, return its value
-			if (found !== undefined) {
-				return found
-			}
+// Tries to find old values in the original user config
+function findOldValue(path) {
+	let config = originalUserConfig
+	for (let key of path) {
+		if (config[key] === undefined) {
+			return undefined
 		}
+		config = config[key]
 	}
+	return config
 }
