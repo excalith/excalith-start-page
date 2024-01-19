@@ -9,7 +9,7 @@ function fallbackRender({ error, resetErrorBoundary, data }) {
 
 	const handleForceMigrate = () => {
 		const confirmation =
-			"Are you sure you want to force migrate your configuration? Your settings will be backed up."
+			"Are you sure you want to migrate your settings? Your settings will be backed up."
 
 		if (confirm(confirmation) == true) {
 			const IS_DOCKER = process.env.BUILD_MODE === "docker"
@@ -50,37 +50,37 @@ function fallbackRender({ error, resetErrorBoundary, data }) {
 				{isVersionError && (
 					<>
 						<p className="p-4 border rounded-lg border-yellow">
-							You are probably using an older version where settings migration between
-							versions were not implemented yet. Please update to the latest version
-							and migrate your settings file manually.
+							You are using an older version where settings migration between versions
+							were not implemented yet. Please update to the latest version and
+							migrate your settings.
 						</p>
 						<br />
 					</>
 				)}
-				<p>Something went wrong on your side:</p>
+				<p>Oops! Something's not quite right on your side:</p>
 				<p className="text-red mb-line">{error.message}</p>
 				{isDataError ? (
 					<>
+						<p>This could be due to a faulty or outdated settings file.</p>
+						<br />
 						<p>
-							This is probably caused by faulty or obsolete settings file. Please
-							refer to{" "}
+							No worries, though! You can migrate your current settings to the new
+							version, and your current settings will be backed up.
+						</p>
+						<br />
+						<p>
+							For detailed instructions about migrating your data, please check out{" "}
 							<a
 								className="underline"
 								href="https://github.com/excalith/excalith-start-page/wiki/Troubleshooting">
 								troubleshooting
 							</a>{" "}
-							page to learn more about manually migrating or fixing such issues.
-						</p>
-						<br />
-						<p>
-							Alternatively, you can try force migrating your settings file. Your
-							current file will be backed up just in case you want to check for any
-							data loss.
+							page.
 						</p>
 						<button
 							className="px-4 py-2 text-white rounded-terminal mt-line bg-red hover:bg-yellow hover:text-black"
 							onClick={handleForceMigrate}>
-							Force Migrate
+							Start Migrating
 						</button>
 					</>
 				) : (
