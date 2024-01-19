@@ -31,7 +31,7 @@ export default async (req, res) => {
 	if (migrationVersions.length === 0) {
 		const latestVersion = semver.maxSatisfying(Object.keys(migrations), "*")
 		console.warn(
-			` \x1b[33m[WARNING]\x1b[0m Nothing to migrate! User Version: \x1b[32m${userVersion}\x1b[0m - Latest Version: \x1b[32m${latestVersion}\x1b[0m.`
+			` \x1b[33m[WARNING]\x1b[0m Nothing to migrate\n User Version  : \x1b[32m${userVersion}\x1b[0m\n Latest Version: \x1b[32m${latestVersion}\x1b[0m`
 		)
 		res.status(200).json(userConfig)
 		return
