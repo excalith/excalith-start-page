@@ -49,7 +49,9 @@ function openFilteredLinks(command, settings) {
 export function DefaultSearch(buffer, settings) {
 	const defaultSerachEngine = settings.search.default
 	const target = settings.search.target
-	openLink(defaultSerachEngine + buffer, target)
+
+	const encodedBuffer = encodeURIComponent(buffer)
+	openLink(defaultSerachEngine + encodedBuffer, target)
 }
 
 function tryParseSearchShortcut(command, settings) {
@@ -67,7 +69,9 @@ function tryParseSearchShortcut(command, settings) {
 
 		if (name === regex_cmd[1]) {
 			const url = commandData.url
-			openLink(url.replace("{}", regex_cmd[2]), settings.urlLaunch.target)
+
+			const encodedBuffer = encodeURIComponent(regex_cmd[2])
+			openLink(url.replace("{}", encodedBuffer, settings.urlLaunch.target))
 			return true
 		}
 	}
