@@ -51,6 +51,9 @@ export default async (req, res) => {
 
 			applyChange(userConf, change)
 		})
+
+		// Set the version to the current version from migrations.json
+		userConfig.version = version
 	}
 
 	res.json(userConfig)
