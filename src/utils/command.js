@@ -41,7 +41,8 @@ function openFilteredLinks(command, settings) {
 		DefaultSearch(command, settings)
 	} else {
 		filteredUrls.map((url, index) => {
-			openLink(url, index === filterCount - 1 ? "_self" : "_blank")
+			const target = index === filterCount - 1 ? settings.urlLaunch.target : "_blank" 
+			openLink(url, target)
 		})
 	}
 }

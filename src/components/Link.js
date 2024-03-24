@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react"
+import { useSettings } from "@/context/settings"
 import { Icon } from "@iconify/react"
 
 const Link = ({ linkData, filter, selection }) => {
+	const { settings } = useSettings()
 	const [isHidden, setHidden] = useState(false)
 	const [isSelected, setSelected] = useState(false)
 
@@ -9,7 +11,7 @@ const Link = ({ linkData, filter, selection }) => {
 	const lower_name = linkData.name.toLowerCase()
 	const url = linkData.url
 	const icon = linkData.icon
-	const target = linkData.target
+	const target = settings.urlLaunch.target
 
 	useEffect(() => {
 		const lower_command = filter.toLowerCase()
