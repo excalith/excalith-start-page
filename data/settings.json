@@ -1,5 +1,5 @@
 {
-	"username": "Excalith",
+	"username": "Sophomore",
 	"theme": {
 		"name": "Default",
 		"backgroundColor": "#121317",
@@ -19,7 +19,7 @@
 		"url": "assets/default-wallpaper.svg",
 		"easing": "ease-in-out",
 		"fadeIn": true,
-		"blur": false
+		"blur": true
 	},
 	"terminal": {
 		"fixedHeight": true,
@@ -44,7 +44,7 @@
 	},
 	"fetch": {
 		"timeFormat": "HH:mm",
-		"dateFormat": "DD/MM/YYYY",
+		"dateFormat": "YYYY/MM/DD",
 		"titleColor": "yellow",
 		"image": "assets/default-icon.svg",
 		"data": [
@@ -65,7 +65,7 @@
 		"hoverColor": "magenta"
 	},
 	"search": {
-		"default": "https://google.com/search?q=",
+		"default": "https://duckduckgo.com/?q=",
 		"target": "_self",
 		"shortcutRegex": "([A-Za-z0-9]+) (.*)",
 		"shortcuts": [
