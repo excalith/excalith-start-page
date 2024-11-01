@@ -19,7 +19,7 @@ function fallbackRender({ error, resetErrorBoundary }) {
 	}
 
 	return (
-		<div className="absolute w-full h-auto py-4 transform -translate-x-1/2 -translate-y-1/2 shadow-lg text-textColor rounded-terminal bg-window-color max-w-terminal p-terminal top-1/2 left-1/2">
+		<div className="absolute w-full h-fit inset-x-0 inset-y-0 m-auto py-4 shadow-lg text-textColor rounded-terminal bg-window-color max-w-terminal p-terminal">
 			<div role="alert">
 				<p>Something went wrong on your side:</p>
 				<p className="text-red mb-line">{error.message}</p>
