@@ -57,7 +57,7 @@ const Terminal = () => {
 
 	return (
 		<div
-			className={`absolute w-full h-auto transform -translate-x-1/2 -translate-y-1/2 shadow-lg rounded-terminal bg-window-color max-w-terminal p-terminal top-1/2 left-1/2 ${
+			className={`absolute w-full h-fit inset-x-0 inset-y-0 m-auto shadow-lg rounded-terminal bg-window-color max-w-terminal p-terminal ${
 				settings.terminal.windowGlow && "window-glow"
 			}`}
 			style={windowHeight}
