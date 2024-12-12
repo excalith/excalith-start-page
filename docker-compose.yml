@@ -2,8 +2,8 @@ version: '3.8'
 
 services:
   start-page:
-    container_name: excalith-start-page
-    image: excalith/start-page
+    container_name: startpage
+    image: quinneden/startpage
     restart: unless-stopped
     ports:
       - 8080:3000
@@ -12,4 +12,4 @@ services:
 
 volumes:
   data:
-    name: excalith-start-page
+    name: startpage
