@@ -1,0 +1,17 @@
+{
+    "name": "Start Page",
+    "short_name": "Start Page",
+    "icons": [
+        {
+            "src": "/default-icon.svg",
+            "sizes": "150x150",
+            "type": "image/svg+xml",
+            "purpose": "maskable any"
+        }
+    ],
+    "theme_color": "#FFFFFF",
+    "background_color": "#FFFFFF",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "any"
+}

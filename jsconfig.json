@@ -7,7 +7,10 @@
 			"@pages/*": ["src/pages/*"],
 			"@hooks/*": ["src/hooks/*"],
 			"@utils/*": ["src/utils/*"]
-		}
+		},
+		"lib": [
+			"webworker"
+		]
 	},
-    "exclude": ["tools"]
+    "exclude": ["tools", "public/sw.js"]
 }
