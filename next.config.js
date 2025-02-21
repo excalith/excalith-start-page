@@ -1,9 +1,6 @@
 const { version } = require("./package.json")
 
-const {
-	PHASE_DEVELOPMENT_SERVER,
-	PHASE_PRODUCTION_BUILD,
-} = require("next/constants")
+const { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } = require("next/constants")
 
 const rulesToProcess = [/\.m?js/, /\.(js|cjs|mjs)$/].map(String)
 const dirToIgnore = /tools/
@@ -76,6 +73,6 @@ module.exports = async (phase) => {
 		})
 		return withSerwist(config)
 	}
-  
+
 	return config
 }

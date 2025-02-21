@@ -8,9 +8,7 @@
 			"@hooks/*": ["src/hooks/*"],
 			"@utils/*": ["src/utils/*"]
 		},
-		"lib": [
-			"webworker"
-		]
+		"lib": ["webworker"]
 	},
-    "exclude": ["tools", "public/sw.js"]
+	"exclude": ["tools", "public/sw.js"]
 }
