@@ -33,6 +33,7 @@ const Terminal = () => {
 			unsubscribe("command", (e) => setCommands(e.detail))
 			document.removeEventListener("keydown", handleKeyDown)
 		}
+		// eslint-disable-next-line
 	}, [settings])
 
 	const closeWindow = () => {

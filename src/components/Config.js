@@ -78,6 +78,7 @@ const Config = ({ commands, closeCallback }) => {
 			appendToLog("Invalid config command: " + commands.join(" "), "error")
 			usageExample()
 		}
+		// eslint-disable-next-line
 	}, [])
 
 	const importConfig = (url) => {

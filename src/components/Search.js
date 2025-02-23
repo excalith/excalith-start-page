@@ -89,6 +89,7 @@ const Search = ({ commandChange, selectionChange }) => {
 		return () => {
 			document.removeEventListener("keydown", handleKeyDown)
 		}
+		// eslint-disable-next-line
 	}, [command, suggestion, selection, filteredItems, settings])
 
 	// Filter possible items
@@ -103,6 +104,7 @@ const Search = ({ commandChange, selectionChange }) => {
 			const filtered = items.filter((item) => item.startsWith(command))
 			setFilteredItems(filtered)
 		}
+		// eslint-disable-next-line
 	}, [command, items])
 
 	// Set suggestions
@@ -115,6 +117,7 @@ const Search = ({ commandChange, selectionChange }) => {
 		} else {
 			setSuggestion(filteredItems[0])
 		}
+		// eslint-disable-next-line
 	}, [filteredItems])
 
 	return (

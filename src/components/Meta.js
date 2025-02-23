@@ -39,6 +39,7 @@ const Meta = () => {
 			.catch((error) => {
 				console.error("Failed to fetch icon:", error)
 			})
+		// eslint-disable-next-line
 	}, [settings.fetch.image, settings.username])
 
 	return (

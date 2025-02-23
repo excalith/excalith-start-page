@@ -27,6 +27,7 @@ const Link = ({ linkData, filter, selection }) => {
 
 	useEffect(() => {
 		setSelected(lower_name === selection)
+		// eslint-disable-next-line
 	}, [selection])
 
 	return (
