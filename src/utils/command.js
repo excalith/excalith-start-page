@@ -48,15 +48,14 @@ function openFilteredLinks(command, settings) {
 }
 
 export function DefaultSearch(buffer, settings) {
-	const defaultSerachEngine = settings.search.default
+	const searchEngine = settings.search.default
 	const target = settings.search.target
 
 	const encodedBuffer = encodeURIComponent(buffer)
-	openLink(defaultSerachEngine + encodedBuffer, target)
+	openLink(searchEngine.replace("{}", encodedBuffer), target)
 }
 
 function tryParseSearchShortcut(command, settings) {
-	// Split command and query seperated by shortcut regex
 	var commandPattern = new RegExp(settings.search.shortcutRegex, "g")
 	let matchAll = command.matchAll(commandPattern)
 	matchAll = Array.from(matchAll)
@@ -72,7 +71,7 @@ function tryParseSearchShortcut(command, settings) {
 			const url = commandData.url
 
 			const encodedBuffer = encodeURIComponent(regex_cmd[2])
-			openLink(url.replace("{}", encodedBuffer, settings.urlLaunch.target))
+			openLink(url.replace("{}", encodedBuffer), settings.urlLaunch.target)
 			return true
 		}
 	}

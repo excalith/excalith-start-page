@@ -66,9 +66,9 @@
 		"hoverColor": "magenta"
 	},
 	"search": {
-		"default": "https://google.com/search?q=",
+		"default": "https://google.com/search?q={}",
 		"target": "_self",
-		"shortcutRegex": "([A-Za-z0-9]+) (.*)",
+		"shortcutRegex": "(!?[A-Za-z0-9]+) (.*)",
 		"shortcuts": [
 			{
 				"alias": "g",
@@ -79,6 +79,11 @@
 				"alias": "d",
 				"name": "DuckDuckGo Search",
 				"url": "https://duckduckgo.com/?q={}"
+			},
+			{
+				"alias": "!d",
+				"name": "DuckDuckGo Lucky Search",
+				"url": "https://duckduckgo.com/?q=!ducky+{}"
 			},
 			{
 				"alias": "b",
