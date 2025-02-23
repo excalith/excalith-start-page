@@ -1,15 +1,8 @@
 import { useEffect } from "react"
 import moment from "moment"
 import getConfig from "next/config"
-import {
-	osName,
-	osVersion,
-	browserName,
-	engineName,
-	engineVersion,
-	browserVersion
-} from "react-device-detect"
 import { useSettings } from "@/context/settings"
+import { UAParser } from "ua-parser-js"
 
 let data = {
 	version: "Unknown",
@@ -30,19 +23,26 @@ const useFetchData = () => {
 	const { publicRuntimeConfig } = getConfig()
 	const version = publicRuntimeConfig?.version
 
+	const uap = new UAParser()
+	const result = uap?.getResult()
+
 	useEffect(() => {
+		uap.getOS().withClientHints().then(os => {
+			data.osName = os.name
+			data.osVersion = os.version
+		})
+
 		data = {
 			version: version,
 			theme: settings.theme.name,
 			time: moment().format(settings.fetch.timeFormat),
 			date: moment().format(settings.fetch.dateFormat),
-			osName: osName,
-			osVersion: osVersion,
-			browser: browserName,
-			browserLower: browserName.toLowerCase(),
-			browserVersion: browserVersion,
-			engineName: engineName,
-			engineVersion: engineVersion
+			// osName and osVersion will be updated by client hints
+			browser: result.browser.name,
+			browserLower: result.browser.name.toLowerCase(),
+			browserVersion: result.browser.version,
+			engineName: result.engine.name,
+			engineVersion: result.engine.version
 		}
 	}, [settings])
 
